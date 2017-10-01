@@ -1,16 +1,16 @@
-import React from 'react';
-import Button from 'components/ui/Button/Button';
+import React from 'react'
+import './home.scss'
+import { Link } from 'react-router-dom'
 
 export default function HomePage() {
   return (
-    <div>
-      <h1 style={{ fontSize: 50, fontWeigth: 'bold', textAlign: 'center' }}>
-        React Pages Boilerplate
+    <section>
+      <h1>
+      	Start<br/>
+      		<span>Your</span><br/>
+      	FrontEnd
       </h1>
-
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Button theme="blue">Click me!!</Button>
-      </div>
-    </div>
-  );
+      <Link to="/about">About = () me => </Link>
+    </section>
+  )
 }
