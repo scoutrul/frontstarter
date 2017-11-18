@@ -1,0 +1,78 @@
+#menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &.active {
+        z-index: 10;
+    }
+
+    #menuHoverZoneVert {
+        height: 100vh;
+        width: 10rem;
+        position: fixed;
+        top: 0;
+    }
+    #menuHoverZoneHor {
+        width: 50vw;
+        height: 5rem;
+        position: absolute;
+        top: 0;
+    }
+
+    #burger {
+        color: #FFF;
+        font-size: 5rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 5rem;
+        &.hover {
+            opacity: 0;
+        }
+    }
+
+    #menuList {
+        transform: translateX(-100%);
+        display: flex;
+        flex-flow: column nowrap;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        transition: .3s ease-out;
+        z-index: 20;
+        width: 50vw;
+        min-width: 600px;
+        background-color: #000;
+        &.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        li {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding-left: 10rem;
+
+            a {
+                color: #FFF;
+                font-size: 20rem;
+                font-weight: bolder;
+                transition: .1s ease;
+                text-decoration: none;
+                text-shadow: rgb(143, 54, 247) 0rem 0rem 20px;
+                &:hover {
+                    color: #8f36f7;
+                    text-shadow: initial;
+                }
+                &.active {
+                    cursor: default;
+                    color: #8f36f7;
+                    padding-right: 3rem;
+                    text-shadow: initial;
+                }
+            }
+        }
+    }
+}

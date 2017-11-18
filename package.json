@@ -1,7 +1,7 @@
 {
-  "name": "react-pages-boilerplate",
+  "name": "FrontEnder",
   "version": "1.0.0",
-  "description": "Simple boilerplate for working with React, redux, react-router and Github Pages",
+  "description": "FrontEnder's Home page",
   "main": "index.js",
   "scripts": {
     "test": "tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-spec",
@@ -15,17 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rtivital/react-pages-boilerplate.git"
+    "url": "git+https://github.com/scoutrul/frontstart.git"
   },
-  "author": "Vitaly Rtishchev <rtivital@gmail.com> (http://github.com/rtivital)",
+  "author": "Golovachov Anton <antongolova@gmail.com> (http://github.com/scoutrul)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rtivital/react-pages-boilerplate/issues"
-  },
-  "homepage": "https://github.com/rtivital/react-pages-boilerplate#readme",
+  "homepage": "https://github.com/scoutrul/frontstart",
   "dependencies": {
     "axios": "^0.16.2",
     "classnames": "^2.2.5",
+    "gsap": "^1.20.2",
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.6.0",
@@ -35,7 +33,9 @@
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "react-transition-group": "^2.2.1",
     "redux": "^3.7.2",
+    "redux-act": "^1.5.0",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
