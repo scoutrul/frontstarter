@@ -10,7 +10,7 @@ export default function HomePage() {
       		<span>Your</span><br/>
       	FrontEnd
       </h1>
-      <Link to="/about">About = () me => </Link>
+	    <Link to="/todo">ToDo</Link>
     </section>
   )
 }
