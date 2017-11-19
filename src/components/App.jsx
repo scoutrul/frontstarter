@@ -21,12 +21,12 @@ class App extends Component {
 	};
 	
 	componentDidMount() {
-		console.log(this);
-		document.body.addEventListener('touchmove', function (ev) {
-			ev.preventDefault();
-		});
-		window.scrollTo(0,1);
-		document.getElementById("app").requestFullscreen();
+		// console.log(this);
+		// document.body.addEventListener('touchmove', function (ev) {
+		// 	ev.preventDefault();
+		// });
+		// window.scrollTo(0, 1);
+		// document.getElementById("app").requestFullscreen();
 	};
 	
 	menuHoverOff = () => {
