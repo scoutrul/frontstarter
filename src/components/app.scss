@@ -29,7 +29,10 @@ $max_font: 12px;
 ::selection {
   background: transparent;
 }
-
+* {
+  box-sizing: border-box;
+  position: relative;
+}
 html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
@@ -38,7 +41,8 @@ html, body {
   background-color: #8F1EF7;
   overflow: hidden;
   -webkit-user-drag: none;
-  user-select: none
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 #app {

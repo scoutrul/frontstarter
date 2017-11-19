@@ -21,7 +21,11 @@ class App extends Component {
 	};
 	
 	componentDidMount() {
-		console.log(this)
+		console.log(this);
+		document.body.addEventListener('touchmove', function (ev) {
+			ev.preventDefault();
+		});
+		window.scrollTo(0,1);
 	};
 	
 	menuHoverOff = () => {
