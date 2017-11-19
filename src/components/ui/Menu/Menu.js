@@ -22,16 +22,16 @@ class Menu extends Component {
 					    onMouseEnter={this.menuHoverOn}
 					    onMouseLeave={this.menuHoverOff}
 					    className={cn({ 'active': this.props.Store.isMenuHover })}>
-						<li>
+						<li onClick={this.menuHoverOff} >
 							<NavLink to='/' activeClassName="active">Start</NavLink>
 						</li>
-						<li>
+						<li onClick={this.menuHoverOff} >
 							<NavLink to='about' activeClassName="active">About</NavLink>
 						</li>
-						<li>
+						<li onClick={this.menuHoverOff} >
 							<NavLink to='works' activeClassName="active">Works</NavLink>
 						</li>
-						<li>
+						<li onClick={this.menuHoverOff} >
 							<NavLink to='contact' activeClassName="active">Contact</NavLink>
 						</li>
 					</ul>

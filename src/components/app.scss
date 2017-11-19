@@ -21,32 +21,43 @@
   }
 }
 
-$min_width: 400px;
+$min_width: 320px;
 $max_width: 1600px;
 $min_font: 4px;
 $max_font: 12px;
 
+::selection {
+  background: transparent;
+}
+
 html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+body {
+  background-color: #8F1EF7;
   overflow: hidden;
 }
 
 #app {
   display: flex;
-  background-color: #8f1ef7;
   min-height: 100vh;
-  font-size: 14pt
-}
-
-#view {
-  margin: auto;
+  font-size: 14pt;
 }
 
 #content {
   transition: .1s ease-in;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  z-index: 10;
+  position: relative;
+
   &.blur {
     filter: blur(25px);
     transition: .3s ease-out;
-    transform: translateX(5rem)
+    transform: translateX(5rem);
+    background: rgba(0, 0, 0, .5);
+    opacity: .65;
   }
 }

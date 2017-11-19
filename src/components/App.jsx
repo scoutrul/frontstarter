@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
-import cn from 'classnames'
 import { connect } from 'react-redux'
-
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
+import cn from 'classnames'
+import Swipe from 'react-easy-swipe';
 import HomePage from 'components/routes/home/HomePage'
 import AboutPage from 'components/routes/about/AboutPage'
 import ToDo from 'components/routes/todo/ToDo'
-
 import Menu from './ui/Menu/Menu'
 import './app.scss'
 
+
 class App extends Component {
+	onSwipeRight = () => {
+		this.props.actions.MenuHoverOn()
+	};
+	onSwipeLeft = () => {
+		this.props.actions.MenuHoverOff()
+	};
 	
 	componentDidMount() {
 		console.log(this)
-	}
+	};
 	
 	menuHoverOff = () => {
 		this.props.actions.MenuHoverOff()
@@ -24,19 +30,20 @@ class App extends Component {
 	
 	render() {
 		return (
-			<div id="view">
+			<Swipe onSwipeRight={this.onSwipeRight}
+			       onSwipeLeft={this.onSwipeLeft}>
 				<Menu/>
 				<div id="content" onClick={this.menuHoverOff} className={cn({ 'blur': this.props.Store.isMenuHover })}>
-					
-					<HashRouter>
+					<BrowserRouter>
 						<Switch>
-							<Route exact path="/" component={HomePage}/>
+							<Route path="/" component={HomePage}/>
 							<Route path="/about" component={AboutPage}/>
 							<Route path="/todo" component={ToDo}/>
 						</Switch>
-					</HashRouter>
+					</BrowserRouter>
 				</div>
-			</div>
+			
+			</Swipe>
 		
 		)
 	}
