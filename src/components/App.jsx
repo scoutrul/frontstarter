@@ -26,6 +26,7 @@ class App extends Component {
 			ev.preventDefault();
 		});
 		window.scrollTo(0,1);
+		document.getElementById("app").requestFullscreen();
 	};
 	
 	menuHoverOff = () => {

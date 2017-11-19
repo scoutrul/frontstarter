@@ -40,7 +40,7 @@ class Menu extends Component {
 					<div id="menuHoverZoneHor" onMouseEnter={this.menuHoverOn}>
 						{null}
 					</div>
-					<div id="burger" className={cn({ 'hover': this.props.Store.isMenuHover })}>
+					<div id="burger" onClick={this.menuHoverOn} className={cn({ 'hover': this.props.Store.isMenuHover })}>
 						<span>&#9776;</span>
 					</div>
 				</div>
