@@ -1,0 +1,10 @@
+{
+    "name"              : "FrontEnd",
+    "short_name"        : "FrontEnd",
+    "description"       : "",
+    "start_url"         : "/",
+    "display"           : "standalone",
+    "orientation"       : "any",
+    "background_color"  : "#8F1EF7",
+    "theme_color"       : "#8F1EF7",
+  }
