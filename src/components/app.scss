@@ -34,9 +34,11 @@ html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
 }
 
-body {
+html, body {
   background-color: #8F1EF7;
   overflow: hidden;
+  -webkit-user-drag: none;
+  user-select: none
 }
 
 #app {
