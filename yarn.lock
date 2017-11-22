@@ -7029,6 +7029,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+viewport-units-buggyfill@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/viewport-units-buggyfill/-/viewport-units-buggyfill-0.6.2.tgz#8b1ee8fb7afd06739460457657a61ba4fa38cbb1"
+
 vinyl@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/vinyl/-/vinyl-1.2.0.tgz#5c88036cf565e5df05558bfc911f8656df218884"

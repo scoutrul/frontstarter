@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Exo:300,400,600,700,900');
 
 html {
-	box-sizing: border-box;
-	font-size: 62.5%;
-	-webkit-font-smoothing: antialiased;
-	-webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+::selection {
+  background: transparent;
+}
+
+* {
+  box-sizing: border-box;
+  position: relative;
 }
 
 *,
@@ -14,8 +25,8 @@ html {
 }
 
 body {
-	display: grid;
-	font-family: 'Exo', sans-serif;
-	height: 100%;
-	width: 100%;
+  display: grid;
+  font-family: 'Exo', sans-serif;
+  height: 100%;
+  width: 100%;
 }

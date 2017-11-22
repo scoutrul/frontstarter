@@ -1,69 +1,66 @@
-@function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
-}
+//@function strip-unit($value) {
+//  @return $value / ($value * 0 + 1);
+//}
+//
+//@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+//  $u1: unit($min-vw);
+//  $u2: unit($max-vw);
+//  $u3: unit($min-font-size);
+//  $u4: unit($max-font-size);
+//
+//  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+//    & {
+//      font-size: $min-font-size;
+//      @media screen and (min-width: $min-vw) {
+//        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+//      }
+//      @media screen and (min-width: $max-vw) {
+//        font-size: $max-font-size;
+//      }
+//    }
+//  }
+//}
+//
+//$min_width: 320px;
+//$max_width: 1600px;
+//$min_font: 1px;
+//$max_font: 12px;
+//
+//html {
+//  //@include fluid-type($min_width, $max_width, $min_font, $max_font);
+//}
 
-@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-font-size);
-  $u4: unit($max-font-size);
-
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    & {
-      font-size: $min-font-size;
-      @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-      }
-      @media screen and (min-width: $max-vw) {
-        font-size: $max-font-size;
-      }
-    }
-  }
-}
-
-$min_width: 320px;
-$max_width: 1600px;
-$min_font: 4px;
-$max_font: 12px;
-
-::selection {
-  background: transparent;
-}
-* {
-  box-sizing: border-box;
-  position: relative;
-}
-html {
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
-}
-
-html, body {
-  background-color: #8F1EF7;
-  overflow: hidden;
-  -webkit-user-drag: none;
-  user-select: none;
-  -webkit-overflow-scrolling: touch;
+body {
+  background-color: $special;
 }
 
 #app {
   display: flex;
-  min-height: 100vh;
-  font-size: 14pt;
+  overflow: hidden;
+  font-size:100%;
 }
 
-#content {
-  transition: .1s ease-in;
-  width: 100vw;
-  height: 100vh;
+#page {
   display: flex;
-  z-index: 10;
-  position: relative;
+  overflow: hidden;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 
-  &.blur {
-    filter: blur(25px);
-    transition: .3s ease-out;
-    transform: translateX(5rem);
-    background: rgba(0, 0, 0, .5);
-    opacity: .65;
+  #content {
+    transition: .1s ease-in;
+    display: flex;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+
+    &.blur {
+      filter: blur(25px);
+      transition: .3s ease-out;
+      transform: translateX(5rem);
+      background: rgba(0, 0, 0, .5);
+      opacity: .65;
+    }
   }
 }
+

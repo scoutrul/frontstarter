@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function HomePage() {
   return (
-    <section>
+    <section className='home'>
       <h1>
       	Start<br/>
       		<span>Your</span><br/>

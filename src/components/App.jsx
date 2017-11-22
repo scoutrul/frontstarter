@@ -4,29 +4,39 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
-import Swipe from 'react-easy-swipe';
+
 import HomePage from 'components/routes/home/HomePage'
 import AboutPage from 'components/routes/about/AboutPage'
 import ToDo from 'components/routes/todo/ToDo'
 import Menu from './ui/Menu/Menu'
 import './app.scss'
 
-
 class App extends Component {
-	onSwipeRight = () => {
-		this.props.actions.MenuHoverOn()
+	
+	state = {
+		vh: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
+		fontUnit: '12px'
 	};
-	onSwipeLeft = () => {
-		this.props.actions.MenuHoverOff()
+	
+	calcFontSize = () => {
+		let maxWidth = 900;
+		let minWidth = 200;
+		let minFont = 8;
+		let maxFont = 26;
+		let containerW = document.getElementById('page').offsetWidth;
+		let cent = (maxFont - minFont) / (maxWidth - minWidth);
+		this.setState({
+			fontUnit: minFont + cent * (containerW - minWidth) + 'px',
+			vh: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+		});
 	};
 	
 	componentDidMount() {
-		// console.log(this);
-		// document.body.addEventListener('touchmove', function (ev) {
-		// 	ev.preventDefault();
-		// });
-		// window.scrollTo(0, 1);
-		// document.getElementById("app").requestFullscreen();
+		this.calcFontSize();
+		window.addEventListener('resize', () => {
+			this.calcFontSize()
+		});
+		
 	};
 	
 	menuHoverOff = () => {
@@ -34,9 +44,13 @@ class App extends Component {
 	};
 	
 	render() {
+		
+		let styles = {
+			height: this.state.vh,
+			fontSize: this.state.fontUnit
+		};
 		return (
-			<Swipe onSwipeRight={this.onSwipeRight}
-			       onSwipeLeft={this.onSwipeLeft}>
+			<div id="page" style={styles}>
 				<Menu/>
 				<div id="content" onClick={this.menuHoverOff} className={cn({ 'blur': this.props.Store.isMenuHover })}>
 					<BrowserRouter>
@@ -47,9 +61,7 @@ class App extends Component {
 						</Switch>
 					</BrowserRouter>
 				</div>
-			
-			</Swipe>
-		
+			</div>
 		)
 	}
 }
