@@ -1,0 +1,126 @@
+$small: 600px;
+$large: 1200px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $small) {
+      @content;
+    }
+  } @else if $media == medium-screens {
+    @media only screen and (min-width: $small + 1) {
+      @content;
+    }
+  }
+}
+
+#menuHoverZoneVert {
+  width: 14rem;
+  height: 50vh;
+  position: fixed;
+  top: 0;
+  z-index: 20;
+}
+
+#menuHoverZoneHor {
+  width: 50vw;
+  height: 10rem;
+  position: absolute;
+  top: 0;
+  z-index: 20;
+}
+
+#menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  z-index: 10;
+
+  #burger {
+    color: #FFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+    &.hover {
+      opacity: 0;
+    }
+  }
+
+  #menuList {
+    transform: translateX(-100%);
+    display: flex;
+    height: 100%;
+    flex-flow: column nowrap;
+    padding: 0;
+    margin: 0;
+    transition: .2s cubic-bezier(0.92, 0.01, 0.64, 1);
+    z-index: 20;
+    min-width: 420px;
+    background-color: #000;
+    @include respond-to(handhelds) {
+      width: 100vw;
+    }
+    @include respond-to(medium-screens) {
+      min-width: 60vw;
+    }
+    &.active {
+      transition: .23s cubic-bezier(0.9, 0, 0.8, 1);
+      opacity: 1;
+      transform: translateX(0);
+      z-index:21;
+      li {
+        div {
+          transform: translateY(0%);
+          opacity: 1;
+          transition: .2s ease
+        }
+        &:nth-child(1) div {
+          transition-delay: .3s;
+        }
+        &:nth-child(2) div {
+          transition-delay: .35s;
+        }
+        &:nth-child(3) div {
+          transition-delay: .4s;
+        }
+        &:nth-child(4) div {
+          transition-delay: .45s;
+        }
+      }
+    }
+    li {
+      overflow: hidden;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding-left: 4rem;
+      padding-right: 5vw;
+
+      div {
+        transition: .1s ease 0s;
+        opacity: 0;
+        transform: translateY(100%);
+        //text-shadow: rgb(143, 54, 247) 0rem 0rem 1.4rem;
+        a {
+          font-size: 400%;
+          color: #FFF;
+          font-weight: bolder;
+          text-decoration: none;
+          &:hover {
+            color: $special;
+            text-shadow: initial;
+            transition: .1s ease;
+          }
+          &.active {
+            cursor: default;
+            color: $special;
+            padding-right: 3rem;
+            text-shadow: initial;
+          }
+        }
+      }
+    }
+  }
+}

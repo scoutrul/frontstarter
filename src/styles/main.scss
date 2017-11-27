@@ -25,7 +25,8 @@ html {
 }
 
 body {
-  display: grid;
+  display: flex;
+  background-color: $special;
   font-family: 'Exo', sans-serif;
   height: 100%;
   width: 100%;

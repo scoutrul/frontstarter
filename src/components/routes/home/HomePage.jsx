@@ -11,6 +11,7 @@ export default function HomePage() {
       	FrontEnd
       </h1>
 	    <Link to="/todo">ToDo</Link>
+	    <Link to="/about">About</Link>
     </section>
   )
 }

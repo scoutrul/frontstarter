@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { BrowserRouter as Router, NavLink } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import cn from 'classnames'
-import './Menu.scss'
+import './menu.scss'
 import * as ReducerMenu from '../../../reducers/ReducerMenu';
 
 import Swipe from 'react-easy-swipe';
@@ -28,25 +29,33 @@ class Menu extends Component {
 		return (
 			
 			<div id="menu" className={cn({ 'active': this.props.Store.isMenuHover })}>
-				<Router>
+
 					<ul id="menuList"
 					    onMouseEnter={this.menuHoverOn}
 					    onMouseLeave={this.menuHoverOff}
 					    className={cn({ 'active': this.props.Store.isMenuHover })}>
 						<li onClick={this.menuHoverOff}>
-							<NavLink to='/' activeClassName="active">Start</NavLink>
+							<div>
+								<NavLink to='/' exact activeClassName="active">Start</NavLink>
+							</div>
 						</li>
 						<li onClick={this.menuHoverOff}>
-							<NavLink to='about' activeClassName="active">About</NavLink>
+							<div>
+								<NavLink to='/about/' exact activeClassName="active">About</NavLink>
+							</div>
 						</li>
 						<li onClick={this.menuHoverOff}>
-							<NavLink to='works' activeClassName="active">Works</NavLink>
+							<div>
+								<NavLink to='/works/' exact activeClassName="active">Works</NavLink>
+							</div>
 						</li>
 						<li onClick={this.menuHoverOff}>
-							<NavLink to='contact' activeClassName="active">Contact</NavLink>
+							<div>
+								<NavLink to='/contact' exact activeClassName="active">Contact</NavLink>
+							</div>
 						</li>
 					</ul>
-				</Router>
+
 				<Swipe onSwipeRight={this.onSwipeRight}
 				       onSwipeLeft={this.onSwipeLeft}>
 					<div id="menuHoverZoneVert" onMouseEnter={this.menuHoverOn}>
@@ -76,4 +85,4 @@ function mapDispatchToProps(dispatch) {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Menu))

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Route, Switch } from 'react-router-dom'
+import { StaticRouter } from 'react-router'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
@@ -8,6 +9,8 @@ import cn from 'classnames'
 import HomePage from 'components/routes/home/HomePage'
 import AboutPage from 'components/routes/about/AboutPage'
 import ToDo from 'components/routes/todo/ToDo'
+import Works from 'components/routes/works/Works'
+import Contact from 'components/routes/contact/Contact'
 import Menu from './ui/Menu/Menu'
 import './app.scss'
 
@@ -45,23 +48,25 @@ class App extends Component {
 	
 	render() {
 		
-		let styles = {
+		let viewPortStyles = {
 			height: this.state.vh,
 			fontSize: this.state.fontUnit
 		};
 		return (
-			<div id="page" style={styles}>
-				<Menu/>
-				<div id="content" onClick={this.menuHoverOff} className={cn({ 'blur': this.props.Store.isMenuHover })}>
-					<BrowserRouter>
+			<HashRouter hashType="noslash">
+				<div id="page" style={viewPortStyles}>
+					<Menu/>
+					<div id="content" onClick={this.menuHoverOff} className={cn({ 'blur': this.props.Store.isMenuHover })}>
 						<Switch>
-							<Route path="/" component={HomePage}/>
+							<Route path="/" exact component={HomePage}/>
 							<Route path="/about" component={AboutPage}/>
 							<Route path="/todo" component={ToDo}/>
+							<Route path="/works" component={Works}/>
+							<Route path="/contact" component={Contact}/>
 						</Switch>
-					</BrowserRouter>
+					</div>
 				</div>
-			</div>
+			</HashRouter>
 		)
 	}
 }
