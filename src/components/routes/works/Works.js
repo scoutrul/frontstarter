@@ -2,6 +2,9 @@ import React from 'react'
 
 export default () =>
 	<section>
-		Works
+		<div className='contentView'>
+			Works
+		</div>
+	
 	</section>
 

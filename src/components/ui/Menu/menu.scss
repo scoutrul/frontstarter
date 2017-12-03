@@ -14,8 +14,8 @@ $large: 1200px;
 }
 
 #menuHoverZoneVert {
-  width: 10rem;
-  height: 70vh;
+  width: 6rem;
+  height: 60vh;
   position: fixed;
   top: 0;
   z-index: 20;
@@ -82,7 +82,7 @@ $large: 1200px;
       width: 100vw;
     }
     @include respond-to(medium-screens) {
-      min-width: 60vw;
+      min-width: 40vw;
     }
     &.active {
       transition: .23s cubic-bezier(0.9, 0, 0.8, 1);
@@ -90,6 +90,7 @@ $large: 1200px;
       transform: translateX(0);
       z-index:21;
       li {
+        margin: 1rem 0;
         div {
           transform: translateY(0%);
           opacity: 1;

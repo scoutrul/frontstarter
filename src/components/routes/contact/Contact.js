@@ -2,7 +2,9 @@ import React from 'react'
 
 export default () =>
 	<section>
-		Contact
+		<div className='contentView'>
+			Contact
+		</div>
 	</section>
 	
 

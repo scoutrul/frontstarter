@@ -2,6 +2,8 @@
   display: flex;
   overflow: hidden;
   font-size: 100%;
+  font-family: 'Exo', sans-serif;
+
 }
 
 #page {
@@ -17,6 +19,10 @@
   transition: 0.2s ease-out;
   outline: 2rem solid $specialBlack;
   outline-offset: -1.5rem;
+  background-image: linear-gradient(
+                  135deg,
+                  #667eea  , #764ba2
+  );
 
   #content {
     transition: .1s ease-in;
@@ -33,7 +39,19 @@
     align-items: flex-start;
     section {
       margin: auto;
-      padding: 8rem 10rem;
+      width: calc(100% - 8rem);
+      overflow: auto;
+      max-height: calc(100vh - 4rem);
+      position: fixed;
+      top: 5rem;
+      bottom: 6rem;
+      padding: 2rem 0;
+      display: flex;
+      line-height: 160%;
+      letter-spacing: 0.02rem;
+      div {
+        margin: auto
+      }
     }
 
     &.blur {
@@ -44,7 +62,11 @@
     }
   }
   &.blurbg {
-    background-color: $specialBlack;
+    background-image: linear-gradient(
+                    45deg,
+                    $specialBlack, $specialBlack
+    );
+    outline: 2rem solid $specialBlack;
   }
 }
 
