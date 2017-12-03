@@ -45,6 +45,10 @@
   position: fixed;
   top: 0;
   left: 0;
+  color: #FFF;
+  transition: 0.2s ease-out;
+  outline: 2rem solid $specialBlack;
+  outline-offset: -1.5rem;
 
   #content {
     transition: .1s ease-in;
@@ -67,10 +71,19 @@
     &.blur {
       filter: blur(25px);
       transition: .3s ease-out;
-      transform: translateX(5rem);
-      background: rgba(0, 0, 0, .5);
-      opacity: .65;
+      transform: translateX(9rem);
+      //opacity: .65;
     }
+  }
+  &.blurbg {
+    background-color: $specialBlack;
   }
 }
 
+.copyright {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  color: #9c9c9c;
+  font-size: 50%;
+}

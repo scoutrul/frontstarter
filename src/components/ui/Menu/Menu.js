@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { BrowserRouter as Router, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import cn from 'classnames'
 import './menu.scss'
@@ -29,7 +29,9 @@ class Menu extends Component {
 		return (
 			
 			<div id="menu" className={cn({ 'active': this.props.Store.isMenuHover })}>
-
+					<div className="close" onClick={this.menuHoverOff}>
+						&#9029;
+					</div>
 					<ul id="menuList"
 					    onMouseEnter={this.menuHoverOn}
 					    onMouseLeave={this.menuHoverOff}

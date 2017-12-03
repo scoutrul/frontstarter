@@ -12,6 +12,7 @@ import ToDo from 'components/routes/todo/ToDo'
 import Works from 'components/routes/works/Works'
 import Contact from 'components/routes/contact/Contact'
 import Menu from './ui/Menu/Menu'
+import Copyright from './ui/copyright'
 import './app.scss'
 
 class App extends Component {
@@ -54,7 +55,7 @@ class App extends Component {
 		};
 		return (
 			<HashRouter hashType="noslash">
-				<div id="page" style={viewPortStyles}>
+				<div id="page" style={viewPortStyles} className={cn({ 'blurbg': this.props.Store.isMenuHover })}>
 					<Menu/>
 					<div id="content" onClick={this.menuHoverOff} className={cn({ 'blur': this.props.Store.isMenuHover })}>
 						<Switch>
@@ -65,6 +66,7 @@ class App extends Component {
 							<Route path="/contact" component={Contact}/>
 						</Switch>
 					</div>
+					<Copyright/>
 				</div>
 			</HashRouter>
 		)
