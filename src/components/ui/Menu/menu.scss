@@ -56,19 +56,18 @@ $large: 1200px;
     margin-right: .5rem;
     z-index:22;
     transition: .3s ease-out;
-    cursor: pointer;
   }
   &.active {
     .close {
       display: block;
       opacity: 1;
       margin-right: 0rem;
-
+      cursor: pointer;
     }
   }
 
   #menuList {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
     display: flex;
     height: 100%;
     flex-flow: column nowrap;
@@ -77,7 +76,7 @@ $large: 1200px;
     transition: .2s cubic-bezier(0.92, 0.01, 0.64, 1);
     z-index: 20;
     min-width: 420px;
-    background-color: $specialBlack;
+    //background-color: $specialBlack;
     justify-content: center;
     @include respond-to(handhelds) {
       width: 100vw;
@@ -122,7 +121,6 @@ $large: 1200px;
         transition: .1s ease 0s;
         opacity: 0;
         transform: translateY(100%);
-        //text-shadow: rgb(143, 54, 247) 0rem 0rem 1.4rem;
         a {
           font-size: 400%;
           color: #FFF;

@@ -1,9 +1,8 @@
 import React from 'react'
 
-export default function() {
-	return (
-		<section>
-			Contact
-		</section>
-	)
-}
+export default () =>
+	<section>
+		Contact
+	</section>
+	
+

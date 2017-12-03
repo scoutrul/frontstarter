@@ -1,9 +1,7 @@
 import React from 'react'
 
-export default function() {
-	return (
-		<section>
-			Works
-		</section>
-	)
-}
+export default () =>
+	<section>
+		Works
+	</section>
+

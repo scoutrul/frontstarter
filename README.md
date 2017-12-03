@@ -1,13 +1,7 @@
-# React pages boilerplate
-![Cover](cover.png)
-This boilerplate introduces a simple way for developing serverless React applications, which are perfect for serving from [Github Pages](https://pages.github.com/).
-
+# Static
+GitHub Pages link: [https://scoutrul.github.io/frontstart/](https://scoutrul.github.io/frontstart/)
 ## Technologies
-* [Webpack@3](https://webpack.github.io/) as module bundler
-* [Babel](https://babeljs.io/) for js and jsx transpiling
-* [react-hot-loader@3](https://github.com/gaearon/react-hot-loader) for extremely fast hot updates
-* [Eslint](http://eslint.org/) and [Stylelint](http://stylelint.io/) for linting
-* [Tape](https://github.com/substack/tape) and [Enzyme](http://airbnb.io/enzyme/) for testing
+*  responsive web app
 * [Sass](http://sass-lang.com/), [PostCSS](http://postcss.org/) and [Autoprefixer](https://github.com/postcss/autoprefixer) for styles processing
 
 

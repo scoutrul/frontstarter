@@ -9,10 +9,11 @@ import cn from 'classnames'
 import HomePage from 'components/routes/home/HomePage'
 import AboutPage from 'components/routes/about/AboutPage'
 import ToDo from 'components/routes/todo/ToDo'
+import Text from 'components/routes/text/Text'
 import Works from 'components/routes/works/Works'
 import Contact from 'components/routes/contact/Contact'
 import Menu from './ui/Menu/Menu'
-import Copyright from './ui/copyright'
+import Copyright from './ui/copyright/Copyright'
 import './app.scss'
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
 	};
 	
 	calcFontSize = () => {
-		let maxWidth = 900;
+		let maxWidth = 1270;
 		let minWidth = 200;
 		let minFont = 8;
 		let maxFont = 26;
@@ -62,6 +63,7 @@ class App extends Component {
 							<Route path="/" exact component={HomePage}/>
 							<Route path="/about" component={AboutPage}/>
 							<Route path="/todo" component={ToDo}/>
+							<Route path="/text" component={Text}/>
 							<Route path="/works" component={Works}/>
 							<Route path="/contact" component={Contact}/>
 						</Switch>
