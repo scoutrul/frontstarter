@@ -47,8 +47,12 @@
       bottom: 6rem;
       padding: 2rem 0;
       display: flex;
-      line-height: 160%;
+      line-height: 130%;
       letter-spacing: 0.02rem;
+      max-width:1600px;
+      h1 {
+        line-height:100%;
+      }
       div {
         margin: auto
       }

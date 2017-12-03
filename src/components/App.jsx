@@ -24,7 +24,7 @@ class App extends Component {
 	};
 	
 	calcFontSize = () => {
-		let maxWidth = 1270;
+		let maxWidth = 1600;
 		let minWidth = 200;
 		let minFont = 8;
 		let maxFont = 26;
