@@ -11,7 +11,7 @@ export default () =>
 		</h1>
 		<div className="links">
 			<Link to="/todo">ToDo</Link>
-			<Link to="/Text">Text</Link>
+			<Link to="/about">About</Link>
 		</div>
 	</section>
 

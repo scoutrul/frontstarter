@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter, HashRouter, Route, Switch } from 'react-router-dom'
-import { StaticRouter } from 'react-router'
+import { HashRouter, Route, Switch } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
 
 import HomePage from 'components/routes/home/HomePage'
-import AboutPage from 'components/routes/about/AboutPage'
+import AboutPage from 'components/routes/about/About'
 import ToDo from 'components/routes/todo/ToDo'
 import Text from 'components/routes/text/Text'
 import Works from 'components/routes/works/Works'
