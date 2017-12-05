@@ -15,7 +15,7 @@ export default () =>
 				<h2>Basic skills</h2>
 				
 				<ul>
-					<li>JavaScript (ES6++)</li>
+					<li>JavaScript (ES6+)</li>
 					<li>React & Redux</li>
 					<li>HTML5, CSS3</li>
 				</ul>

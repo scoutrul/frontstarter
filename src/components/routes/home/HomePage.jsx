@@ -1,18 +1,28 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './home.scss'
 import { Link } from 'react-router-dom'
 
-export default () =>
+const Home = (props) =>
 	<section className='home'>
-		<h1>
-			Start<br/>
-			<span>Your</span><br/>
-			FrontEnd
-		</h1>
-		<div className="links">
-			<Link to="/todo">ToDo</Link>
-			<Link to="/about">About</Link>
+		<div className='contentView'>
+			<h1>
+				Start<br/>
+				<span>Your</span><br/>
+				FrontEnd
+			</h1>
 		</div>
-	</section>
+		<div className="links">
+			<Link to="/about">About Me</Link>
+		</div>
+	</section>;
 
 
+function mapStateToProps(state) {
+	return {
+		isMenuHover: state.ReducerMenu.isMenuHover,
+		
+	}
+}
+
+export default connect(mapStateToProps)(Home)

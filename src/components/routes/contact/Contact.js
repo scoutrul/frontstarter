@@ -15,7 +15,7 @@ export default () =>
 			</main>
 		</div>
 		<div className="links">
-			<Link to="/">home</Link>
+			<Link to="/">Start again</Link>
 		</div>
 	</section>
 	

@@ -26,43 +26,35 @@ class Menu extends Component {
 	
 	
 	render() {
+		let menuList = this.props.MenuItems.map(item => {
+			return (
+				<li onClick={this.menuHoverOff} key={item.label}>
+					<div>
+						<NavLink to={item.url} exact activeClassName='active'>{item.label}</NavLink>
+					</div>
+				</li>
+			)
+		});
 		return (
-			<div id="menu" className={cn({ 'active': this.props.Store.isMenuHover })}>
-				<div id="burger" onClick={this.menuHoverOn} className={cn({ 'hover': this.props.Store.isMenuHover })}>
+			<div id='menu' className={cn({ 'active': this.props.Store.isMenuHover })}>
+				<div id='burger' onClick={this.menuHoverOn} className={cn({ 'hover': this.props.Store.isMenuHover })}>
 					<span>&#9776;</span>
 				</div>
-				<div className="close" onClick={this.menuHoverOff}>
+				<div className='close' onClick={this.menuHoverOff}>
 					&#9029;
 				</div>
-				<ul id="menuList"
+				
+				<ul id='menuList'
 				    onMouseEnter={this.menuHoverOn}
 				    onMouseLeave={this.menuHoverOff}
 				    className={cn({ 'active': this.props.Store.isMenuHover })}>
-					<li onClick={this.menuHoverOff}>
-						<div>
-							<NavLink to='/' exact activeClassName="active">Start</NavLink>
-						</div>
-					</li>
-					<li onClick={this.menuHoverOff}>
-						<div>
-							<NavLink to='/about/' exact activeClassName="active">About</NavLink>
-						</div>
-					</li>
-					<li onClick={this.menuHoverOff}>
-						<div>
-							<NavLink to='/works/' exact activeClassName="active">Works</NavLink>
-						</div>
-					</li>
-					<li onClick={this.menuHoverOff}>
-						<div>
-							<NavLink to='/contact' exact activeClassName="active">Contact</NavLink>
-						</div>
-					</li>
+					{menuList}
 				</ul>
-				<div id="menuHoverZoneHor" onMouseEnter={this.menuHoverOn}>
+				
+				<div id='menuHoverZoneHor' onMouseEnter={this.menuHoverOn}>
 					<Swipe onSwipeRight={this.onSwipeRight}
 					       onSwipeLeft={this.onSwipeLeft}>
-						<div id="menuHoverZoneVert" onMouseEnter={this.menuHoverOn}>
+						<div id='menuHoverZoneVert' onMouseEnter={this.menuHoverOn}>
 							{null}
 						</div>
 					</Swipe>
@@ -76,6 +68,7 @@ class Menu extends Component {
 function mapStateToProps(state) {
 	return {
 		Store: state.ReducerMenu,
+		MenuItems: state.ReducerMenu.items
 	}
 }
 
