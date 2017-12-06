@@ -10,27 +10,27 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "http://s1.iconbird.com/ico/2013/8/423/w128h1281376772263Gorilla128x128.png",
+      "src": "/icons/128.png",
       "type": "image/png",
       "sizes": "128x128"
     },
     {
-      "src": "https://cherinfo.ru/favicon/apple-icon-152x152.png",
+      "src": "/icons/152.png",
       "type": "image/png",
       "sizes": "152x152"
     },
     {
-      "src": "http://adoptadrainfw.com/images/ms-icon-144x144.png",
+      "src": "/icons/144.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "http://warmgun.com/lib/img/icons/favicon-192x192.png",
+      "src": "/icons/192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "http://agarioskins.com/submitted/useruploads/_.png",
+      "src": "/icons/512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
