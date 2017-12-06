@@ -42,6 +42,13 @@ render(
 	} else {
 		console.log('service worker is not supported');
 	}
+	if ('PushManager' in window) {
+		console.log('Push is supported');
+	}
+	else {
+		console.warn('Push messaging is not supported');
+		pushButton.textContent = 'Push Not Supported';
+	}
 	
 })();
 
