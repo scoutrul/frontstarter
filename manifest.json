@@ -3,7 +3,7 @@
   "name": "FrontEnd engineer from Moscow looking for job",
   "short_name": "FrontEnder",
   "description": "",
-  "start_url": "/?utm_source=homescreen",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#8F1EF7",
   "theme_color": "#8F1EF7",
