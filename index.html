@@ -11,14 +11,34 @@
     <meta name="theme-color" content="#1c1b1a"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>FrontEnd developer from Moscow</title>
+    <style>
+        #app {
+            display: flex;
+            overflow: hidden;
+            font-size: 100%;
+            font-family: 'Exo','Open Sans', sans-serif;
+        }
+
+        #page {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            justify-content: center;
+            margin: auto;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: #FFF;
+            transition: .2s ease-out;
+            outline: 2rem solid #1c1b1a;
+            outline-offset: -1.5rem;
+            background-image: linear-gradient(135deg,#667eea, #764ba2);
+        }
+    </style>
 <link rel="icon" type="image/png" sizes="32x32" href="/frontstart/icons-15ce0df4e3cd3ba24663efe197267acb/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/frontstart/icons-15ce0df4e3cd3ba24663efe197267acb/favicon-16x16.png"><link rel="shortcut icon" href="/frontstart/icons-15ce0df4e3cd3ba24663efe197267acb/favicon.ico"><link href="/frontstart/main.css" rel="stylesheet"></head>
 <body>
 <div id="app">
-    <div id="page" style="
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-content: center">
+    <div id="page">
         <div id="content">
             Loading...
         </div>
