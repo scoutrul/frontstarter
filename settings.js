@@ -19,7 +19,7 @@ module.exports = {
   },
 
   // theme color for mobile browsers
-  THEME_COLOR: '#ffeeee',
+  THEME_COLOR: '#1c1b1a',
 
   PUBLIC_PATH: path.join(__dirname, './public'),
 };

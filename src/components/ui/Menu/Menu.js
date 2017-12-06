@@ -36,30 +36,30 @@ class Menu extends Component {
 			)
 		});
 		return (
-			<div id='menu' className={cn({ 'active': this.props.Store.isMenuHover })}>
-				<div id='burger' onClick={this.menuHoverOn} className={cn({ 'hover': this.props.Store.isMenuHover })}>
-					<span>&#9776;</span>
-				</div>
-				<div className='close' onClick={this.menuHoverOff}>
-					&#9029;
-				</div>
-				
-				<ul id='menuList'
-				    onMouseEnter={this.menuHoverOn}
-				    onMouseLeave={this.menuHoverOff}
-				    className={cn({ 'active': this.props.Store.isMenuHover })}>
-					{menuList}
-				</ul>
-				
-				<div id='menuHoverZoneHor' onMouseEnter={this.menuHoverOn}>
-					<Swipe onSwipeRight={this.onSwipeRight}
-					       onSwipeLeft={this.onSwipeLeft}>
+			
+			<Swipe onSwipeRight={this.onSwipeRight}
+			       onSwipeLeft={this.onSwipeLeft}>
+				<div id='menu' className={cn({ 'active': this.props.Store.isMenuHover })}>
+					<div id='burger' onClick={this.menuHoverOn} className={cn({ 'hover': this.props.Store.isMenuHover })}>
+						<span>&#9776;</span>
+					</div>
+					<div className='close' onClick={this.menuHoverOff}>
+						&#9029;
+					</div>
+					<ul id='menuList'
+					    onMouseEnter={this.menuHoverOn}
+					    onMouseLeave={this.menuHoverOff}
+					    className={cn({ 'active': this.props.Store.isMenuHover })}>
+						{menuList}
+					</ul>
+					
+					<div id='menuHoverZoneHor' onMouseEnter={this.menuHoverOn}>
 						<div id='menuHoverZoneVert' onMouseEnter={this.menuHoverOn}>
 							{null}
 						</div>
-					</Swipe>
+					</div>
 				</div>
-			</div>
+			</Swipe>
 		
 		)
 	}
