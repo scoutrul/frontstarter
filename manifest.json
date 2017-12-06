@@ -3,7 +3,7 @@
     "short_name"        : "FrontEnd",
     "description"       : "",
     "start_url"         : "/",
-    "display"           : "browser",
+    "display"           : "minimal-ui",
     "orientation"       : "any",
     "background_color"  : "#8F1EF7",
     "theme_color"       : "#8F1EF7",
@@ -23,5 +23,9 @@
         "src": "http://warmgun.com/lib/img/icons/favicon-192x192.png",
         "type": "image/png",
         "sizes": "192x192"
+    }, {
+        "src": "http://agarioskins.com/submitted/useruploads/_.png",
+        "type": "image/png",
+        "sizes": "512x512"
     }]
   }
