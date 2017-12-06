@@ -1,5 +1,5 @@
 // Set this to true for production
-let doCache = false;
+let doCache = true;
 
 // Name our cache
 let CACHE_NAME = 'my-pwa-cache-v1';
