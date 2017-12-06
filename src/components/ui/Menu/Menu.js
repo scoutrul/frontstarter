@@ -11,7 +11,8 @@ import Swipe from 'react-easy-swipe';
 
 class Menu extends Component {
 	menuHoverOn = () => {
-		this.props.actions.MenuHoverOn()
+		this.props.actions.MenuHoverOn();
+		window.navigator.vibrate(200); // Вибрировать 200ms
 	};
 	menuHoverOff = () => {
 		this.props.actions.MenuHoverOff()
