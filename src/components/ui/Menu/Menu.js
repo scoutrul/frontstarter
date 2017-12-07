@@ -10,10 +10,9 @@ import * as ReducerMenu from '../../../reducers/ReducerMenu';
 import Swipe from 'react-easy-swipe';
 
 class Menu extends Component {
-	menuHoverOn = () => {
+	menuHoverOn = (e) => {
 		this.props.actions.MenuHoverOn();
-		
-		window.navigator.vibrate() && window.navigator.vibrate(100);
+		!!window.navigator.vibrate(0) && window.navigator.vibrate(100);
 	};
 	menuHoverOff = () => {
 		this.props.actions.MenuHoverOff()
