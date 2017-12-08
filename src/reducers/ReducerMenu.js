@@ -1,5 +1,5 @@
-import { createAction, createReducer } from 'redux-act';
-
+import { createAction, createReducer } from 'redux-act'
+export const FetchMenu = createAction('menu items is fetched');
 export const MenuHoverOn = createAction('menu is hover on');
 export const MenuHoverOff = createAction('menu is hover off');
 
@@ -7,13 +7,16 @@ const initialState = {
 	isMenuHover: false,
 	items: [
 		{ label: 'Home', url: '/' },
-		{ label: 'About', url: '/about' },
-		{ label: 'Works', url: '/works' },
-		{ label: 'Contact', url: '/contact' },
 	]
 };
 
 export default createReducer({
+	[FetchMenu]: (state, payload) => {
+		return {
+			...state, items: [...state.items, ...payload]
+		}
+		
+	},
 	[MenuHoverOn]: (state) => {
 		return {
 			...state, isMenuHover: true
@@ -24,4 +27,6 @@ export default createReducer({
 			...state, isMenuHover: false
 		}
 	},
-}, initialState); 
+}, initialState);
+
+

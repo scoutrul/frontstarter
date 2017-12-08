@@ -10,7 +10,7 @@ import * as ReducerMenu from '../../../reducers/ReducerMenu';
 import Swipe from 'react-easy-swipe';
 
 class Menu extends Component {
-	menuHoverOn = (e) => {
+	menuHoverOn = () => {
 		this.props.actions.MenuHoverOn();
 		!!window.navigator.vibrate(0) && window.navigator.vibrate(100);
 	};
@@ -26,16 +26,15 @@ class Menu extends Component {
 	};
 	
 	
+	menuList = item =>
+		<li onClick={this.menuHoverOff} key={item.label}>
+			<div>
+				<NavLink to={item.url} exact activeClassName='active'>{item.label}</NavLink>
+			</div>
+		</li>;
+	
+	
 	render() {
-		let menuList = this.props.MenuItems.map(item => {
-			return (
-				<li onClick={this.menuHoverOff} key={item.label}>
-					<div>
-						<NavLink to={item.url} exact activeClassName='active'>{item.label}</NavLink>
-					</div>
-				</li>
-			)
-		});
 		return (
 			
 			<Swipe onSwipeRight={this.onSwipeRight}
@@ -51,7 +50,9 @@ class Menu extends Component {
 					    onMouseEnter={this.menuHoverOn}
 					    onMouseLeave={this.menuHoverOff}
 					    className={cn({ 'active': this.props.Store.isMenuHover })}>
-						{menuList}
+						{
+							this.props.MenuItems.map(this.menuList)
+						}
 					</ul>
 					
 					<div id='menuHoverZoneHor' onMouseEnter={this.menuHoverOn}>

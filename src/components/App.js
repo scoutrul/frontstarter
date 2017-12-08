@@ -4,9 +4,9 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
-
-import HomePage from 'components/routes/home/HomePage'
-import AboutPage from 'components/routes/about/About'
+import firebase from '../utils/firebase.js'
+import Home from 'components/routes/home/HomePage'
+import About from 'components/routes/about/About'
 import ToDo from 'components/routes/todo/ToDo'
 import Text from 'components/routes/text/Text'
 import Works from 'components/routes/works/Works'
@@ -14,6 +14,7 @@ import Contact from 'components/routes/contact/Contact'
 import Menu from './ui/Menu/Menu'
 import Copyright from './ui/copyright/Copyright'
 import './app.scss'
+
 
 class App extends Component {
 	
@@ -35,6 +36,20 @@ class App extends Component {
 		});
 	};
 	
+	FireMenuItems = () => {
+		firebase.database().ref('Menu').on('value', snap => {
+			let result = [];
+			snap.forEach(childNodes => {
+				result.push({ label: childNodes.key, url: childNodes.val() })
+			});
+			this.props.actions.FetchMenu(result)
+		});
+	};
+	
+	componentWillMount() {
+		this.FireMenuItems()
+	}
+	
 	componentDidMount() {
 		this.calcFontSize();
 		window.addEventListener('resize', () => {
@@ -47,6 +62,18 @@ class App extends Component {
 		this.props.actions.MenuHoverOff()
 	};
 	
+	appRouting = () => {
+		return (
+			<Switch>
+				<Route path="/" exact component={Home}/>
+				<Route path="/about" component={About}/>
+				<Route path="/todo" component={ToDo}/>
+				<Route path="/text" component={Text}/>
+				<Route path="/works" component={Works}/>
+				<Route path="/contact" component={Contact}/>
+			</Switch>)
+	}
+	
 	render() {
 		
 		let viewPortStyles = {
@@ -58,14 +85,9 @@ class App extends Component {
 				<div id="page" style={viewPortStyles} className={cn({ 'blurbg': this.props.Store.isMenuHover })}>
 					<Menu/>
 					<div id="content" onClick={this.menuHoverOff} className={cn({ 'blur': this.props.Store.isMenuHover })}>
-						<Switch>
-							<Route path="/" exact component={HomePage}/>
-							<Route path="/about" component={AboutPage}/>
-							<Route path="/todo" component={ToDo}/>
-							<Route path="/text" component={Text}/>
-							<Route path="/works" component={Works}/>
-							<Route path="/contact" component={Contact}/>
-						</Switch>
+						
+						{this.appRouting()}
+					
 					</div>
 					<Copyright/>
 				</div>
@@ -77,6 +99,7 @@ class App extends Component {
 function mapStateToProps(state) {
 	return {
 		Store: state.ReducerMenu,
+		Menu: state.ReducerMenu.items,
 	}
 }
 

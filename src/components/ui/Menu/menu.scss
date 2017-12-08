@@ -52,7 +52,7 @@ $large: 1200px;
     opacity: 0;
     position: fixed;
     top: 4rem;
-    right: 4rem;
+    left: calc(100% - 4rem);
     margin-right: .5rem;
     z-index: 22;
     transition: .3s ease-out;
