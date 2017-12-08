@@ -4,10 +4,10 @@
   "short_name": "FrontEnder",
   "description": "",
   "start_url": ".",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#8F1EF7",
   "theme_color": "#8F1EF7",
-  "orientation": "portrait-primary",
+  "orientation": "primary",
   "icons": [
     {
       "src": "icons/32.png",
