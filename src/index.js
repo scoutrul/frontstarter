@@ -43,7 +43,7 @@ render(
 		console.log('service worker is not supported');
 	}
 	if ('PushManager' in window) {
-		console.log('Push is supported');
+		console.log('Push mobile notification is supported');
 	}
 	else {
 		console.warn('Push messaging is not supported');

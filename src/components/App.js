@@ -10,7 +10,7 @@ import About from 'components/routes/about/About'
 import ToDo from 'components/routes/todo/ToDo'
 import Text from 'components/routes/text/Text'
 import Works from 'components/routes/works/Works'
-import Contact from 'components/routes/contact/Contact'
+import Connect from 'components/routes/connect/Connect'
 import Menu from './ui/Menu/Menu'
 import Copyright from './ui/copyright/Copyright'
 import './app.scss'
@@ -24,11 +24,12 @@ class App extends Component {
 	};
 	
 	calcFontSize = () => {
-		let maxWidth = 1600;
+		let maxWidth = 1200;
 		let minWidth = 200;
+		let screenWidth = document.getElementById('page').offsetWidth;
 		let minFont = 8;
 		let maxFont = 26;
-		let containerW = document.getElementById('page').offsetWidth;
+		let containerW = (screenWidth > maxWidth)? maxWidth : screenWidth;
 		let cent = (maxFont - minFont) / (maxWidth - minWidth);
 		this.setState({
 			fontUnit: minFont + cent * (containerW - minWidth) + 'px',
@@ -70,7 +71,7 @@ class App extends Component {
 				<Route path="/todo" component={ToDo}/>
 				<Route path="/text" component={Text}/>
 				<Route path="/works" component={Works}/>
-				<Route path="/contact" component={Contact}/>
+				<Route path="/connect" component={Connect}/>
 			</Switch>)
 	}
 	

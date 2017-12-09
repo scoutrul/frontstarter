@@ -40,7 +40,7 @@ class Menu extends Component {
 			<Swipe onSwipeRight={this.onSwipeRight}
 			       onSwipeLeft={this.onSwipeLeft}>
 				<div id='menu' className={cn({ 'active': this.props.Store.isMenuHover })}>
-					<div id='burger' onClick={this.menuHoverOn} className={cn({ 'hover': this.props.Store.isMenuHover })}>
+					<div id='burger' onClick={this.menuHoverOn} onMouseEnter={this.menuHoverOn} className={cn({ 'hover': this.props.Store.isMenuHover })}>
 						<span>&#9776;</span>
 					</div>
 					<div className='close' onClick={this.menuHoverOff}>
