@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default () =>
 	<section>
 		<div className='contentView'>
-			<h1>Contact</h1>
+			<h1>Connect me</h1>
 			<main>
 				It easy to find me via: <br/>
 				<ul>

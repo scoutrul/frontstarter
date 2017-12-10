@@ -11,6 +11,7 @@ import ToDo from 'components/routes/todo/ToDo'
 import Text from 'components/routes/text/Text'
 import Works from 'components/routes/works/Works'
 import Connect from 'components/routes/connect/Connect'
+import Blog from 'components/routes/blog/Blog'
 import Menu from './ui/Menu/Menu'
 import Copyright from './ui/copyright/Copyright'
 import './app.scss'
@@ -72,6 +73,7 @@ class App extends Component {
 				<Route path="/text" component={Text}/>
 				<Route path="/works" component={Works}/>
 				<Route path="/connect" component={Connect}/>
+				<Route path="/blog" component={Blog}/>
 			</Switch>)
 	}
 	

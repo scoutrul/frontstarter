@@ -5,15 +5,13 @@ export const MenuHoverOff = createAction('menu is hover off');
 
 const initialState = {
 	isMenuHover: false,
-	items: [
-		{ label: 'Home', url: '/' },
-	]
+	items: []
 };
 
 export default createReducer({
 	[FetchMenu]: (state, payload) => {
 		return {
-			...state, items: [...state.items, ...payload]
+			...state, items: [...payload]
 		}
 		
 	},

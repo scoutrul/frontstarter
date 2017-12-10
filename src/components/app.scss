@@ -36,7 +36,7 @@
     h1, h2, h3 {
       color: #667ce8;
       text-shadow: 0.5rem 0.5rem 0.1rem #6e00ff;
-      transition: .1s ease-in-out
+      transition: .4s cubic-bezier(0, 1, 1, 1);
     }
   }
   #content {

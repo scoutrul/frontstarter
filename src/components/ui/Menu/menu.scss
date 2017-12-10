@@ -93,23 +93,23 @@ $large: 1200px;
       z-index: 21;
       li {
         margin: 1rem 0;
+
         div {
           transform: translateY(0%);
           opacity: 1;
-          transition: .2s ease
+          transition: .4s cubic-bezier(0, 1, 1, 1);
+          transition-delay: .0s;
+          padding-bottom: 1rem;
         }
-        &:nth-child(1) div {
-          transition-delay: .3s;
+
+        $transitionDelay: .3;
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}) > div {
+            transition-delay: $transitionDelay#{s};
+          }
+          $transitionDelay: $transitionDelay + .167;
         }
-        &:nth-child(2) div {
-          transition-delay: .35s;
-        }
-        &:nth-child(3) div {
-          transition-delay: .4s;
-        }
-        &:nth-child(4) div {
-          transition-delay: .45s;
-        }
+
       }
     }
     li {
@@ -121,7 +121,7 @@ $large: 1200px;
       padding-right: 5vw;
 
       div {
-        transition: .1s ease 0s;
+        transition: .0s ease-in 0s;
         opacity: 0;
         transform: translateY(100%);
         a {
