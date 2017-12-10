@@ -12,6 +12,7 @@ import Text from 'components/routes/text/Text'
 import Works from 'components/routes/works/Works'
 import Connect from 'components/routes/connect/Connect'
 import Blog from 'components/routes/blog/Blog'
+import { PageChange } from './hoc/PageChange'
 import Menu from './ui/Menu/Menu'
 import Copyright from './ui/copyright/Copyright'
 import './app.scss'
@@ -30,7 +31,7 @@ class App extends Component {
 		let screenWidth = document.getElementById('page').offsetWidth;
 		let minFont = 8;
 		let maxFont = 26;
-		let containerW = (screenWidth > maxWidth)? maxWidth : screenWidth;
+		let containerW = (screenWidth > maxWidth) ? maxWidth : screenWidth;
 		let cent = (maxFont - minFont) / (maxWidth - minWidth);
 		this.setState({
 			fontUnit: minFont + cent * (containerW - minWidth) + 'px',
@@ -67,15 +68,16 @@ class App extends Component {
 	appRouting = () => {
 		return (
 			<Switch>
-				<Route path="/" exact component={Home}/>
-				<Route path="/about" component={About}/>
-				<Route path="/todo" component={ToDo}/>
-				<Route path="/text" component={Text}/>
-				<Route path="/works" component={Works}/>
-				<Route path="/connect" component={Connect}/>
-				<Route path="/blog" component={Blog}/>
-			</Switch>)
-	}
+				<Route path="/" exact component={PageChange(Home)}/>
+				<Route path="/about" component={PageChange(About)}/>
+				<Route path="/todo" component={PageChange(ToDo)}/>
+				<Route path="/text" component={PageChange(Text)}/>
+				<Route path="/works" component={PageChange(Works)}/>
+				<Route path="/connect" component={PageChange(Connect)}/>
+				<Route path="/blog" component={PageChange(Blog)}/>
+			</Switch>
+		)
+	};
 	
 	render() {
 		

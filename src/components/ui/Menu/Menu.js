@@ -17,13 +17,7 @@ class Menu extends Component {
 	menuHoverOff = () => {
 		this.props.actions.MenuHoverOff()
 	};
-	
-	onSwipeRight = () => {
-		this.props.actions.MenuHoverOn()
-	};
-	onSwipeLeft = () => {
-		this.props.actions.MenuHoverOff()
-	};
+
 	
 	
 	menuList = item =>
@@ -37,8 +31,8 @@ class Menu extends Component {
 	render() {
 		return (
 			
-			<Swipe onSwipeRight={this.onSwipeRight}
-			       onSwipeLeft={this.onSwipeLeft}>
+			<Swipe onSwipeRight={this.menuHoverOn}
+			       onSwipeLeft={this.menuHoverOff}>
 				<div id='menu' className={cn({ 'active': this.props.Store.isMenuHover })}>
 					<div id='burger' onClick={this.menuHoverOn} onMouseEnter={this.menuHoverOn} className={cn({ 'hover': this.props.Store.isMenuHover })}>
 						<span>&#9776;</span>

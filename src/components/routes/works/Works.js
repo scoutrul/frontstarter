@@ -5,13 +5,11 @@ export default () =>
 	<section>
 		<div className='contentView'>
 			<h1>
-				Start<br/>
-				<span>Your</span><br/>
-				FrontEnd
+				Works
 			</h1>
 		</div>
 		<div className="links">
-			<Link to="/contact">contact</Link>
+			<Link to="/connect">Connect</Link>
 		</div>
 	
 	</section>
