@@ -4,11 +4,9 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
-import firebase from '../utils/firebase.js'
 import Home from 'components/routes/home/HomePage'
-import About from 'components/routes/about/About'
+import Info from 'components/routes/info/Info'
 import ToDo from 'components/routes/todo/ToDo'
-import Text from 'components/routes/text/Text'
 import Works from 'components/routes/works/Works'
 import Connect from 'components/routes/connect/Connect'
 import Blog from 'components/routes/blog/Blog'
@@ -39,20 +37,6 @@ class App extends Component {
 		});
 	};
 	
-	FireMenuItems = () => {
-		firebase.database().ref('Menu').on('value', snap => {
-			let result = [];
-			snap.forEach(childNodes => {
-				result.push({ label: childNodes.key, url: childNodes.val() })
-			});
-			this.props.actions.FetchMenu(result)
-		});
-	};
-	
-	componentWillMount() {
-		this.FireMenuItems()
-	}
-	
 	componentDidMount() {
 		this.calcFontSize();
 		window.addEventListener('resize', () => {
@@ -61,20 +45,15 @@ class App extends Component {
 		
 	};
 	
-	menuHoverOff = () => {
-		this.props.actions.MenuHoverOff()
-	};
-	
 	appRouting = () => {
 		return (
 			<Switch>
-				<Route path="/" exact component={PageChange(Home)}/>
-				<Route path="/about" component={PageChange(About)}/>
-				<Route path="/todo" component={PageChange(ToDo)}/>
-				<Route path="/text" component={PageChange(Text)}/>
-				<Route path="/works" component={PageChange(Works)}/>
-				<Route path="/connect" component={PageChange(Connect)}/>
-				<Route path="/blog" component={PageChange(Blog)}/>
+				<Route path='/' exact component={PageChange(Home)}/>
+				<Route path='/info' component={PageChange(Info)}/>
+				<Route path='/todo' component={PageChange(ToDo)}/>
+				<Route path='/works' component={PageChange(Works)}/>
+				<Route path='/connect' component={PageChange(Connect)}/>
+				<Route path='/blog' component={PageChange(Blog)}/>
 			</Switch>
 		)
 	};
@@ -86,10 +65,10 @@ class App extends Component {
 			fontSize: this.state.fontUnit
 		};
 		return (
-			<HashRouter hashType="noslash">
-				<div id="page" style={viewPortStyles} className={cn({ 'blurbg': this.props.Store.isMenuHover })}>
+			<HashRouter hashType='noslash'>
+				<div id='page' style={viewPortStyles} className={cn({ 'blurbg': this.props.Store.isMenuHover })}>
 					<Menu/>
-					<div id="content" onClick={this.menuHoverOff} className={cn({ 'blur': this.props.Store.isMenuHover })}>
+					<div id='content' className={cn({ 'blur': this.props.Store.isMenuHover })}>
 						
 						{this.appRouting()}
 					

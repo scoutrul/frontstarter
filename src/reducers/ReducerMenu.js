@@ -5,7 +5,14 @@ export const MenuHoverOff = createAction('menu is hover off');
 
 const initialState = {
 	isMenuHover: false,
-	items: []
+	items: [
+		{label: "/", url: "/"},
+		{label: "info", url: "/info"},
+		{label: "Prod", url: "/works"},
+		{label: "Blog", url: "/blog"},
+		{label: "Connect", url: "/connect"},
+	],
+	
 };
 
 export default createReducer({

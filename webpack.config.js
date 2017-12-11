@@ -1,5 +1,3 @@
-const path = require('path');
-const getRepositoryName = require('git-repo-name').sync;
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -8,7 +6,11 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const SETTINGS = require('./settings');
 
 const production = process.env.NODE_ENV === 'production';
-const pagesBuild = process.env.BUILD === 'pages';
+
+
+const path = require('path'),
+	dist = 'public',
+	workboxPlugin = require('workbox-webpack-plugin');
 
 const stylesLoaders = [
 	{
@@ -85,6 +87,20 @@ const productionPlugins = [
 			drop_console: true,
 			unsafe: true,
 		},
+	}),
+
+	new workboxPlugin({
+		globDirectory: dist,
+		globPatterns: ['**/*.{html,js}'],
+		swDest: path.join(dist, 'service-worker.js'),
+		clientsClaim: true,
+		skipWaiting: true,
+		runtimeCaching: [
+			{
+				urlPattern: new RegExp('https://hacker-news.firebaseio.com'),
+				handler: 'staleWhileRevalidate'
+			}
+		]
 	}),
 ];
 

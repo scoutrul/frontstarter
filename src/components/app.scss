@@ -52,6 +52,7 @@
     overflow: auto;
     justify-content: center;
     align-items: flex-start;
+
     &.blur {
       filter: blur(25px);
       transition: .4s ease-out;
@@ -80,7 +81,8 @@
         line-height: 100%;
       }
       .contentView {
-        margin: auto
+        margin: auto;
+        padding: 4rem;
       }
       main {
         line-height: 200%;

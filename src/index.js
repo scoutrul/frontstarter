@@ -10,7 +10,7 @@ import configureStore from './store';
 import App from './components/App';
 import createBrowserHistory from 'history/createBrowserHistory'
 
-const history = createBrowserHistory()
+const history = createBrowserHistory();
 const store = configureStore();
 
 const rootElement = document.getElementById('app');
@@ -26,16 +26,16 @@ render(
 	rootElement
 );
 
+// SW register
 (function () {
 	if ('serviceWorker' in navigator) {
-		window.addEventListener('load', function () {
-			navigator.serviceWorker.register('service-worker.js').then(function (registration) {
-				// Registration was successful
+		window.addEventListener('load', () => {
+			navigator.serviceWorker.register('service-worker.js').then(registration => {
 				console.log('ServiceWorker registration successful with scope: ', registration.scope);
 			}, function (err) {
 				// registration failed :(
 				console.log('ServiceWorker registration failed: ', err);
-			}).catch(function (err) {
+			}).catch(err => {
 				console.log(err)
 			});
 		});

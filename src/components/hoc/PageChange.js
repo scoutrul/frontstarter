@@ -6,8 +6,8 @@ export const PageChange = Page => {
 	return props =>
 		<ReactCSSTransitionGroup
 			transitionAppear={true}
-			transitionAppearTimeout={600}
-			transitionEnterTimeout={600}
+			transitionAppearTimeout={200}
+			transitionEnterTimeout={200}
 			transitionLeaveTimeout={200}
 			transitionName={'SlideIn'}
 		>
