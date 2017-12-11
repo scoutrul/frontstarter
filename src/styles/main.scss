@@ -9,6 +9,15 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+::-webkit-crollbar-thumb {
+  background: #FF0000;
+}
+
 @media screen and (max-width: 1200px) and (orientation: landscape) {
   html {
     transform: rotate(-90deg);
