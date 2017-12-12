@@ -6,10 +6,11 @@ export default () =>
 		<div className='contentView'>
 
 				<h1>This site info</h1>
-				link: <a href="https://frontstarter.ru">frontstarter.ru</a>
+				link: <a href="https://frontstarter.ru">frontstarter.ru</a><br/>
+				source: <a href="https://github.com/scoutrul/frontstart" target={'blank'}>GitHub</a>
 				
 			
-			<main>
+			<main className='info'>
 				
 				<div>
 					<h3>Viewing:</h3>

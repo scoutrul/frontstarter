@@ -88,11 +88,11 @@ const productionPlugins = [
 			unsafe: true,
 		},
 	}),
-
+	
 	new workboxPlugin({
 		globDirectory: dist,
 		globPatterns: ['**/*.{html,js}'],
-		swDest: path.join(dist, 'service-worker.js'),
+		swDest: path.join(dist, 'sw.js'),
 		clientsClaim: true,
 		skipWaiting: true,
 		runtimeCaching: [

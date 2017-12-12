@@ -15,6 +15,7 @@ const store = configureStore();
 
 const rootElement = document.getElementById('app');
 
+
 render(
 	<AppContainer>
 		<Provider store={store}>
@@ -26,11 +27,17 @@ render(
 	rootElement
 );
 
+const production = process.env.NODE_ENV === 'production';
+
 // SW register
+
+
 (function () {
+	
 	if ('serviceWorker' in navigator) {
+		!production &&
 		window.addEventListener('load', () => {
-			navigator.serviceWorker.register('service-worker.js').then(registration => {
+			navigator.serviceWorker.register('sw.js').then(registration => {
 				console.log('ServiceWorker registration successful with scope: ', registration.scope);
 			}, function (err) {
 				// registration failed :(
@@ -41,13 +48,6 @@ render(
 		});
 	} else {
 		console.log('service worker is not supported');
-	}
-	if ('PushManager' in window) {
-		console.log('Push mobile notification is supported');
-	}
-	else {
-		console.warn('Push messaging is not supported');
-		pushButton.textContent = 'Push Not Supported';
 	}
 	
 })();

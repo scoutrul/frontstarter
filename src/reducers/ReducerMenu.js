@@ -7,10 +7,10 @@ const initialState = {
 	isMenuHover: false,
 	items: [
 		{label: "/", url: "/"},
-		{label: "info", url: "/info"},
-		{label: "Prod", url: "/works"},
-		{label: "Blog", url: "/blog"},
-		{label: "Connect", url: "/connect"},
+		{label: "/Info", url: "/info"},
+
+
+		{label: "/Connect", url: "/connect"},
 	],
 	
 };

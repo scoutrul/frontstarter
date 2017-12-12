@@ -7,8 +7,8 @@ export default () =>
 
 				It easy to find me via: <br/>
 				<ul>
-					<li>telegram: <a href="https://t.me/antonGolova" target="_blank">@antonGolova</a></li>
-					<li>mail: <a href="mailto:antongolova@gmail.com">antongolova@gmail.com</a></li>
+					<li>Telegram: <a href="https://t.me/antonGolova" target="_blank">@antonGolova</a></li>
+					<li>Mail: <a href="mailto:antongolova@gmail.com">antongolova@gmail.com</a></li>
 					<li>Or just call me by phone number: +7(965)178-47-38;</li>
 				</ul>
 

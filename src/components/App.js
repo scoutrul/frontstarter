@@ -22,7 +22,7 @@ class App extends Component {
 		vh: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
 		fontUnit: '12px'
 	};
-	
+
 	calcFontSize = () => {
 		let maxWidth = 1200;
 		let minWidth = 200;

@@ -13,7 +13,7 @@ const Home = (props) =>
 			</h1>
 		</div>
 		<div className="links">
-			<Link to="/about">About Me</Link>
+			<Link to="/info">Info =></Link>
 		</div>
 	</section>;
 

@@ -1,11 +1,11 @@
-main {
+.info {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   margin-top: 2rem;
 
   > div {
-    min-width: 300px;
+    min-width: 200px;
     width: 50%;
   }
 }

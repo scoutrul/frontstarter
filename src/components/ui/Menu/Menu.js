@@ -12,12 +12,11 @@ import Swipe from 'react-easy-swipe';
 class Menu extends Component {
 	menuHoverOn = () => {
 		this.props.actions.MenuHoverOn();
-		!!window.navigator.vibrate(0) && window.navigator.vibrate(100);
+		!!window.navigator.vibrate && window.navigator.vibrate(100);
 	};
 	menuHoverOff = () => {
 		this.props.actions.MenuHoverOff()
 	};
-
 	
 	
 	menuList = item =>
@@ -29,33 +28,38 @@ class Menu extends Component {
 	
 	
 	render() {
+		// window.onkeydown = function (e) {
+		// 	if (e.keyCode === 27) {
+		// 		this.props.actions.MenuHoverOff()
+		// 	}
+		// };
 		return (
-			
-			<Swipe onSwipeRight={this.menuHoverOn}
-			       onSwipeLeft={this.menuHoverOff}>
-				<div id='menu' className={cn({ 'active': this.props.Store.isMenuHover })}>
-					<div id='burger' onClick={this.menuHoverOn} onMouseEnter={this.menuHoverOn} className={cn({ 'hover': this.props.Store.isMenuHover })}>
-						<span>&#9776;</span>
-					</div>
-					<div className='close' onClick={this.menuHoverOff}>
-						&#9029;
-					</div>
-					<ul id='menuList'
-					    onMouseEnter={this.menuHoverOn}
-					    onMouseLeave={this.menuHoverOff}
-					    className={cn({ 'active': this.props.Store.isMenuHover })}>
-						{
-							this.props.MenuItems.map(this.menuList)
-						}
-					</ul>
-					
+			<div id='menu'
+			     className={cn({ 'active': this.props.Store.isMenuHover })}>
+				<div id='burger' onClick={this.menuHoverOn} onMouseEnter={this.menuHoverOn}
+				     className={cn({ 'hover': this.props.Store.isMenuHover })}>
+					<span>&#9776;</span>
+				</div>
+				<div className='close' onClick={this.menuHoverOff}>
+					&#9029;
+				</div>
+				<ul id='menuList'
+				    onMouseEnter={this.menuHoverOn}
+				    onMouseLeave={this.menuHoverOff}
+				    className={cn({ 'active': this.props.Store.isMenuHover })}>
+					{
+						this.props.MenuItems.map(this.menuList)
+					}
+				</ul>
+				<Swipe onSwipeRight={this.menuHoverOn}
+				       onSwipeLeft={this.menuHoverOff}>
 					<div id='menuHoverZoneHor' onMouseEnter={this.menuHoverOn}>
 						<div id='menuHoverZoneVert' onMouseEnter={this.menuHoverOn}>
 							{null}
 						</div>
 					</div>
-				</div>
-			</Swipe>
+				</Swipe>
+			</div>
 		
 		)
 	}
