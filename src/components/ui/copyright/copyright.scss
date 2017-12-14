@@ -1,21 +1,30 @@
 .copyright {
-  position: fixed;
-  bottom: 4rem;
-  color: $lightGrey;
-  font-size: 50%;
-  display: flex;
-  justify-content: space-between;
-  z-index: 10;
-
-  &.left {
-    left: 4rem;
-  }
-
-  &.right {
-    right: 4rem;
-
-    a {
-      color: $lightGrey;
+    position: fixed;
+    bottom: 4rem;
+    color: $lightGrey;
+    font-size: 50%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    @include respond-to(small) {
+        bottom: 2rem;
     }
-  }
+
+    &.left {
+        left: 4rem;
+        @include respond-to(small) {
+            left: 2rem;
+        }
+    }
+
+    &.right {
+        right: 4rem;
+        @include respond-to(small) {
+            right: 2rem;
+        }
+
+        a {
+            color: $lightGrey;
+        }
+    }
 }

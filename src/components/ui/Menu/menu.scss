@@ -1,21 +1,4 @@
-$small: 600px;
-$large: 1200px;
 
-@mixin respond-to($media) {
-    @if $media == handhelds {
-        @media only screen and (max-width: $small) {
-            @content;
-        }
-    } @else if $media == medium-screens {
-        @media only screen and (min-width: $small + 1) {
-            @content;
-        }
-    } @else if $media == large {
-        @media only screen and (min-width: $large) {
-            @content;
-        }
-    }
-}
 
 #menuHoverZoneVert {
     width: 3rem;
@@ -54,6 +37,10 @@ $large: 1200px;
         &.hover {
             opacity: 0;
         }
+        @include respond-to(small) {
+            left:0;
+            top:0;
+        }
     }
 
     .close {
@@ -64,6 +51,10 @@ $large: 1200px;
         margin-right: .5rem;
         z-index: 22;
         transition: .3s ease-out;
+        @include respond-to(small) {
+            right: 2rem;
+            top: 2rem;
+        }
     }
     &.active {
         .close {
@@ -95,6 +86,7 @@ $large: 1200px;
             transform: translateX(0);
             z-index: 21;
             width: 48vw;
+            min-width: 320px;
             li {
                 margin: 1rem 0;
 
@@ -123,6 +115,9 @@ $large: 1200px;
             align-items: center;
             padding-left: 4rem;
             padding-right: 5vw;
+            @include respond-to(small) {
+                padding-left: 2rem;
+            }
 
             div {
                 transition: .0s ease-in 0s;

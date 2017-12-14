@@ -10,7 +10,7 @@ import ToDo from 'components/routes/todo/ToDo'
 import Works from 'components/routes/works/Works'
 import Connect from 'components/routes/connect/Connect'
 import Blog from 'components/routes/blog/Blog'
-import { PageChange } from './hoc/PageChange'
+import PageChange from './hoc/PageChange'
 import Menu from './ui/Menu/Menu'
 import Copyright from './ui/copyright/Copyright'
 import './app.scss'
@@ -22,7 +22,7 @@ class App extends Component {
 		vh: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
 		fontUnit: '12px'
 	};
-
+	
 	calcFontSize = () => {
 		let maxWidth = 1200;
 		let minWidth = 200;
@@ -46,17 +46,27 @@ class App extends Component {
 	};
 	
 	appRouting = () => {
+		let routes = {
+			'Info': Info,
+			'Todo': ToDo,
+			'Works': Works,
+			'Connect': Connect,
+			'Blog': Blog,
+			'/': Home
+		};
+		
+		
 		return (
 			<Switch>
-				<Route path='/' exact component={PageChange(Home)}/>
-				<Route path='/info' component={PageChange(Info)}/>
-				<Route path='/todo' component={PageChange(ToDo)}/>
-				<Route path='/works' component={PageChange(Works)}/>
-				<Route path='/connect' component={PageChange(Connect)}/>
-				<Route path='/blog' component={PageChange(Blog)}/>
+				{
+					this.props.Store.items.map(item =>
+						<Route key={item.label} path={item.url} exact component={PageChange(routes[item.label])}/>
+					)
+				}
 			</Switch>
 		)
 	};
+	
 	
 	render() {
 		
