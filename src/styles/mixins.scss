@@ -1,5 +1,19 @@
-@mixin center($width) {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: $width;
+$small: 600px;
+$medium: 760px;
+$large: 1200px;
+
+@mixin respond-to($media) {
+  @if $media == small {
+    @media only screen and (max-width: $small) {
+      @content;
+    }
+  } @else if $media == medium {
+    @media only screen and (min-width: $small + 1) {
+      @content;
+    }
+  } @else if $media == large {
+    @media only screen and (min-width: $large) {
+      @content;
+    }
+  }
 }

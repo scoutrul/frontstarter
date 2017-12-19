@@ -1,116 +1,119 @@
 #app {
-    display: flex;
-    overflow: hidden;
-    font-size: 100%;
-    font-family: 'Exo', sans-serif;
+  display: flex;
+  overflow: hidden;
+  font-size: 100%;
+  font-family: 'Exo', sans-serif;
 }
 
 #page {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  justify-content: center;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  transition: .2s ease-out;
+  outline: 1rem solid $specialBlack;
+  outline-offset: -1rem;
+  background: #697175;
+  background-image: linear-gradient(
+                  135deg,
+                  #667eea, #764ba2
+  );
+  @include respond-to(small) {
+    outline-width: .5rem;
+    outline-offset: -.5rem;
+  }
+
+  &.blurbg {
+    background: $specialBlack;
+    background-image: linear-gradient(
+                    45deg,
+                    $specialBlack, $specialBlack
+    );
+    outline: 2rem solid $specialBlack;
+
+    h1, h2, h3 {
+      color: #667ce8;
+      text-shadow: 0.5rem 0.5rem 0.1rem #6e00ff;
+      transition: .4s cubic-bezier(0, 1, 1, 1);
+    }
+  }
+  #content {
+    transition: .1s ease-in;
     display: flex;
-    overflow: hidden;
+    z-index: 1;
     width: 100%;
-    justify-content: center;
-    margin: auto;
+    max-width: 100vw;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    color: #FFF;
-    transition: .2s ease-out;
-    outline: 1rem solid $specialBlack;
-    outline-offset: -1rem;
-    background: #697175;
-    background-image: linear-gradient(
-                    135deg,
-                    #667eea, #764ba2
-    );
+    right: 0;
+    overflow: auto;
+    justify-content: center;
+    align-items: flex-start;
 
-    &.blurbg {
-        background: $specialBlack;
-        background-image: linear-gradient(
-                        45deg,
-                        $specialBlack, $specialBlack
-        );
-        outline: 2rem solid $specialBlack;
-
-        h1, h2, h3 {
-            color: #667ce8;
-            text-shadow: 0.5rem 0.5rem 0.1rem #6e00ff;
-            transition: .4s cubic-bezier(0, 1, 1, 1);
-        }
+    &.blur {
+      filter: blur(25px);
+      transition: .4s ease-out;
+      transform: translateX(5rem);
+      //opacity: .65;
     }
-    #content {
-        transition: .1s ease-in;
-        display: flex;
-        z-index: 1;
+    section {
+      margin: auto;
+      overflow: auto;
+      max-height: calc(100vh - 4rem);
+      position: fixed;
+      top: 5rem;
+      bottom: 6rem;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      padding: 2rem 0;
+      display: flex;
+      justify-content: center;
+      line-height: 230%;
+      letter-spacing: 0.02rem;
+      h1 {
+        line-height: 100%;
+      }
+      .contentView {
+        margin: auto;
+        padding: 4rem;
         width: 100%;
-        max-width: 100vw;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        overflow: auto;
-        justify-content: center;
-        align-items: flex-start;
-
-        &.blur {
-            filter: blur(25px);
-            transition: .4s ease-out;
-            transform: translateX(5rem);
-            //opacity: .65;
+        max-width: 1600px;
+        @include respond-to(small) {
+          padding: 0 4rem;
         }
-        section {
-            margin: auto;
-            width: calc(100% - 8rem);
-            overflow: auto;
-            max-height: calc(100vh - 4rem);
-            position: fixed;
-            top: 5rem;
-            bottom: 6rem;
-            left: 0;
-            right: 0;
-            height: 100%;
-            width: 100%;
-            padding: 2rem 0;
-            display: flex;
-            justify-content: center;
-            line-height: 130%;
-            letter-spacing: 0.02rem;
-            max-width: 1600px;
-            h1 {
-                line-height: 100%;
-            }
-            .contentView {
-                margin: auto;
-                padding: 4rem;
-                width: 100%;
-                @include respond-to(small) {
-                    padding: 0 4rem;
-                }
-            }
-            main {
-                line-height: 200%;
-            }
-            a {
-                color: $specialYellow
-            }
-        }
-        .links {
-            position: absolute;
-            margin: 0 0 auto 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            bottom: 7rem;
-            left: 0;
-            right: 0;
-            z-index: 20;
-            a {
-                margin: 1rem;
-                color: $specialYellow
-            }
-        }
+      }
+      main {
+        line-height: 200%;
+      }
+      a {
+        color: $specialYellow
+      }
     }
+    .links {
+      position: absolute;
+      margin: 0 0 auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      bottom: 7rem;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      a {
+        margin: 1rem;
+        color: $specialYellow
+      }
+    }
+  }
 }
 
 

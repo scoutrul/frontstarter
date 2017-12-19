@@ -1,65 +1,61 @@
 import React from 'react'
-import './info.scss'
-
 export default () =>
-	<section>
-		<div className='contentView'>
+    <section>
+        <div className='contentView'>
 
-				<h1>This site info</h1>
-				link: <a href="https://frontstarter.ru">frontstarter.ru</a><br/>
-				source: <a href="https://github.com/scoutrul/frontstart" target={'blank'}>GitHub</a>
-				
-			
-			<main className='info'>
-				
-				<div>
-					<h3>Viewing:</h3>
-					<ul>
-						<li>SPA</li>
-						<li>Adaptive design</li>
-						<li>Mobile application</li>
-						<li>Responsive text size</li>
-						<li>CSSAnimation</li>
-					</ul>
-				</div>
-				
-				<div>
-					<h3>Environment:</h3>
-					<ul>
-						<li>ReactJS v16</li>
-						<li>Redux-act</li>
-						<li>Router v4</li>
-						<li>ES6, Babel</li>
-						<li>Eslint</li>
-					</ul>
-				</div>
-				
-				<div>
-					<h3>Production:</h3>
-					<ul>
-						<li>WebStrom</li>
-						<li>NPM, WebPack</li>
-						<li>SCSS, AutoPrefixer</li>
-						<li>GIT</li>
-						<li>Optimized deploying</li>
-					</ul>
-				</div>
-				
-				<div>
-					<h3>Hosting:</h3>
-					<ul>
-						<li>SSL, .ru,</li>
-						<li>Google Firebase,</li>
-						<li>Service Workers Ready</li>
-						<li>Offline available</li>
-					</ul>
-				</div>
-				
-				
+            <h1>This site info</h1>
+            <a href="https://frontstarter.ru">frontstarter.ru</a><br/>
+            <a href="https://github.com/scoutrul/frontstart" target={'blank'}>GitHub</a>
 
-			
-			
-			</main>
-		</div>
-	</section>
 
+            <main className='info'>
+                <div>
+                    <h3>Environment:</h3>
+                    <ul>
+                        <li>ES6, Babel</li>
+                        <li>ReactJS v16</li>
+                        <li>Redux-act</li>
+                        <li>Router v4</li>
+                        <li>ES lint</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Viewing:</h3>
+                    <ul>
+                        <li>SinglePageApp</li>
+                        <li>Adaptive design</li>
+                        <li>Mobile ready</li>
+                        <li>Responsive text size</li>
+                        <li>CSSAnimation</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Tools:</h3>
+                    <ul>
+                        <li>WebStorm IDE</li>
+                        <li>NPM, Yarn, Terminal</li>
+                        <li>WebPack</li>
+                        <li>SCSS, AutoPrefixer</li>
+                        <li>Optimized deploying</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Hosting:</h3>
+                    <ul>
+                        <li>GIT</li>
+                        <li>.RU, SSL</li>
+                        <li>Google Firebase</li>
+                        <li>GitHub Pages</li>
+                        <li>Service Workers</li>
+                    </ul>
+                </div>
+
+
+            </main>
+        </div>
+    </section>
+
+
+import './info.scss'

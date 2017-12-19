@@ -31,7 +31,7 @@ function IterateItems() {
 		return (
 			<div className="item" key={i}>
 				<label>{item.label}</label>
-				<main>{item.inner}</main>
+				<div className={'bg'}>{item.inner}</div>
 			</div>
 		)
 	})
