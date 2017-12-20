@@ -66,10 +66,10 @@
     section {
       margin: auto;
       overflow: auto;
-      max-height: calc(100vh - 4rem);
+      max-height: calc(100vh - 6rem);
       position: fixed;
-      top: 5rem;
-      bottom: 6rem;
+      top: 0;
+      bottom: 0;
       left: 0;
       right: 0;
       height: 100%;
@@ -79,6 +79,8 @@
       justify-content: center;
       line-height: 230%;
       letter-spacing: 0.02rem;
+
+
       h1 {
         line-height: 100%;
       }
