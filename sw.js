@@ -24,11 +24,11 @@ const fileManifest = [
   },
   {
     "url": "bundle.js",
-    "revision": "32480683c7055baf7a6d409fd54386cb"
+    "revision": "dbf9e036b11fdedc4063c7226e746b02"
   },
   {
     "url": "index.html",
-    "revision": "a91606137f80af47183960a6b218d00f"
+    "revision": "056b3205a53dca12437d86f054411eb1"
   }
 ];
 
