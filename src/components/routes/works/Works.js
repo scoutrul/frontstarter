@@ -9,19 +9,19 @@ let items = [
 		inner: 'Info'
 	},
 	{
-		label: 'label1',
-		inner: 'description'
+		label: 'Blackur',
+		inner: 'Web-agency'
 	},
 	{
-		label: 'label2',
-		inner: 'description'
+		label: 'Naurasha',
+		inner: 'Landing Single Page'
 	},
 	{
-		label: 'label3',
-		inner: 'description'
+		label: 'Guardsman',
+		inner: 'Single Page Application'
 	},
 	{
-		label: 'label4',
+		label: 'InfoSvyaz',
 		inner: 'description'
 	}
 ];
@@ -29,9 +29,10 @@ let items = [
 function IterateItems() {
 	return items.map((item, i) => {
 		return (
-			<div className="item" key={i}>
+			<div className='item' key={i}>
 				<label>{item.label}</label>
-				<div className={'bg'}>{item.inner}</div>
+				<div className='info'>{item.inner}</div>
+				<div className='bg'>{null}</div>
 			</div>
 		)
 	})
@@ -50,7 +51,7 @@ export default class extends React.Component {
 					<h1>
 						Works
 					</h1>
-					<div id="worksGrid">
+					<div id='worksGrid'>
 						<IterateItems/>
 					</div>
 				</div>

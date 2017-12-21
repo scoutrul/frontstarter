@@ -8,7 +8,7 @@ export default () =>
             <a href="https://github.com/scoutrul/frontstart" target={'blank'}>GitHub</a>
 
 
-            <main className='info'>
+            <main className='infoList'>
                 <div>
                     <h3>Environment:</h3>
                     <ul>

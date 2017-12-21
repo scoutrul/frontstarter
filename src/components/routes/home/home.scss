@@ -3,16 +3,21 @@
   margin: auto;
   align-items: center;
   flex-direction: column;
-  color: #171717;
+  color: $textBlack;
 
   h1 {
     font-size: 400%;
     text-align: center;
     line-height: 100%;
     margin: auto;
+    background: linear-gradient(258.25deg, #2b2935 12%, #4c2e6f 83%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
     span {
       color: #FFFFFF;
+      -webkit-text-fill-color: #FFFFFF;
     }
   }
+
 }
