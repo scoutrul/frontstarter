@@ -7,8 +7,12 @@ const Home = (props) =>
 	<section className='home'>
 		<div className='contentView'>
 			<h1>
-				Start<br/>
-				<span>Your</span><br/>
+				Start
+			</h1>
+			<h1>
+				<span>Your</span>
+			</h1>
+			<h1>
 				FrontEnd
 			</h1>
 		</div>

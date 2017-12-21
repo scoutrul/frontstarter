@@ -6,23 +6,24 @@ import './works.scss'
 let items = [
 	{
 		label: 'This site',
-		inner: 'Info'
+		inner: 'Info',
+		features: [],
+		img: '/images/w_frontstarter.png'
 	},
 	{
 		label: 'Blackur',
-		inner: 'Web-agency'
+		inner: 'Web-agency',
+		img: '/images/w_blackur.png'
 	},
 	{
 		label: 'Naurasha',
-		inner: 'Landing Single Page'
+		inner: 'Product Landing Page',
+		img: '/images/w_naurasha.png'
 	},
 	{
 		label: 'Guardsman',
-		inner: 'Single Page Application'
-	},
-	{
-		label: 'InfoSvyaz',
-		inner: 'description'
+		inner: 'Single Page Application',
+		img: '/images/w_guardsman.png'
 	}
 ];
 
@@ -30,9 +31,12 @@ function IterateItems() {
 	return items.map((item, i) => {
 		return (
 			<div className='item' key={i}>
-				<label>{item.label}</label>
-				<div className='info'>{item.inner}</div>
-				<div className='bg'>{null}</div>
+				<div className="content">
+					<label>{item.label}</label>
+					<div className='info'>{item.inner}</div>
+					<div className="link">show details</div>
+				</div>
+				<div className='bg' style={{backgroundImage: `url(${item.img})`}}>{null}</div>
 			</div>
 		)
 	})

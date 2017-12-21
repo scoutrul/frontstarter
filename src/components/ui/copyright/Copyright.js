@@ -7,7 +7,7 @@ export default () =>
 			&copy; A find good job project
 		</div>,
 		<div key='right' className='copyright right'>
-			;
+			dynamic next link;
 		</div>
 	]
 	
