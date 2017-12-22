@@ -4,12 +4,13 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
-import Home from 'components/routes/home/HomePage'
-import Info from 'components/routes/info/Info'
-import ToDo from 'components/routes/todo/ToDo'
-import Works from 'components/routes/works/Works'
-import Connect from 'components/routes/connect/Connect'
-import Blog from 'components/routes/blog/Blog'
+import Home from 'components/pages/home/HomePage'
+import Info from 'components/pages/info/Info'
+import ToDo from 'components/pages/todo/ToDo'
+import Works from 'components/pages/works/Works'
+import Contacts from 'components/pages/contacts/Contacts'
+import About from 'components/pages/about/About'
+import Blog from 'components/pages/blog/Blog'
 import PageChange from './hoc/PageChange'
 import Menu from './ui/Menu/Menu'
 import Copyright from './ui/copyright/Copyright'
@@ -26,7 +27,7 @@ class App extends Component {
 	calcFontSize = () => {
 		let maxWidth = 1200;
 		let minWidth = 200;
-		let screenWidth = document.getElementById('page').offsetWidth;
+		let screenWidth = document.getElementsByClassName('page')[0].offsetWidth;
 		let minFont = 8;
 		let maxFont = 26;
 		let containerW = (screenWidth > maxWidth) ? maxWidth : screenWidth;
@@ -50,11 +51,11 @@ class App extends Component {
 			'Info': Info,
 			'Todo': ToDo,
 			'Works': Works,
-			'Connect': Connect,
+			'Contacts': Contacts,
 			'Blog': Blog,
-			'/': Home
+			'/': Home,
+			'About': About
 		};
-		
 		
 		return (
 			<Switch>
@@ -76,9 +77,9 @@ class App extends Component {
 		};
 		return (
 			<HashRouter hashType='noslash'>
-				<div id='page' style={viewPortStyles} className={cn({ 'blurbg': this.props.Store.isMenuHover })}>
+				<div style={viewPortStyles} className={cn( 'page', { 'blurbg': this.props.Store.isMenuHover })}>
 					<Menu/>
-					<div id='content' className={cn({ 'blur': this.props.Store.isMenuHover })}>
+					<div className={cn( 'content', { 'blur': this.props.Store.isMenuHover })}>
 						
 						{this.appRouting()}
 					

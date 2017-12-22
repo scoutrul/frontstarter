@@ -5,7 +5,7 @@
   font-family: 'Exo', sans-serif;
 }
 
-#page {
+.page {
   display: flex;
   overflow: hidden;
   width: 100%;
@@ -14,10 +14,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  color: #FFF;
+  color: $textWhite;
   transition: .2s ease-out;
   outline: 1rem solid $specialBlack;
-  outline-offset: -1rem;
+  outline-offset: -.7rem;
   background: linear-gradient(135deg, #667eea, #667eea, #7331ca);
 
   @include respond-to(small) {
@@ -39,7 +39,7 @@
       transition: .4s cubic-bezier(0, 1, 1, 1);
     }
   }
-  #content {
+  .content {
     transition: .1s ease-in;
     display: flex;
     z-index: 1;
@@ -55,7 +55,7 @@
     align-items: flex-start;
 
     &.blur {
-      filter: blur(25px);
+      filter: blur(2rem);
       transition: .4s ease-out;
       transform: translateX(5rem);
       //opacity: .65;

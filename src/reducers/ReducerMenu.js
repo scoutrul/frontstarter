@@ -6,10 +6,11 @@ export const MenuHoverOff = createAction('menu is hover off');
 const initialState = {
 	isMenuHover: false,
 	items: [
-		{label: '/', url: '/'},
-		{label: 'Info', url: '/info'},
-		{label: 'Works', url: '/works'},
-		{label: 'Connect', url: '/connect'},
+		{label: '/', url: '/', description: ''},
+		{label: 'About', url: '/about', description: 'About me'},
+		{label: 'Info', url: '/info', description: 'this.Site'},
+		{label: 'Works', url: '/works', description: 'Portfolio works'},
+		{label: 'Contacts', url: '/contacts', description: 'Contacts'},
 	],
 	
 };

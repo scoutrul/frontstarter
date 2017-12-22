@@ -1,0 +1,26 @@
+.home {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  flex-direction: column;
+  color: $textBlack;
+
+  h1 {
+    font-size: 200%;
+    text-align: center;
+    line-height: 120% !important;
+    .high {
+      font-size: 206%;
+      color: $textWhite;
+      text-shadow: -0.3rem 0.3rem 0.5rem #6167d2;
+    }
+    .low {
+      color: #667dea;
+      user-select: text;
+      &::selection {
+        background: #FFF;
+      }
+    }
+  }
+
+}
