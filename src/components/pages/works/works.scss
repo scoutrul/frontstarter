@@ -8,7 +8,7 @@
     min-width: 220px;
     background-color: rgba(0, 0, 0, .1);
     transition: .3s ease;
-
+    overflow: hidden;
     .content {
       opacity: 0;
       position: relative;
@@ -17,6 +17,8 @@
       flex-flow: column wrap;
       justify-content: space-around;
       align-items: center;
+      padding: 1rem;
+
       label {
         font-size: 200%;
       }
@@ -32,8 +34,9 @@
       .link {
         color: $specialYellow;
         z-index: 20;
+        text-decoration: underline;
         &:hover {
-          text-decoration: underline;
+          text-decoration: none;
           cursor: pointer;
         }
       }
@@ -46,7 +49,7 @@
       }
       .bg {
         opacity: 0;
-        background-size: 120%;
+        transform: scale(1.2);
       }
     }
 
