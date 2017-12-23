@@ -31,12 +31,14 @@ function IterateItems() {
 	return items.map((item, i) => {
 		return (
 			<div className='item' key={i}>
-				<div className="content">
+				<div className='content'>
 					<label>{item.label}</label>
-					<div className='info'>{item.inner}</div>
-					<div className="link">show details</div>
+					<div className='info'>
+						<div>{item.inner}</div>
+					</div>
+					<div className='link'>show details</div>
 				</div>
-				<div className='bg' style={{backgroundImage: `url(${item.img})`}}>{null}</div>
+				<div className='bg' style={{ backgroundImage: `url(${item.img})` }}>{null}</div>
 			</div>
 		)
 	})
