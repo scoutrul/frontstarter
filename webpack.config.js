@@ -3,14 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const SETTINGS = require('./settings');
 
 const production = process.env.NODE_ENV === 'production';
 
 
-const path = require('path'),
-	dist = 'public',
-	workboxPlugin = require('workbox-webpack-plugin');
+const path = require('path');
+const dist = 'public';
 
 const stylesLoaders = [
 	{
@@ -54,7 +54,9 @@ const loaders = [
 ];
 
 const pluginsBase = [
-	new HtmlWebpackPlugin({ template: 'template.ejs' }),
+	new HtmlWebpackPlugin({
+		template: 'template.ejs',
+	}),
 	
 	new webpack.DefinePlugin({
 		'process.env': {
@@ -88,20 +90,16 @@ const productionPlugins = [
 			unsafe: true,
 		},
 	}),
-	
-	new workboxPlugin({
-		globDirectory: dist,
-		globPatterns: ['**/*.{html,js}'],
-		swDest: path.join(dist, 'sw.js'),
-		clientsClaim: true,
-		skipWaiting: true,
-		// runtimeCaching: [
-		// 	{
-		// 		urlPattern: new RegExp('https://hacker-news.firebaseio.com'),
-		// 		handler: 'staleWhileRevalidate'
-		// 	}
-		// ]
+
+	new webpack.optimize.CommonsChunkPlugin({
+		children: true,
+		async: true,
+		minChunks: 2
 	}),
+	new ScriptExtHtmlWebpackPlugin({
+		defaultAttribute: 'defer'
+	}),
+	new webpack.optimize.ModuleConcatenationPlugin()
 ];
 
 module.exports = {

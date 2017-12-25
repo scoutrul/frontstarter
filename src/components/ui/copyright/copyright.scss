@@ -26,11 +26,9 @@
 
     a {
       color: $specialYellow;
-      transform: translateX(1rem);
       &.active {
-      transition: .3s ease;
+        transition: .3s ease;
 
-        transform: translateX(0rem);
 
       }
     }

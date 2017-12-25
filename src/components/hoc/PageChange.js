@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './PageChange.scss'
+import { Motion, spring } from 'react-motion';
 
 const PageChange = Wrapped => {
 	return class extends Component {
@@ -15,15 +15,23 @@ const PageChange = Wrapped => {
 		
 		render() {
 			return (
-				<ReactCSSTransitionGroup
-					transitionAppear={true}
-					transitionAppearTimeout={200}
-					transitionEnterTimeout={200}
-					transitionLeaveTimeout={200}
-					transitionName={'SlideIn'}
-				>
-					<Wrapped {...this.props} />
-				</ReactCSSTransitionGroup>
+				<Motion
+					defaultStyle={{
+						opacity: 0.01,
+						filter: 5
+
+					}}
+					style={{
+						opacity: spring(1),
+						filter: spring(0, {stiffness: 270, damping: 40})
+					}}
+					>
+					{style => (
+						<div style={{filter:`blur(${style.filter}px)`, opacity: style.opacity}} className='motion'>
+							<Wrapped {...this.props} />
+						</div>
+					)}
+				</Motion>
 			)
 		}
 	}

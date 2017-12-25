@@ -22,7 +22,8 @@ const Copyright = props => {
 		};
 		
 		return (
-			<NavLink className="active" to={NextRoute().url}>{NextRoute().description}</NavLink>
+			<NavLink activeClassName="active" to={NextRoute().url}
+			>{NextRoute().description}</NavLink>
 		)
 	};
 	

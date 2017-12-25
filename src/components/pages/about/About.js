@@ -113,7 +113,7 @@ const AllTech = () => {
 		<ul>
 			{items.map(item => {
 				return (
-					<li><img src={item.url} alt={item.label}/></li>
+					<li key={item.label}><img src={item.url} alt={item.label}/></li>
 				)
 			})}
 		</ul>
