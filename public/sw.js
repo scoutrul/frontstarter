@@ -1,5 +1,5 @@
 
-importScripts('/node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.1.2.js');
+importScripts('workbox-sw.prod.js');
 
 // Note: Ignore the error that Glitch raises about WorkboxSW being undefined.
 const workbox = new WorkboxSW({
@@ -9,7 +9,7 @@ const workbox = new WorkboxSW({
 
 
 workbox.router.registerRoute(
-	new RegExp('^https://frontstarter.ru/'),
+	new RegExp('^/'),
 	workbox.strategies.staleWhileRevalidate()
 );
 
@@ -25,15 +25,23 @@ self.addEventListener('push', (event) => {
 
 workbox.precache([
   {
-    "url": "https://frontstarter.ru/bundle.js",
-    "revision": "df733db68cb83d137fa9a0c09c98ef41"
+    "url": "bundle.js",
+    "revision": "b5f8761e12dc58258695579b24aab266"
   },
   {
-    "url": "https://frontstarter.ru/index.html",
-    "revision": "8b40c81dde10631553d8c085c6d92d8a"
+    "url": "index.html",
+    "revision": "d4fa3e04a2b2fa0f346d4da00cfdf40d"
+  },
+  {
+    "url": "main.css",
+    "revision": "51842f2f713507caedb432522e2caf3a"
   },
   {
     "url": "sw.js",
-    "revision": "a3f1a7845a76fada3e14b0532c1e4b50"
+    "revision": "4e34d67e85dffdd857c4085dbfa841b5"
+  },
+  {
+    "url": "workbox-sw.prod.js",
+    "revision": "685d1ceb6b9a9f94aacf71d6aeef8b51"
   }
 ]);

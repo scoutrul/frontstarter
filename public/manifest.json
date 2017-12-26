@@ -1,37 +1,37 @@
 {
   "icons": [
     {
-      "src": "https://frontstarter.ru/icon_512x512.cdc7dbb57a700557ad2e697149adb1d0.png",
+      "src": "./icon_512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "https://frontstarter.ru/icon_192x192.30542b842f3bba5a1ad1ac022b393c3e.png",
+      "src": "./icon_192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://frontstarter.ru/icon_152x152.aaec33680b5ab25c089e010e5bb02298.png",
+      "src": "./icon_152x152.png",
       "sizes": "152x152",
       "type": "image/png"
     },
     {
-      "src": "https://frontstarter.ru/icon_144x144.49fcfd79c5c6ed6c1553cd02da1fafae.png",
+      "src": "./icon_144x144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "https://frontstarter.ru/icon_128x128.e50cc29ff06b546b46afd1c7e42d1dc0.png",
+      "src": "./icon_128x128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "https://frontstarter.ru/icon_64x64.5157f66bea959f6b2fb4291cef32e568.png",
+      "src": "./icon_64x64.png",
       "sizes": "64x64",
       "type": "image/png"
     },
     {
-      "src": "https://frontstarter.ru/icon_48x48.e652d3facdf25a1ea76ef95c8babd784.png",
+      "src": "./icon_48x48.png",
       "sizes": "48x48",
       "type": "image/png"
     }

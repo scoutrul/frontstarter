@@ -7,12 +7,14 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SETTINGS = require('./settings');
 const workboxPlugin = require('workbox-webpack-plugin');
+
+
 const production = process.env.NODE_ENV === 'production';
 
 
 const path = require('path');
 const dist = 'public';
-const PUBLIC_PATH = production ? 'https://frontstarter.ru/' : '/';
+const PUBLIC_PATH = '.';
 
 const stylesLoaders = [
 	{
@@ -152,15 +154,16 @@ const productionPlugins = [
 				"type": "image/png"
 			}
 		],
-		
-		"orientation": "portrait"
+		"orientation": "portrait",
+		fingerprints: false
 	}),
 	new workboxPlugin({
 		globDirectory: dist,
-		globPatterns: ['**/*.{html,js, css}'],
+		globPatterns: ['**/*.{html,js,css}'],
 		swDest: path.join(dist, 'sw.js'),
 		swSrc: './src/sw.js'
-	})
+	}),
+
 ];
 
 module.exports = {

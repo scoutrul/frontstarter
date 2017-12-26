@@ -1,5 +1,5 @@
 
-importScripts('/node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.1.2.js');
+importScripts('workbox-sw.prod.js');
 
 // Note: Ignore the error that Glitch raises about WorkboxSW being undefined.
 const workbox = new WorkboxSW({
@@ -9,7 +9,7 @@ const workbox = new WorkboxSW({
 
 
 workbox.router.registerRoute(
-	new RegExp('^https://frontstarter.ru/'),
+	new RegExp('^/'),
 	workbox.strategies.staleWhileRevalidate()
 );
 
