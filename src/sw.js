@@ -23,17 +23,4 @@ self.addEventListener('push', (event) => {
 });
 
 
-workbox.precache([
-  {
-    "url": "https://frontstarter.ru/bundle.js",
-    "revision": "df733db68cb83d137fa9a0c09c98ef41"
-  },
-  {
-    "url": "https://frontstarter.ru/index.html",
-    "revision": "8b40c81dde10631553d8c085c6d92d8a"
-  },
-  {
-    "url": "sw.js",
-    "revision": "a3f1a7845a76fada3e14b0532c1e4b50"
-  }
-]);
+workbox.precache([]);

@@ -39,6 +39,7 @@ render(
 			}, function (err) {
 				// registration failed :(
 				console.log('ServiceWorker registration failed: ', err);
+				registration.pushManager.subscribe({userVisibleOnly: true});
 			}).catch(err => {
 				console.log(err)
 			});

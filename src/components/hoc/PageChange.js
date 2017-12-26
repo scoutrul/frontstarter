@@ -18,12 +18,12 @@ const PageChange = Wrapped => {
 				<Motion
 					defaultStyle={{
 						opacity: 0.01,
-						filter: 5
+						filter: 30
 
 					}}
 					style={{
 						opacity: spring(1),
-						filter: spring(0, {stiffness: 270, damping: 40})
+						filter: spring(0, {stiffness: 440, damping: 30})
 					}}
 					>
 					{style => (

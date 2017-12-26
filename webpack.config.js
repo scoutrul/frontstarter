@@ -4,13 +4,15 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SETTINGS = require('./settings');
-
+const workboxPlugin = require('workbox-webpack-plugin');
 const production = process.env.NODE_ENV === 'production';
 
 
 const path = require('path');
 const dist = 'public';
+const PUBLIC_PATH = production ? 'https://frontstarter.ru/' : '/';
 
 const stylesLoaders = [
 	{
@@ -56,6 +58,11 @@ const loaders = [
 const pluginsBase = [
 	new HtmlWebpackPlugin({
 		template: 'template.ejs',
+		inject: 'body',
+		minify: {
+			minifyCSS: true,
+			collapseWhitespace: true
+		}
 	}),
 	
 	new webpack.DefinePlugin({
@@ -90,7 +97,7 @@ const productionPlugins = [
 			unsafe: true,
 		},
 	}),
-
+	
 	new webpack.optimize.CommonsChunkPlugin({
 		children: true,
 		async: true,
@@ -99,7 +106,61 @@ const productionPlugins = [
 	new ScriptExtHtmlWebpackPlugin({
 		defaultAttribute: 'defer'
 	}),
-	new webpack.optimize.ModuleConcatenationPlugin()
+	new webpack.optimize.ModuleConcatenationPlugin(),
+	new WebpackPwaManifest({
+		"name": "Frontend developer from Moscow",
+		"short_name": "Frontstarter",
+		"start_url": ".",
+		"display": "standalone",
+		"background_color": "#1c1b1a",
+		"theme_color": "#1c1b1a",
+		"description": "Frontend developer from Moscow looking for good job. Here is my site example.",
+		"icons": [
+			{
+				"src": "icons/48.png",
+				"sizes": "48x48",
+				"type": "image/png"
+			},
+			{
+				"src": "icons/64.png",
+				"sizes": "64x64",
+				"type": "image/png"
+			},
+			{
+				"src": "icons/128.png",
+				"sizes": "128x128",
+				"type": "image/png"
+			},
+			{
+				"src": "icons/144.png",
+				"sizes": "144x144",
+				"type": "image/png"
+			},
+			{
+				"src": "icons/152.png",
+				"sizes": "152x152",
+				"type": "image/png"
+			},
+			{
+				"src": "icons/192.png",
+				"sizes": "192x192",
+				"type": "image/png"
+			},
+			{
+				"src": "icons/512.png",
+				"sizes": "512x512",
+				"type": "image/png"
+			}
+		],
+		
+		"orientation": "portrait"
+	}),
+	new workboxPlugin({
+		globDirectory: dist,
+		globPatterns: ['**/*.{html,js, css}'],
+		swDest: path.join(dist, 'sw.js'),
+		swSrc: './src/sw.js'
+	})
 ];
 
 module.exports = {
@@ -117,7 +178,7 @@ module.exports = {
 	output: {
 		path: SETTINGS.PUBLIC_PATH,
 		filename: 'bundle.js',
-		publicPath: './',
+		publicPath: PUBLIC_PATH,
 	},
 	
 	resolve: {

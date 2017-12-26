@@ -6,6 +6,7 @@ import { withRouter } from 'react-router'
 import cn from 'classnames'
 import './menu.scss'
 import * as ReducerMenu from '../../../reducers/ReducerMenu';
+import { Motion, spring } from 'react-motion';
 
 import Swipe from 'react-easy-swipe';
 
@@ -19,7 +20,7 @@ class Menu extends Component {
 	};
 	
 	
-	menuList = item =>
+	MenuList = item =>
 		<li onClick={this.menuHoverOff} key={item.label}>
 			<div>
 				<NavLink to={item.url} exact activeClassName='active'>{item.label}</NavLink>
@@ -28,11 +29,6 @@ class Menu extends Component {
 	
 	
 	render() {
-		// window.onkeydown = function (e) {
-		// 	if (e.keyCode === 27) {
-		// 		this.props.actions.MenuHoverOff()
-		// 	}
-		// };
 		return (
 			<div id='menu'
 			     className={cn({ 'active': this.props.Store.isMenuHover })}>
@@ -48,7 +44,7 @@ class Menu extends Component {
 				    onMouseLeave={this.menuHoverOff}
 				    className={cn({ 'active': this.props.Store.isMenuHover })}>
 					{
-						this.props.MenuItems.map(this.menuList)
+						this.props.MenuItems.map(this.MenuList)
 					}
 				</ul>
 				<Swipe onSwipeRight={this.menuHoverOn}
