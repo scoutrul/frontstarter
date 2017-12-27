@@ -25,7 +25,9 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "classnames": "^2.2.5",
     "clean-webpack-plugin": "^0.1.17",
+    "express": "^4.16.2",
     "firebase": "^4.7.0",
+    "firebase-functions": "^0.7.5",
     "gsap": "^1.20.2",
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
@@ -43,6 +45,7 @@
     "redux-act": "^1.5.0",
     "redux-thunk": "^2.2.0",
     "viewport-units-buggyfill": "^0.6.2",
+    "webpack-node-externals": "^1.6.0",
     "webpack-pwa-manifest": "^3.4.1",
     "workbox-sw": "^2.1.2",
     "workbox-webpack-plugin": "^2.1.2"

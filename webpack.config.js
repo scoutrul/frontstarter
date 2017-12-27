@@ -7,7 +7,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SETTINGS = require('./settings');
 const workboxPlugin = require('workbox-webpack-plugin');
-
+const nodeExternals = require('webpack-node-externals')
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -100,11 +100,6 @@ const productionPlugins = [
 		},
 	}),
 	
-	new webpack.optimize.CommonsChunkPlugin({
-		children: true,
-		async: true,
-		minChunks: 2
-	}),
 	new ScriptExtHtmlWebpackPlugin({
 		defaultAttribute: 'defer'
 	}),
@@ -155,40 +150,58 @@ const productionPlugins = [
 			}
 		],
 		"orientation": "portrait",
+		"gcm_sender_id": "213381411867",
 		fingerprints: false
 	}),
 	new workboxPlugin({
 		globDirectory: dist,
-		globPatterns: ['**/*.{html,js,css}'],
+		globPatterns: ['**/*.{html,js,css,json}'],
 		swDest: path.join(dist, 'sw.js'),
 		swSrc: './src/sw.js'
 	}),
 
 ];
 
-module.exports = {
-	devtool: production ? 'cheap-module-source-map' : 'eval',
-	
-	entry: production
-		? './src/index'
-		: [
-			'react-hot-loader/patch',
-			`webpack-dev-server/client?http://localhost:${SETTINGS.PORT}`,
-			'webpack/hot/only-dev-server',
-			'./src/index',
-		],
-	
-	output: {
-		path: SETTINGS.PUBLIC_PATH,
-		filename: 'bundle.js',
-		publicPath: PUBLIC_PATH,
+module.exports = [
+	{
+		devtool: production ? 'cheap-module-source-map' : 'eval',
+		
+		entry: production
+			? './src/client.js'
+			: [
+				'react-hot-loader/patch',
+				`webpack-dev-server/client?http://localhost:${SETTINGS.PORT}`,
+				'webpack/hot/only-dev-server',
+				'./src/client.js',
+			],
+		
+		output: {
+			path: SETTINGS.PUBLIC_PATH,
+			filename: 'bundle.js',
+			publicPath: PUBLIC_PATH,
+		},
+		
+		resolve: {
+			modules: [path.join(__dirname, 'src'), 'node_modules'],
+			extensions: ['.js', '.jsx', '.json'],
+		},
+		
+		module: { loaders },
+		plugins: production ? productionPlugins : developmentPlugins,
 	},
-	
-	resolve: {
-		modules: [path.join(__dirname, 'src'), 'node_modules'],
-		extensions: ['.js', '.jsx', '.json'],
-	},
-	
-	module: { loaders },
-	plugins: production ? productionPlugins : developmentPlugins,
-};
+	// {
+	// 	entry: './src/server.js',
+	//
+	// 	output: {
+	// 		path: SETTINGS.PUBLIC_PATH,
+	// 		filename: 'server.js',
+	// 		publicPath: PUBLIC_PATH,
+	// 	},
+	//
+	// 	module: { loaders },
+	// 	plugins: production ? productionPlugins : developmentPlugins,
+	// 	target: 'node',
+	//
+	// 	externals: [nodeExternals()],
+	// }
+];

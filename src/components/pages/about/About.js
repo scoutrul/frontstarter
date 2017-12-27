@@ -1,7 +1,7 @@
 import React from 'react'
 import './about.scss'
 
-let items = [
+let technology = [
 	{
 		label: 'bootstrap',
 		url: '/images/icons/bootstrap.png'
@@ -108,31 +108,46 @@ let items = [
 	},
 ];
 
-const AllTech = () => {
+const AllTech = (props) => {
 	return (
-		<ul>
-			{items.map(item => {
+		<ul className='icons'>
+			{props.items.map(item => {
 				return (
 					<li key={item.label}><img src={item.url} alt={item.label}/></li>
 				)
 			})}
 		</ul>
 	)
-}
+};
 
+const getItem = (tech, name) => {
+	let result = tech.filter(item => item.label === name);
+	console.log(result)
+	return <img src={result.url} alt={result.label}/>
+}
 export default () =>
 	<section>
 		<div className='contentView'>
 			
 			<h1>About me</h1>
-			<a href="https://frontstarter.ru">foto</a><br/>
-			
+			{/*<img src="./images/photo.jpg" alt=""/>*/}
+			<div>
+				<p>This letter is to express my interest in the job posted on your website for an experienced,
+					detailed-oriented, front-end web developer. As you'll see, I have six years of hands-on experience
+					efficiently coding websites and applications using modern HTML, CSS, and JavaScript.</p>
+				
+				<p>Building state-of-the-art, easy to use, user-friendly websites and applications is truly a passion of
+					mine and I am confident I would be an excellent addition to your organization. In addition to my
+					knowledge base, I actively seek out new technologies and stay up-to-date on industry trends and
+					advancements. This has allowed me to stay ahead of the curve and deliver exceptional work to all of
+					my employers, including those I've worked for on a project basis.</p>
+			</div>
 			<main className='infoList'>
 				<div>
 					<h3>Technology:</h3>
 					<ul>
-						<li>JavaScript </li>
-						<li>HTML</li>
+						<li><img src={technology[0].url} alt=""/></li>
+						<li>{getItem(technology, 'html')}</li>
 						<li>CSS</li>
 						<li>Design</li>
 					</ul>
@@ -152,13 +167,13 @@ export default () =>
 				<div>
 					<h3>Stack:</h3>
 					<ul>
-						<li>React</li>
-						<li>Redux</li>
+						<li>{getItem(technology, 'react')}</li>
+						<li>{getItem(technology, 'redux')}</li>
 					</ul>
 				</div>
 			
 			</main>
-			<AllTech/>
+			<AllTech items={technology}/>
 		</div>
 	</section>
 

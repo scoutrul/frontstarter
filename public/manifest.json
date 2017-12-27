@@ -43,5 +43,6 @@
   "start_url": ".",
   "background_color": "#1c1b1a",
   "theme_color": "#1c1b1a",
-  "description": "Frontend developer from Moscow looking for good job. Here is my site example."
+  "description": "Frontend developer from Moscow looking for good job. Here is my site example.",
+  "gcm_sender_id": "213381411867"
 }

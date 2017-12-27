@@ -9,3 +9,18 @@
     flex: 1;
   }
 }
+
+ul.icons {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  justify-content: space-between;
+  padding: 0;
+  li {
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+  }
+}

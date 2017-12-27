@@ -13,32 +13,30 @@ workbox.router.registerRoute(
 	workbox.strategies.staleWhileRevalidate()
 );
 
-
-self.addEventListener('push', (event) => {
-	const title = 'Get Started With Workbox';
-	const options = {
-		body: event.data.text()
-	};
-	event.waitUntil(self.registration.showNotification(title, options));
-});
-
-
 workbox.precache([
   {
     "url": "bundle.js",
-    "revision": "b5f8761e12dc58258695579b24aab266"
+    "revision": "5e3816adcc8cc8c99c3374ab3124dc23"
   },
   {
     "url": "index.html",
-    "revision": "d4fa3e04a2b2fa0f346d4da00cfdf40d"
+    "revision": "038fab8f9702579c8be241fff05c7bc6"
   },
   {
     "url": "main.css",
-    "revision": "51842f2f713507caedb432522e2caf3a"
+    "revision": "6758c3bd9671051facc7c49e1f218e61"
+  },
+  {
+    "url": "manifest.json",
+    "revision": "0e760fa26f3ae1851d234d34cb54e1ba"
+  },
+  {
+    "url": "server.js",
+    "revision": "8cc6f26deef244b4149fde12372a65df"
   },
   {
     "url": "sw.js",
-    "revision": "4e34d67e85dffdd857c4085dbfa841b5"
+    "revision": "8e043c97291e87cfe42695ca04a1845c"
   },
   {
     "url": "workbox-sw.prod.js",
