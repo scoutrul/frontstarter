@@ -99,7 +99,7 @@ export class Guitar extends React.Component {
 	render() {
 		let { P0, T4, Q1, Q2, O } = this.state.intervalSet;
 		
-		let [E, A, D, G, H, E2] = [P0, Q1, Q1 + Q2, Q1 + Q1 + Q2, Q1 + Q1 + Q1 + Q1, O + O];
+		let [E, A, D, G, H, E2] = [P0, Q1, Q1 + Q1, Q1 + Q1 + Q1, Q1 + Q1 + Q1 + T4, O + O];
 		
 		const Guitar = (note) => {
 			let guitarOctave = O * 4;
@@ -113,7 +113,7 @@ export class Guitar extends React.Component {
 		const currString = (note) => {
 			return this.state.Notes.slice(note.index, note.index + O * 1.5)
 				.map(item =>
-					<li key={`${++note.index}${item}`} >
+					<li key={`${++note.index}${item}`}>
 						{
 							this.state.showChord.includes(item) ?
 								<span className='active'>{item}</span> :
@@ -132,18 +132,19 @@ export class Guitar extends React.Component {
 					Type: {this.state.currType}<br/>
 					Chord: {this.state.showChord.toString()}
 				</h2>
-				{
-					[Guitar(E2), Guitar(H), Guitar(G), Guitar(D), Guitar(A), Guitar(E)]
-						.map((note, i) =>
-							<div key={i} className='StringRow'>
-								<ul className='StringRow_list'>
+
+				<div className='StringRow'>
+					{
+						[Guitar(E2), Guitar(H), Guitar(G), Guitar(D), Guitar(A), Guitar(E)]
+							.map((note, i) =>
+								<ul key={i} className='StringRow_list'>
 									{
 										currString(note)
 									}
 								</ul>
-							</div>
-						)
-				}
+							)
+					}
+				</div>
 				
 				{this.state.types.map((item, i) => {
 					return <button key={`${item.name}+1`}

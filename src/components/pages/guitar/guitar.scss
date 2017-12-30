@@ -3,30 +3,60 @@
   .StringRow {
     display: flex;
     flex: 1;
+    flex-direction: column;
     .StringRow_list {
       padding: 0;
+      margin: 0;
       display: flex;
       flex: 1;
+      &:first-child {
+        margin-top: 6rem;
+        @for $i from 0 through 18 {
+          li:nth-child(#{$i+1}):after {
+            content: '#{$i}';
+            position: absolute;
+            top: -5rem;
+            border-bottom: 1px solid #ccc;
+            width: 94%;
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+
       li {
         display: flex;
         flex: 1;
+        justify-content: center;
+        &:nth-of-type(2n) {
+          background: #1c1b1a;
+        }
         span {
+          width: 100%;
           padding: 5px;
-          min-width: 2rem;
-          min-height: 2rem;
+          min-width: 3rem;
+          min-height: 3rem;
           display: flex;
           justify-content: center;
           align-items: center;
           border: 1px solid #666;
           &.active {
-            color: red;
-            border: 1px solid #CCC;
-            border-radius: 50%;
+            //background-color: #5d6bab;
+            border: 1px solid $specialYellow;
+            //border-radius: 50%;
+            color: $specialYellow
           }
         }
-        &:first-child{
-          padding-left: 2rem;
-          border-left: 1rem solid #5d6bab;
+        &:first-child {
+          margin-right: 2rem;
+          padding-right: 2rem;
+          border-right: 1rem solid #5d6bab;
+        }
+        &:last-child {
+          flex: 0;
+        }
+        &.index {
+          border: 0
         }
       }
     }
