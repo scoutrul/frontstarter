@@ -122,7 +122,6 @@ const AllTech = (props) => {
 
 const getItem = (tech, name) => {
 	let result = tech.filter(item => item.label === name);
-	console.log(result)
 	return <img src={result.url} alt={result.label}/>
 }
 export default () =>

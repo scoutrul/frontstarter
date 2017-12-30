@@ -1,0 +1,35 @@
+.guitar {
+  width: 80vw;
+  .StringRow {
+    display: flex;
+    flex: 1;
+    .StringRow_list {
+      padding: 0;
+      display: flex;
+      flex: 1;
+      li {
+        display: flex;
+        flex: 1;
+        span {
+          padding: 5px;
+          min-width: 2rem;
+          min-height: 2rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid #666;
+          &.active {
+            color: red;
+            border: 1px solid #CCC;
+            border-radius: 50%;
+          }
+        }
+        &:first-child{
+          padding-left: 2rem;
+          border-left: 1rem solid #5d6bab;
+        }
+      }
+    }
+  }
+}
+

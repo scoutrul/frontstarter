@@ -4,13 +4,14 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
-import Home from 'components/pages/home/HomePage'
-import Info from 'components/pages/info/Info'
-import ToDo from 'components/pages/todo/ToDo'
-import Works from 'components/pages/works/Works'
-import Contacts from 'components/pages/contacts/Contacts'
-import About from 'components/pages/about/About'
-import Blog from 'components/pages/blog/Blog'
+import Home from './pages/home/HomePage'
+import Info from './pages/info/Info'
+import ToDo from './pages/todo/ToDo'
+import Works from './pages/works/Works'
+import Contacts from './pages/contacts/Contacts'
+import About from './pages/about/About'
+import Blog from './pages/blog/Blog'
+import {Guitar} from './pages/guitar/Guitar'
 import PageChange from './hoc/PageChange'
 import Menu from './ui/Menu/Menu'
 import Copyright from './ui/copyright/Copyright'
@@ -54,7 +55,8 @@ class App extends Component {
 			'Contacts': Contacts,
 			'Blog': Blog,
 			'/': Home,
-			'About': About
+			'About': About,
+			'Guitar': Guitar
 		};
 		
 		return (

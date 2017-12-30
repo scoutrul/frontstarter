@@ -11,6 +11,7 @@ const initialState = {
 		{label: 'Info', url: '/info', description: 'this.Site'},
 		{label: 'Works', url: '/works', description: 'Portfolio works'},
 		{label: 'Contacts', url: '/contacts', description: 'Contacts'},
+		{label: 'Guitar', url: '/guitar', description: 'Guitar Chords'},
 	],
 	
 };
