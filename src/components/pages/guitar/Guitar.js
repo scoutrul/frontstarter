@@ -132,7 +132,7 @@ export class Guitar extends React.Component {
 					Type: {this.state.currType}<br/>
 					Chord: {this.state.showChord.toString()}
 				</h2>
-
+				
 				<div className='StringRow'>
 					{
 						[Guitar(E2), Guitar(H), Guitar(G), Guitar(D), Guitar(A), Guitar(E)]
@@ -145,16 +145,16 @@ export class Guitar extends React.Component {
 							)
 					}
 				</div>
-				
-				{this.state.types.map((item, i) => {
-					return <button key={`${item.name}+1`}
-								   onClick={() => this.changeType(item.name)}>{item.name}</button>
-				})}
-				<hr/>
-				{this.state.mask.map((item, i) => {
-					return <button key={`${i}+1`} onClick={() => this.changeKey(item)}>{item}</button>
-				})}
-			
+				<div className='buttons'>
+					{this.state.types.map((item, i) => {
+						return <button key={`${item.name}+1`}
+									   onClick={() => this.changeType(item.name)}>{item.name}</button>
+					})}
+					<hr/>
+					{this.state.mask.map((item, i) => {
+						return <button key={`${i}+1`} onClick={() => this.changeKey(item)}>{item}</button>
+					})}
+				</div>
 			</div>
 		)
 	}
