@@ -17,10 +17,12 @@ ul.icons {
   justify-content: space-between;
   padding: 0;
   li {
-    padding: 2rem;
-    margin: 2rem;
+    display: flex;
+    padding: 1.8rem;
+    margin: 1rem;
     border-radius: 50%;
     background-color: white;
-    display: flex;
+    border: .5rem solid #e6dede;
+    box-shadow: inset -0.4rem 0.4rem 0.3rem rgba(28, 17, 53, 0.6);
   }
 }

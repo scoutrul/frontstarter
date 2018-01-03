@@ -31,7 +31,7 @@ render(
 // serviceWorker registration
 
 if ('serviceWorker' in navigator) {
-	
+
 	window.addEventListener('load', () => {
 		navigator.serviceWorker.register('sw.js').then(registration => {
 			console.log('ServiceWorker registration successful with scope: ', registration.scope);
@@ -56,12 +56,14 @@ if ('serviceWorker' in navigator) {
 			console.log(err)
 		});
 	})
-	
-	
 } else {
 	console.log('service worker is not supported');
 }
+history.scrollRestoration = 'manual';
+if ('scrollRestoration' in history) {
+	console.log('history.scrollRestoration = \'manual\'');
 
+}
 
 // Enable hot updates with react-hot-loader@3, this will be cut out in production
 if (module.hot) {

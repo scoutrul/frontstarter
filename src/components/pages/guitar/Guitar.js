@@ -112,12 +112,12 @@ export class Guitar extends React.Component {
 		
 		const currString = (note) => {
 			return this.state.Notes.slice(note.index, note.index + O * 1.5)
-				.map(item =>
-					<li key={`${++note.index}${item}`}>
+				.map(key =>
+					<li key={`${++note.index}${key}`} onClick={() => this.changeKey(key)}>
 						{
-							this.state.showChord.includes(item) ?
-								<span className='active'>{item}</span> :
-								<span>{item}</span>
+							this.state.showChord.includes(key) ?
+								<span className='active'>{key}</span> :
+								<span>{key}</span>
 							
 						}
 					</li>
@@ -127,11 +127,24 @@ export class Guitar extends React.Component {
 		return (
 			<div className='guitar'>
 				<h1>Guitar</h1>
-				<h2>
-					Key: {this.state.currKey} <br/>
-					Type: {this.state.currType}<br/>
-					Chord: {this.state.showChord.toString()}
-				</h2>
+				<div className="info">
+					<div className="key">{this.state.currKey} </div>
+					<div className="type">{this.state.currType}</div>
+					<div className='buttons'>
+						{this.state.types.map((type, i) => {
+							let bgcolor = type.name === this.state.currType ? '#CCC' : '#AAA';
+							return <button key={`${type.name}+1`}
+										   onClick={() => this.changeType(type.name)}
+										   style={{ backgroundColor: bgcolor }}>{type.name}</button>
+						})}
+						<hr/>
+						{this.state.mask.map((key, i) => {
+							let bgcolor = key === this.state.currKey ? '#CCC' : '#AAA';
+							return <button key={`${i}+1`} onClick={() => this.changeKey(key)}
+										   style={{ backgroundColor: bgcolor }}>{key}</button>
+						})}
+					</div>
+				</div>
 				
 				<div className='StringRow'>
 					{
@@ -144,16 +157,6 @@ export class Guitar extends React.Component {
 								</ul>
 							)
 					}
-				</div>
-				<div className='buttons'>
-					{this.state.types.map((item, i) => {
-						return <button key={`${item.name}+1`}
-									   onClick={() => this.changeType(item.name)}>{item.name}</button>
-					})}
-					<hr/>
-					{this.state.mask.map((item, i) => {
-						return <button key={`${i}+1`} onClick={() => this.changeKey(item)}>{item}</button>
-					})}
 				</div>
 			</div>
 		)
