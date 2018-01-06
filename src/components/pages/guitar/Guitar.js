@@ -10,7 +10,7 @@ type State = {
 	currKey: string,
 	currType: string,
 	intervals: array,
-	Notes: array,
+	AllNotes: array,
 	mask: array,
 	types: array,
 	Octaves: array,
@@ -23,7 +23,7 @@ export class Guitar extends React.Component<Props, State> {
 		currKey: 'C',
 		currType: 'Major',
 		intervals: [],
-		Notes: [],
+		AllNotes: [],
 		mask: [],
 		types: [],
 		Octaves: [],
@@ -31,37 +31,33 @@ export class Guitar extends React.Component<Props, State> {
 	
 	
 	componentDidMount() {
-		this.changeChord()
-	}
-	
-	componentWillMount() {
 		let mask = ['E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'H', 'C', 'C#', 'D', 'D#'];
 		let Octaves = [mask, mask, mask, mask, mask, mask, mask, mask, mask];
-		let Notes = [];
+		let AllNotes = [];
 		for (let item of Octaves) {
-			Notes = [...Notes, ...item]
+			AllNotes = [...AllNotes, ...item]
 		}
 		
 		let intervals = {
-			O: 12,
 			P0: 0,
+			S1: 1,
+			S2: 2,
+			T3: 3,
+			T4: 4,
 			Q1: 5,
 			Q2: 6,
 			QE1: 6,
 			QE2: 7,
-			S1: 1,
-			S2: 2,
-			SE1: 10,
-			SE2: 11,
 			SX1: 8,
 			SX2: 9,
-			T3: 3,
-			T4: 4
+			SE1: 10,
+			SE2: 11,
+			O: 12,
 		};
 		
 		this.setState({
 			intervals,
-			Notes,
+			AllNotes,
 			mask,
 			Octaves,
 			types: [
@@ -78,14 +74,14 @@ export class Guitar extends React.Component<Props, State> {
 					intervals: [intervals.P0, intervals.T4, intervals.QE2, intervals.SE1]
 				}],
 			
-		})
+		}, this.changeChord())
 	}
 	
 	changeChord = () => {
 		const [key, type] = [this.state.currKey, this.state.currType];
 		const doubleOctave = [...this.state.mask, ...this.state.mask];
 		
-		const findNotes = (key: string, type: array) => {
+		const findAllNotes = (key: string, type: array) => {
 			const result = () => {
 				let firstNoteIndex = Object.values(doubleOctave).indexOf(key);
 				let firstNote = doubleOctave[firstNoteIndex + type[0]];
@@ -100,7 +96,7 @@ export class Guitar extends React.Component<Props, State> {
 		
 		
 		this.state.types.forEach(item => {
-			(item.name === type) && findNotes(key, item.intervals)
+			(item.name === type) && findAllNotes(key, item.intervals)
 		})
 		
 	};
@@ -115,19 +111,21 @@ export class Guitar extends React.Component<Props, State> {
 	render() {
 		let { P0, T4, Q1, Q2, O } = this.state.intervals;
 		
-		let [E, A, D, G, H, E2] = [P0, Q1, Q1 + Q1, Q1 + Q1 + Q1, Q1 + Q1 + Q1 + T4, O + O];
+		let [String6, String5, String4, String3, String2, String1] = [P0, Q1, Q1 + Q1, Q1 + Q1 + Q1, Q1 + Q1 + Q1 + T4, O + O];
 		
-		const Guitar = (note) => {
+		const String = (note: number) => {
 			let guitarOctave = O * 4;
 			let index = note + guitarOctave;
 			return {
-				key: this.state.Notes[index],
+				key: this.state.AllNotes[index],
 				index
 			}
 		};
+		let guitarTuning = [String(String1), String(String2), String(String3), String(String4), String(String5), String(String6)];
 		
-		const CurrString = (note) => {
-			return this.state.Notes.slice(note.index, note.index + O * 1.5)
+		
+		const CurrString = (note: object) => {
+			return this.state.AllNotes.slice(note.index, note.index + O * 1.5)
 				.map(key =>
 					<li key={`${++note.index}${key}`} onClick={() => this.changeKey(key)}>
 						{
@@ -135,6 +133,27 @@ export class Guitar extends React.Component<Props, State> {
 								<span className='active'>{key}</span> :
 								<span>{key}</span>
 							
+						}
+					</li>
+				)
+		};
+		
+		const CurrFret = (note: object) => {
+			function iterateReduce(item,i){
+				let frets = {};
+				frets[i] = item;
+				return frets
+			}
+			
+			let frets = guitarTuning.map(iterateReduce);
+			console.log(frets)
+			return this.state.AllNotes.slice(note.index, note.index + 1.5)
+				.map(key =>
+					<li key={`${++note.index}${key}`} onClick={() => this.changeKey(key)}>
+						{
+							this.state.showChord.includes(key) ?
+								<span className='active'>{key}</span> :
+								<span>{key}</span>
 						}
 					</li>
 				)
@@ -148,40 +167,46 @@ export class Guitar extends React.Component<Props, State> {
 							   style={{ backgroundColor: bgcolor }}>{type.name}</button>
 			});
 		
-		const ButtonsyKeys = () =>
+		const ButtonsKeys = () =>
 			this.state.mask.map((key, i) => {
 				let bgcolor = key === this.state.currKey ? '#CCC' : '#AAA';
 				return <button key={`${i}+1`} onClick={() => this.changeKey(key)}
 							   style={{ backgroundColor: bgcolor }}>{key}</button>
 			});
 		
+		const RenderStrings = () =>
+			guitarTuning.map((note, i) =>
+					<ul key={i} className='StringRow_list'>
+						{
+							CurrString(note)
+						}
+					</ul>
+				);
 		
 		return (
-			<div className='guitar'>
-				<h1>Guitar</h1>
-				<div className="info">
-					<div className="key">{this.state.currKey} </div>
-					<div className="type">{this.state.currType}</div>
-					<div className='buttons'>
-						<ButtonsType/>
-						<hr/>
-						<ButtonsyKeys/>
+			<section>
+				<div className='contentView'>
+					<h1>Guitar</h1>
+					<div className='guitar'>
+						<div className="info">
+							<div className="keytype">
+								<div className="key">{this.state.currKey} </div>
+								<div className="type">{this.state.currType}</div>
+							</div>
+							<div className='buttons'>
+								<ButtonsType/>
+								<hr/>
+								<ButtonsKeys/>
+							</div>
+						</div>
+						<div className='StringRow'>
+							<RenderStrings/>
+						</div>
+					
 					</div>
-				</div>
 				
-				<div className='StringRow'>
-					{
-						[Guitar(E2), Guitar(H), Guitar(G), Guitar(D), Guitar(A), Guitar(E)]
-							.map((note, i) =>
-								<ul key={i} className='StringRow_list'>
-									{
-										CurrString(note)
-									}
-								</ul>
-							)
-					}
 				</div>
-			</div>
+			</section>
 		)
 	}
 }

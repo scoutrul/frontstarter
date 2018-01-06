@@ -16,11 +16,11 @@
   top: 0;
   left: 0;
   color: $textWhite;
-  transition: .2s ease-out;
+  transition: .4s ease-out;
   outline: 1rem solid $specialBlack;
   outline-offset: -.7rem;
-  background: linear-gradient(135deg, #667eea, #667eea, #7331ca);
-
+  background: #667eea;
+  background-image: linear-gradient(135deg, #667eea, #667eea, #7331ca);
   @include respond-to(small) {
     outline-width: .5rem;
     outline-offset: -.5rem;
@@ -28,11 +28,6 @@
 
   &.blurbg {
     background: $specialBlack;
-    background-image: linear-gradient(
-                    45deg,
-                    $specialBlack, $specialBlack
-    );
-    outline: 2rem solid $specialBlack;
 
     h1, h2, h3 {
       color: #667ce8;
@@ -41,7 +36,7 @@
     }
   }
   .content {
-    transition: .1s ease-in;
+    transition: .2s ease-in;
     display: flex;
     z-index: 1;
     width: 100%;

@@ -1,11 +1,11 @@
 
 .guitar {
-  width: 80vw;
+
   .info {
     display: flex;
     margin: 7rem 0 2rem;
     align-items: center;
-    height: 12rem;
+
     .key {
       font-size: 800%;
     }
@@ -127,6 +127,7 @@
           border: 2px solid #666;
           border-radius: 50%;
           opacity: .5;
+          transform: rotate(-90deg);
           &.active {
             border: 2px solid $specialYellow;
             color: $specialYellow;

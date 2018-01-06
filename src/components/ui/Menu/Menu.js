@@ -6,58 +6,79 @@ import { withRouter } from 'react-router'
 import cn from 'classnames'
 import './menu.scss'
 import * as ReducerMenu from '../../../reducers/ReducerMenu';
-import { Motion, spring } from 'react-motion';
+import { spring, TransitionMotion } from 'react-motion';
 
-import Swipe from 'react-easy-swipe';
 
 class Menu extends Component {
 	menuHoverOn = () => {
 		this.props.actions.MenuHoverOn();
 		!!window.navigator.vibrate && window.navigator.vibrate(100);
 	};
+	
+	
 	menuHoverOff = () => {
-		this.props.actions.MenuHoverOff()
+		this.props.Store.isMenuHover && this.props.actions.MenuHoverOff()
 	};
 	
-	
-	MenuList = item =>
-		<li onClick={this.menuHoverOff} key={item.label}>
-			<div>
-				<NavLink to={item.url} exact activeClassName='active'>{item.label}</NavLink>
-			</div>
-		</li>;
-	
-	
 	render() {
-		const DopEvents = () =>
-			<Swipe onSwipeRight={this.menuHoverOn}
-				   onSwipeLeft={this.menuHoverOff}>
-				<div id='menuHoverZoneHor' onMouseEnter={this.menuHoverOn}>
-					<div id='menuHoverZoneVert' onMouseEnter={this.menuHoverOn}>
-						{null}
-					</div>
+		
+		const MenuList = item =>
+			<li key={item.label}>
+				<div>
+					<NavLink to={item.url} exact activeClassName='active'
+							 onClick={this.menuHoverOff}>{item.label}</NavLink>
 				</div>
-			</Swipe>;
+			</li>;
+		const newMenu = item => {
 			
+			const willLeave = () => ({
+				borderWidth: 0
+			});
+			
+			return (
+				<TransitionMotion
+					defaultStyles={[
+						{ style: { borderWidth: 0 } },
+					]}
+					styles={[
+						{ style: { borderWidth: spring(10) }, data: item.label },
+					]}
+					willLeave={willLeave}>
+					
+					{(styles) => (
+						<li>
+							{styles.map(({ style, data }) => (
+								<div key={item.url} style={{
+									borderColor: 'black',
+									borderStyle: 'solid',
+									...style
+								}}>
+									<NavLink to={item.url} exact activeClassName='active'
+											 onClick={this.menuHoverOff}>{data}</NavLink>
+								</div>
+							))}
+						</li>
+					)}
+				</TransitionMotion>)
+		};
+		
 		return (
-			<div id='menu'
+			<div id='menu' onMouseLeave={this.menuHoverOff}
 				 className={cn({ 'active': this.props.Store.isMenuHover })}>
 				<div id='burger' onClick={this.menuHoverOn} onMouseEnter={this.menuHoverOn}
 					 className={cn({ 'hover': this.props.Store.isMenuHover })}>
 					<span>&#9776;</span>
 				</div>
-				<div className='close' onClick={this.menuHoverOff}>
+				{this.props.Store.isMenuHover && <div className='close' onClick={this.menuHoverOff}>
 					&#9029;
-				</div>
+				</div>}
 				<ul id='menuList'
-					onMouseEnter={this.menuHoverOn}
-					onMouseLeave={this.menuHoverOff}
+				
 					className={cn({ 'active': this.props.Store.isMenuHover })}>
 					{
-						this.props.MenuItems.map(this.MenuList)
+						this.props.MenuItems.map(MenuList)
 					}
 				</ul>
-				{/*<DopEvents/>*/}
 			</div>
 		
 		)

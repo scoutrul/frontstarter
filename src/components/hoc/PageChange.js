@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './PageChange.scss'
 import { Motion, spring } from 'react-motion';
 
-const PageChange = Wrapped => {
+const PageChange = (WrappedComponent) => {
 	return class extends Component {
 		constructor(props) {
 			super(props);
@@ -28,7 +28,7 @@ const PageChange = Wrapped => {
 					>
 					{style => (
 						<div style={{filter:`blur(${style.filter}px)`, opacity: style.opacity}} className='motion'>
-							<Wrapped {...this.props} />
+							<WrappedComponent {...this.props} />
 						</div>
 					)}
 				</Motion>
