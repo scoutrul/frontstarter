@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import './works.scss'
 
 
@@ -27,31 +29,36 @@ let items = [
 	}
 ];
 
-function IterateItems() {
-	return items.map((item, i) => {
-		return (
-			<div className='item' key={i}>
-				<div className='content'>
-					<label>{item.label}</label>
-					<div className='info'>
-						<div>{item.inner}</div>
-					</div>
-					<div className='link'>show details</div>
-				</div>
-				<div className='bg' style={{ backgroundImage: `url(${item.img})` }}>{null}</div>
-			</div>
-		)
-	})
+
+function mapStateToProps(state) {
+	return {
+		initialList: state.russian.pages.about.technology,
+	}
 }
 
+@withRouter
+@connect(mapStateToProps)
 export default class extends React.Component {
-	shouldComponentUpdate(nextProps, nextState) {
-		return false;
-	}
-	
+
 	render() {
+		const IterateItems = () => {
+			return items.map((item, i) => {
+				return (
+					<div className='item' key={i}>
+						<div className='content'>
+							<label>{item.label}</label>
+							<div className='info'>
+								<div>{item.inner}</div>
+							</div>
+							<div className='link'>show details</div>
+						</div>
+						<div className='bg' style={{ backgroundImage: `url(${item.img})` }}>{null}</div>
+					</div>
+				)
+			})
+		};
+		
 		return (
-			
 			<section>
 				<div className='contentView'>
 					<h1>
@@ -61,7 +68,6 @@ export default class extends React.Component {
 						<IterateItems/>
 					</div>
 				</div>
-			
 			</section>
 		
 		)
