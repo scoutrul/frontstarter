@@ -1,9 +1,88 @@
 import React from 'react'
 import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Switch, HashRouter,
+	Route, Link
+} from "react-router-dom";
 import { connect } from "react-redux";
 import './works.scss'
 
+
+function mapStateToProps(state) {
+	return {
+		initialList: state.russian.pages.about.technology,
+	}
+}
+
+
+@withRouter
+@connect(mapStateToProps)
+class Component extends React.Component {
+	
+	previousLocation = this.props.location;
+	
+	componentWillUpdate(nextProps) {
+		const { location } = this.props;
+		// set previousLocation if props.location is not modal
+		if (
+			nextProps.history.action !== 'POP' &&
+			(!location.state || !location.state.modal)
+		) {
+			this.previousLocation = this.props.location
+		}
+	}
+	
+	render() {
+		const { location } = this.props;
+		
+		const isModal = (
+			location.state &&
+			location.state.modal &&
+			this.previousLocation !== location
+		);
+		
+		const IterateItems = () => {
+			return (
+				<div className='contentView'>
+					<h1>
+						Works
+					</h1>
+					
+					<div id='worksGrid'>
+						{items.map((item, i) => {
+							return (
+								<div className='item' key={i}>
+									<div className='content'>
+										<label>{item.label}</label>
+										<div className='info'>
+											<div>{item.inner}</div>
+										</div>
+										<Link to={`${item.label}`} className='link'>show details</Link>
+									</div>
+									<div className='bg' style={{ backgroundImage: `url(${item.img})` }}>{null}</div>
+								</div>
+							)
+						})}
+					</div>
+				</div>)
+		};
+		
+		return (
+			<section>
+				<HashRouter hashType='noslash'>
+					<Switch location={isModal ? this.previousLocation : location}>
+						<Route exact patch='/' component={IterateItems}/>
+						
+						
+						<Route path='/#Blackur' component={Modal}/>
+					</Switch>
+				</HashRouter>
+			</section>
+		
+		)
+	}
+}
 
 let items = [
 	{
@@ -29,47 +108,36 @@ let items = [
 	}
 ];
 
-
-function mapStateToProps(state) {
-	return {
-		initialList: state.russian.pages.about.technology,
+const Modal = ({ match, history }) => {
+	const image = items[match.params.label]
+	console.log(match)
+	if (!image) {
+		return null
 	}
+	const back = (e) => {
+		e.stopPropagation()
+		history.goBack()
+	}
+	return (
+		<div onClick={back}>
+			back
+		</div>
+	)
+};
+
+const ImageView = ({ match }) => {
+	const image = items[parseInt(match.params.id, 10)]
+
+	
+	return (
+		<div>
+			<h1>{image.title}</h1>
+		</div>
+	)
 }
 
-@withRouter
-@connect(mapStateToProps)
-export default class extends React.Component {
-
-	render() {
-		const IterateItems = () => {
-			return items.map((item, i) => {
-				return (
-					<div className='item' key={i}>
-						<div className='content'>
-							<label>{item.label}</label>
-							<div className='info'>
-								<div>{item.inner}</div>
-							</div>
-							<div className='link'>show details</div>
-						</div>
-						<div className='bg' style={{ backgroundImage: `url(${item.img})` }}>{null}</div>
-					</div>
-				)
-			})
-		};
-		
-		return (
-			<section>
-				<div className='contentView'>
-					<h1>
-						Works
-					</h1>
-					<div id='worksGrid'>
-						<IterateItems/>
-					</div>
-				</div>
-			</section>
-		
-		)
-	}
-}
+export default () => (
+	<Router>
+		<Route component={Component}/>
+	</Router>
+)

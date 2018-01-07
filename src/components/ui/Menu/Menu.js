@@ -65,15 +65,14 @@ class Menu extends Component {
 		return (
 			<div id='menu' onMouseLeave={this.menuHoverOff}
 				 className={cn({ 'active': this.props.Store.isMenuHover })}>
-				<div id='burger' onClick={this.menuHoverOn} onMouseEnter={this.menuHoverOn}
+				<div id='burger' onClick={this.menuHoverOn}
 					 className={cn({ 'hover': this.props.Store.isMenuHover })}>
 					<span>&#9776;</span>
 				</div>
 				{this.props.Store.isMenuHover && <div className='close' onClick={this.menuHoverOff}>
 					&#9029;
 				</div>}
-				<ul id='menuList'
-				
+				<ul id='menuList' onClick={this.menuHoverOn}
 					className={cn({ 'active': this.props.Store.isMenuHover })}>
 					{
 						this.props.MenuItems.map(MenuList)

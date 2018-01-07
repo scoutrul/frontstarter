@@ -4,14 +4,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
-import Home from './pages/home/HomePage'
-import Info from './pages/info/Info'
-import ToDo from './pages/todo/ToDo'
-import Works from './pages/works/Works'
-import Contacts from './pages/contacts/Contacts'
-import About from './pages/about/About'
-import Blog from './pages/blog/Blog'
-import {Guitar} from './pages/guitar/Guitar'
+
 import PageChange from './hoc/PageChange'
 import Menu from './ui/Menu/Menu'
 import Copyright from './ui/copyright/Copyright'
@@ -48,22 +41,11 @@ class App extends Component {
 	};
 	
 	appRouting = () => {
-		let routes = {
-			'Info': Info,
-			'Todo': ToDo,
-			'Works': Works,
-			'Contacts': Contacts,
-			'Blog': Blog,
-			'/': Home,
-			'About': About,
-			'Guitar': Guitar
-		};
-		
 		return (
 			<Switch>
 				{
 					this.props.Store.items.map(item =>
-						<Route key={item.label} path={item.url} exact component={PageChange(routes[item.label])}/>
+						<Route key={item.label} path={item.url} exact component={PageChange(item.label)}/>
 					)
 				}
 			</Switch>
@@ -79,12 +61,10 @@ class App extends Component {
 		};
 		return (
 			<HashRouter hashType='noslash'>
-				<div style={viewPortStyles} className={cn( 'page', { 'blurbg': this.props.Store.isMenuHover })}>
+				<div style={viewPortStyles} className={cn('page', { 'blurbg': this.props.Store.isMenuHover })}>
 					<Menu/>
-					<div className={cn( 'content', { 'blur': this.props.Store.isMenuHover })}>
-						
+					<div className={cn('content', { 'blur': this.props.Store.isMenuHover })}>
 						{this.appRouting()}
-					
 					</div>
 					<Copyright/>
 				</div>

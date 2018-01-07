@@ -1,34 +1,47 @@
 import React, { Component } from 'react';
 import './PageChange.scss'
 import { Motion, spring } from 'react-motion';
+import Home from '../pages/home/HomePage'
+import Info from '../pages/info/Info'
+import ToDo from '../pages/todo/ToDo'
+import Works from '../pages/works/Works'
+import Contacts from '../pages/contacts/Contacts'
+import About from '../pages/about/About'
+import Blog from '../pages/blog/Blog'
+import { Guitar } from '../pages/guitar/Guitar'
 
-const PageChange = (WrappedComponent) => {
+const PageChange = (ComponentLabel) => {
+	const RouteComponent = () => {
+		let compos = {
+			'Info': <Info/>,
+			'Todo': <ToDo/>,
+			'Works': <Works/>,
+			'Contacts': <Contacts/>,
+			'Blog': <Blog/>,
+			'/': <Home/>,
+			'About': <About/>,
+			'Guitar': <Guitar/>
+		};
+
+		return compos[ComponentLabel]
+	};
 	return class extends Component {
-		constructor(props) {
-			super(props);
-		}
-		
-		shouldComponentUpdate() {
-			return false;
-			// not working
-		}
-		
 		render() {
 			return (
 				<Motion
 					defaultStyle={{
-						opacity: 0.01,
+						opacity: 0.001,
 						filter: 30
-
+						
 					}}
 					style={{
 						opacity: spring(1),
-						filter: spring(0, {stiffness: 440, damping: 30})
+						filter: spring(0, { stiffness: 440, damping: 30 })
 					}}
-					>
+				>
 					{style => (
-						<div style={{filter:`blur(${style.filter}px)`, opacity: style.opacity}} className='motion'>
-							<WrappedComponent {...this.props} />
+						<div style={{ filter: `blur(${style.filter}px)`, opacity: style.opacity }} className='motion'>
+							<RouteComponent />
 						</div>
 					)}
 				</Motion>
