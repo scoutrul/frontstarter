@@ -24,5 +24,14 @@ ul.icons {
     background-color: white;
     border: .5rem solid #e6dede;
     box-shadow: inset -0.4rem 0.4rem 0.3rem rgba(28, 17, 53, 0.6);
+    img {
+      max-width: 4rem;
+      max-height: 4rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &.up {
+    justify-content: space-around;
   }
 }
