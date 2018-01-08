@@ -97,6 +97,10 @@ const initialState = {
 					url: "/images/icons/responsive.png"
 				},
 				{
+					label: "pwa",
+					url: "https://waverleysoftware.com/wp-content/uploads/2016/12/PWA-logo.jpg"
+				},
+				{
 					label: "sass",
 					url: "/images/icons/sass.png"
 				},

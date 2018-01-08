@@ -12,7 +12,7 @@ import { Guitar } from '../pages/guitar/Guitar'
 
 const PageChange = (ComponentLabel) => {
 	const RouteComponent = () => {
-		let compos = {
+		let Routes = {
 			'Info': <Info/>,
 			'Todo': <ToDo/>,
 			'Works': <Works/>,
@@ -23,29 +23,30 @@ const PageChange = (ComponentLabel) => {
 			'Guitar': <Guitar/>
 		};
 
-		return compos[ComponentLabel]
+		return Routes[ComponentLabel]
 	};
 	return class extends Component {
 		render() {
-			return (
-				<Motion
-					defaultStyle={{
-						opacity: 0.001,
-						filter: 30
-						
-					}}
-					style={{
-						opacity: spring(1),
-						filter: spring(0, { stiffness: 440, damping: 30 })
-					}}
-				>
-					{style => (
-						<div style={{ filter: `blur(${style.filter}px)`, opacity: style.opacity }} className='motion'>
-							<RouteComponent />
-						</div>
-					)}
-				</Motion>
-			)
+			return <RouteComponent />
+			// return (
+			// 	<Motion
+			// 		defaultStyle={{
+			// 			opacity: 0.001,
+			// 			filter: 30
+			//
+			// 		}}
+			// 		style={{
+			// 			opacity: spring(1),
+			// 			filter: spring(0, { stiffness: 440, damping: 30 })
+			// 		}}
+			// 	>
+			// 		{style => (
+			// 			<div style={{ filter: `blur(${style.filter}px)`, opacity: style.opacity }} className='motion'>
+			// 				<RouteComponent />
+			// 			</div>
+			// 		)}
+			// 	</Motion>
+			// )
 		}
 	}
 };

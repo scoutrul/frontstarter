@@ -1,7 +1,7 @@
 import React from "react";
 import "./about.scss";
-import { withRouter} from "react-router";
-import { Link} from "react-router-dom";
+import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 
@@ -42,7 +42,7 @@ export default class extends React.Component {
 	}
 	
 	render() {
-		let { sortedList, stackMap, toolsMap} = this.state;
+		let { sortedList, stackMap, toolsMap } = this.state;
 		
 		const ItemsRender = (array) =>
 			<ul className='icons'>
@@ -60,7 +60,6 @@ export default class extends React.Component {
 				<div className="contentView about">
 					<div className="fotostatus">
 						<div className="photo">
-							<img src="./images/photo.jpg"/>
 							<p className='slogan'>
 								"Построение легких, удобных, реактивных интерфейсов<br/>
 								— это та работа,
@@ -70,9 +69,7 @@ export default class extends React.Component {
 						</div>
 						<div className="info">
 							<h1>Головачев Антон Александрович</h1>
-							<h2 className='status'>Статус: <span>доступен для найма</span></h2>
 							{ItemsRender(stackMap)}
-							
 							
 							<h2>Персона</h2>
 							<ul>
@@ -80,6 +77,7 @@ export default class extends React.Component {
 								<li>сериалы, гитара, велосипед, покер, старкрафт</li>
 								<li>карьера, отношения, путешествия</li>
 							</ul>
+							<h2 className='status'>Статус: <span>доступен для найма</span></h2>
 						
 						</div>
 					</div>
@@ -91,7 +89,8 @@ export default class extends React.Component {
 							Так же более 10 лет занимаюсь веб-маркетингом
 							(разработка, дизайн и продвижение сайтов, построение рекламных сетей, ведение проектов).
 							Владею всеми необходимыми навыками для создания
-							современного веб-приложения. В 2017—2018 году предпочитаю использовать стек ReactJS + Redux + ES6.<br/>
+							современного веб-приложения. В 2017—2018 году предпочитаю использовать стек ReactJS + Redux
+							+ ES6.<br/>
 							В поиске работы в творческом коллективе для совместной реализации крутых проектов!<br/>
 							<Link to="/contacts">Пригласить</Link>
 						</p>
@@ -108,10 +107,10 @@ export default class extends React.Component {
 							<h3>Опционально:</h3>
 							{ItemsRender(sortedList)}
 						</div>
-
+					
 					</main>
 				</div>
 			</section>
-		)
+	)
 	}
-}
+	}
