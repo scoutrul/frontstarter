@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter} from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
 
-import PageChange from './hoc/PageChange'
+import PageChanger from './hoc/PageChanger'
 import Menu from './ui/Menu/Menu'
 import Copyright from './ui/copyright/Copyright'
 import './app.scss'
@@ -40,18 +40,6 @@ class App extends Component {
 		
 	};
 	
-	appRouting = () => {
-		return (
-			<Switch>
-				{
-					this.props.Store.items.map(item =>
-						<Route key={item.label} path={item.url} exact component={PageChange(item.label)}/>
-					)
-				}
-			</Switch>
-		)
-	};
-	
 	
 	render() {
 		
@@ -64,7 +52,7 @@ class App extends Component {
 				<div style={viewPortStyles} className={cn('page', { 'blurbg': this.props.Store.isMenuHover })}>
 					<Menu/>
 					<div className={cn('content', { 'blur': this.props.Store.isMenuHover })}>
-						{this.appRouting()}
+						<PageChanger/>
 					</div>
 					<Copyright/>
 				</div>

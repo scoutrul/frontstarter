@@ -41,6 +41,7 @@ class Component extends React.Component {
 			location.state.modal &&
 			this.previousLocation !== location
 		);
+		console.log(location)
 		
 		const IterateItems = () => {
 			return (
@@ -70,14 +71,14 @@ class Component extends React.Component {
 		
 		return (
 			<section>
-				<HashRouter hashType='noslash'>
-					<Switch location={isModal ? this.previousLocation : location}>
-						<Route exact patch='/' component={IterateItems}/>
-						
-						
-						<Route path='/#Blackur' component={Modal}/>
-					</Switch>
-				</HashRouter>
+				
+				<Switch location={isModal ? this.previousLocation : location}>
+					<Route exact path='/works' component={IterateItems}/>
+					
+					
+					<Route path='/works/:id' component={Modal}/>
+				</Switch>
+			
 			</section>
 		
 		)
@@ -114,11 +115,7 @@ let items = [
 ];
 
 const Modal = ({ match, history }) => {
-	const image = items[match.params.label]
-	console.log(match)
-	if (!image) {
-		return null
-	}
+
 	const back = (e) => {
 		e.stopPropagation()
 		history.goBack()
@@ -142,7 +139,7 @@ const ImageView = ({ match }) => {
 }
 
 export default () => (
-	<Router>
+	<HashRouter hashType='noslash'>
 		<Route component={Component}/>
-	</Router>
+	</HashRouter>
 )
