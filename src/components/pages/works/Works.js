@@ -110,7 +110,7 @@ let items = [
 	{
 		label: 'Guitar',
 		inner: 'Chord Book Interface',
-		img: '/images/w_guardsman.png'
+		img: 'http://www.fmicassets.com/Damroot/Zoom/10001/2705601537_gtr_frtangleleft_001_rr.png'
 	}
 ];
 
