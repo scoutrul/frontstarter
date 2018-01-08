@@ -105,6 +105,11 @@ let items = [
 		label: 'Guardsman',
 		inner: 'Single Page Application',
 		img: '/images/w_guardsman.png'
+	},
+	{
+		label: 'Guitar',
+		inner: 'Chord Book Interface',
+		img: '/images/w_guardsman.png'
 	}
 ];
 
@@ -127,7 +132,7 @@ const Modal = ({ match, history }) => {
 
 const ImageView = ({ match }) => {
 	const image = items[parseInt(match.params.id, 10)]
-
+	
 	
 	return (
 		<div>

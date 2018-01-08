@@ -4,7 +4,7 @@
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    min-height: 220px;
+    min-height: 320px;
     min-width: 220px;
     background: linear-gradient(135deg, rgba(28, 27, 27, 0.1), rgba(39, 47, 80, 0.1), rgba(115, 49, 202, .1));
     transition: .3s ease;
@@ -55,10 +55,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      background-image: url("https://fthmb.tqn.com/ch8UN_4axgisolBU1tzo_2UUrLs=/3466x2599/filters:fill(auto,1)/GettyImages-459759125-584b87dc3df78c491ed25012.jpg");
+      background: url("https://fthmb.tqn.com/ch8UN_4axgisolBU1tzo_2UUrLs=/3466x2599/filters:fill(auto,1)/GettyImages-459759125-584b87dc3df78c491ed25012.jpg") center no-repeat;
       background-size: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
       margin: auto;
       position: absolute;
       top: 0;
@@ -161,6 +159,10 @@
         &:nth-child(4) {
           grid-column: 2;
           grid-row: 2;
+        }
+        &:nth-child(5) {
+          grid-row: 3;
+          grid-column: span 3;
         }
       }
     }

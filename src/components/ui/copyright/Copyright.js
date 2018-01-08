@@ -5,26 +5,30 @@ import './copyright.scss'
 import { connect } from "react-redux";
 
 const Copyright = props => {
-	const NextLink = () => {
-		const NextRoute = () => {
-			const menu = props.MenuItems;
-			const { pathname } = props.location;
-			
-			const filterPatch = (item, index) => {
+	let [{pathname}, {MenuItems}] = [props.location, props];
+
+	const FastLink = (props) => {
+
+		let { dir } = props;
+		
+		const FastRouter = () => {
+			const filterPath = (item, index) => {
 				if (item.url === pathname) {
 					return index
 				}
 			};
-			let currentRouteIndex = menu.map(filterPatch).filter(item => item !== undefined);
-			let Next = currentRouteIndex[0] + 1;
+			let currentRouteIndex = MenuItems.map(filterPath).filter(item => item !== undefined)[0];
+			let Next = currentRouteIndex + 1;
+			let Prev = currentRouteIndex - 1;
 			
-			return (menu[Next] ? menu[Next] : menu[0])
+			if (dir === 'left') {
+				return (MenuItems[Prev] ? MenuItems[Prev] : MenuItems[MenuItems.length-1])
+			}
+			return (MenuItems[Next] ? MenuItems[Next] : MenuItems[0])
 		};
 		
-		return (
-			<NavLink activeClassName="active" to={NextRoute().url}
-			>{NextRoute().description}</NavLink>
-		)
+		return <NavLink activeClassName="active" to={FastRouter().url}>{FastRouter().description}</NavLink>
+		
 	};
 	
 	return (
@@ -33,7 +37,9 @@ const Copyright = props => {
 				&copy; A find good job project
 			</div>,
 			<div key='right' className='copyright right'>
-				<NextLink/>
+				<FastLink dir='left'/>
+
+				<FastLink dir='right'/>
 			</div>
 		])
 };
