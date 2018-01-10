@@ -45,10 +45,10 @@
     opacity: 0;
     position: fixed;
     top: 4rem;
-    right: 4rem;
+    right: 6rem;
     margin-right: .5rem;
     z-index: 22;
-    transition: .3s ease-out;
+    transition: 0s;
     @include respond-to(small) {
       right: 2rem;
       top: 2rem;
@@ -60,6 +60,8 @@
       opacity: 1;
       margin-right: 0;
       cursor: pointer;
+      right: 4rem;
+      transition: .4s ease-out .1s;
     }
     #burger {
       z-index: 0;
@@ -73,13 +75,9 @@
     padding: 0;
     margin: 0;
     z-index: 20;
-    //opacity: 0;
     justify-content: center;
     cursor: pointer;
 
-    @include respond-to(large) {
-      min-width: 10vw;
-    }
     &.active {
       opacity: 1;
       z-index: 21;
@@ -126,16 +124,16 @@
           font-weight: 700;
           color: #FFF;
           text-decoration: none;
+          text-shadow: 0 0 1px #b9b9b9;
+          transition: .3s ease;
           &:hover {
-            color: $specialYellow;
-            text-shadow: initial;
-            transition: .1s ease;
+            color: $specialLightGrey;
           }
           &.active {
             cursor: default;
-            color: $specialLightGrey;
+            color: $specialYellow;
             padding-right: 3rem;
-            text-shadow: initial;
+
           }
         }
       }

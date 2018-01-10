@@ -47,13 +47,13 @@ export default class extends Component {
 		return (
 			<div id='menu' onMouseLeave={this.menuOff}
 				 className={cn({ 'active': this.props.Store.isMenuHover })}>
-				<div id='burger' onClick={this.menuOn}
+				<div id='burger' onClick={this.menuOn} onMouseOver={this.menuOn}
 					 className={cn({ 'hover': this.props.Store.isMenuHover })}>
 					<span>&#9776;</span>
 				</div>
-				{this.props.Store.isMenuHover && <div className='close' onClick={this.menuOff}>
+				<div className='close' onClick={this.menuOff}>
 					&#9029;
-				</div>}
+				</div>
 				<ul id='menuList' onClick={this.menuOn}
 					className={cn({ 'active': this.props.Store.isMenuHover })}>
 					{

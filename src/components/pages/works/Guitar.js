@@ -16,7 +16,7 @@ type State = {
 	Octaves: array,
 };
 
-export class Guitar extends React.Component<Props, State> {
+export default class extends React.Component<Props, State> {
 	
 	state = {
 		showChord: [],

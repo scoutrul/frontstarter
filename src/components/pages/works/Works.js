@@ -1,38 +1,17 @@
 import React from 'react'
 import { withRouter } from "react-router";
 import {
-	BrowserRouter as Router,
 	Switch, HashRouter,
 	Route, Link
 } from "react-router-dom";
-import { connect } from "react-redux";
+
 import './works.scss'
 
 
-function mapStateToProps(state) {
-	return {
-		initialList: state.russian.pages.about.technology,
-	}
-}
-
-
 @withRouter
-@connect(mapStateToProps)
 class Component extends React.Component {
 	
-	previousLocation = this.props.location;
-	
-	componentWillUpdate(nextProps) {
-		const { location } = this.props;
-		// set previousLocation if props.location is not modal
-		if (
-			nextProps.history.action !== 'POP' &&
-			(!location.state || !location.state.modal)
-		) {
-			this.previousLocation = this.props.location
-		}
-	}
-	
+
 	render() {
 		const { location } = this.props;
 		
@@ -41,25 +20,22 @@ class Component extends React.Component {
 			location.state.modal &&
 			this.previousLocation !== location
 		);
-		console.log(location)
 		
 		const IterateItems = () => {
 			return (
 				<div className='contentView'>
-					<h1>
-						Works
-					</h1>
+					<h1>Works</h1>
 					
 					<div id='worksGrid'>
-						{items.map((item, i) => {
+						{items.map(item => {
 							return (
-								<div className='item' key={i}>
+								<div className='item' key={item.label}>
 									<div className='content'>
 										<label>{item.label}</label>
 										<div className='info'>
 											<div>{item.inner}</div>
 										</div>
-										<Link to={`${item.label}`} className='link'>show details</Link>
+										<Link to={`/works/${item.label}`} className='link'>show details</Link>
 									</div>
 									<div className='bg' style={{ backgroundImage: `url(${item.img})` }}>{null}</div>
 								</div>
@@ -72,11 +48,9 @@ class Component extends React.Component {
 		return (
 			<section>
 				
-				<Switch location={isModal ? this.previousLocation : location}>
-					<Route exact path='/works' component={IterateItems}/>
-					
-					
-					<Route path='/works/:id' component={Modal}/>
+				<Switch >
+					<Route patch='/works' component={IterateItems}/>
+					<Route path='/works/:id' exact render={()=> <h1>h2 </h1>}/>
 				</Switch>
 			
 			</section>
@@ -87,7 +61,7 @@ class Component extends React.Component {
 
 let items = [
 	{
-		label: 'This site',
+		label: 'Frontstart',
 		inner: 'Info',
 		features: [],
 		img: '/images/w_frontstarter.png'
@@ -110,33 +84,9 @@ let items = [
 	{
 		label: 'Guitar',
 		inner: 'Chord Book Interface',
-		img: 'http://www.fmicassets.com/Damroot/Zoom/10001/2705601537_gtr_frtangleleft_001_rr.png'
+		img: '/images/w_guitar.png'
 	}
 ];
-
-const Modal = ({ match, history }) => {
-
-	const back = (e) => {
-		e.stopPropagation()
-		history.goBack()
-	}
-	return (
-		<div onClick={back}>
-			back
-		</div>
-	)
-};
-
-const ImageView = ({ match }) => {
-	const image = items[parseInt(match.params.id, 10)]
-	
-	
-	return (
-		<div>
-			<h1>{image.title}</h1>
-		</div>
-	)
-}
 
 export default () => (
 	<HashRouter hashType='noslash'>

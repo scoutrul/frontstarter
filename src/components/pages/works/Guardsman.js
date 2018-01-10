@@ -1,10 +1,10 @@
 import React from 'react'
 export default () =>
     <section>
-        <div className='contentView'>
+        <div className='contentView'>Naurasha.js
 
             <h1>This site info</h1>
-            <a href="https://frontstarter.ru">frontstarter.ru</a><br/>
+            <a href="http://Guardsman">Guardsman</a><br/>
             <a href="https://github.com/scoutrul/frontstart" target={'blank'}>GitHub</a>
 
 
@@ -58,4 +58,4 @@ export default () =>
     </section>
 
 
-import './info.scss'
+import './Frontstart.scss'

@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
 
-import PageChanger from './hoc/PageChanger'
+import Routes from './routes'
 import Menu from './ui/Menu/Menu'
 import Copyright from './ui/copyright/Copyright'
 import './app.scss'
@@ -52,7 +52,7 @@ class App extends Component {
 				<div style={viewPortStyles} className={cn('page', { 'blurbg': this.props.Store.isMenuHover })}>
 					<Menu/>
 					<div className={cn('content', { 'blur': this.props.Store.isMenuHover })}>
-						<PageChanger/>
+						<Routes/>
 					</div>
 					<Copyright/>
 				</div>

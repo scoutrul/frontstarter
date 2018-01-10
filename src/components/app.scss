@@ -20,7 +20,6 @@
   top: 0;
   left: 0;
   color: $textWhite;
-
   outline: 1rem solid $specialBlack;
   outline-offset: -.7rem;
   background: #667eea;
@@ -31,7 +30,6 @@
   }
 
   &.blurbg {
-
     h1, h2, h3 {
       color: #667ce8;
       text-shadow: 0.5rem 0.5rem 0.1rem #6e00ff;
@@ -77,7 +75,7 @@
         margin: auto;
         padding: 4rem;
         width: 100%;
-        max-width: 1280px;
+        max-width: $maxWidth;
         @include respond-to(small) {
           padding: 0 4rem;
         }
