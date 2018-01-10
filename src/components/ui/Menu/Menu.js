@@ -24,11 +24,11 @@ function mapDispatchToProps(dispatch) {
 @withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 export default class extends Component {
+	
 	menuOn = () => {
 		this.props.actions.MenuHoverOn();
 		!!window.navigator.vibrate && window.navigator.vibrate(100);
 	};
-	
 	
 	menuOff = () => {
 		this.props.Store.isMenuHover && this.props.actions.MenuHoverOff()
@@ -40,7 +40,7 @@ export default class extends Component {
 			<li key={item.label}>
 				<div>
 					<NavLink to={item.url} exact activeClassName='active'
-							 onClick={this.menuOff}>{item.label}</NavLink>
+							 onClick={this.menuOff} onMouseDown={this.menuOff}>{item.label}</NavLink>
 				</div>
 			</li>;
 			

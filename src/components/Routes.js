@@ -22,7 +22,6 @@ export default class extends Component {
 	
 	render() {
 		let RoutesPages = {
-			'Frontstart': <Frontstart/>,
 			'Todo': <ToDo/>,
 			'Works': <Works/>,
 			'Contacts': <Contacts/>,
@@ -30,6 +29,7 @@ export default class extends Component {
 			'About': <About/>,
 		};
 		let RoutesWorks = {
+			'Frontstart': <Frontstart/>,
 			'Guitar': <Guitar/>,
 			'Blackur': <Blackur/>,
 			'Guardsman': <Guardsman/>,

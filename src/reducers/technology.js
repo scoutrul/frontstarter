@@ -65,7 +65,7 @@ const initialState = [
 	},
 	{
 		label: "yarn",
-		url: "https://pbs.twimg.com/profile_images/778422085639032832/44mC-kJ3.jpg"
+		url: "/images/icons/yarn.png"
 	},
 	{
 		label: "photoshop",
@@ -93,7 +93,7 @@ const initialState = [
 	},
 	{
 		label: "pwa",
-		url: "https://waverleysoftware.com/wp-content/uploads/2016/12/PWA-logo.jpg"
+		url: "/images/icons/pwa.png"
 	},
 	{
 		label: "sass",
@@ -121,21 +121,20 @@ const initialState = [
 	},
 	{
 		label: "bem",
-		url: "https://cdn.worldvectorlogo.com/logos/bem.svg"
+		url: "/images/icons/bem.png"
 	},
 	{
 		label: "rest",
-		url: "https://digital.swisscom.com/sites/default/files/public/rest_icon.png"
+		url: "/images/icons/rest.png"
 	},
 	{
 		label: "ajax",
-		url: "https://upload.wikimedia.org/wikipedia/commons/d/df/Ajax10.jpg"
+		url: "/images/icons/ajax.png"
 	},
 	{
 		label: "English",
-		url: "https://saralouiseseale.files.wordpress.com/2013/05/english-language-logo.jpg"
+		url: "/images/icons/english.png"
 	}
-	
 	
 ]
 

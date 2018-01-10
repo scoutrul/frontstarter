@@ -1,4 +1,5 @@
 import React from 'react'
+import './contacts.scss'
 
 export default () =>
 	<section>
@@ -6,7 +7,7 @@ export default () =>
 			<h1>Connect me</h1>
 
 				It easy to find me via: <br/>
-				<ul>
+				<ul className='contacts'>
 					<li>Telegram: <a href="https://t.me/antonGolova" target="_blank">@antonGolova</a></li>
 					<li>Mail: <a href="mailto:antongolova@gmail.com">antongolova@gmail.com</a></li>
 					<li>Or just call me by phone number: +7(965)178-47-38;</li>

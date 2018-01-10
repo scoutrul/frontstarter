@@ -1,61 +1,56 @@
 import React from 'react'
 export default () =>
     <section>
-        <div className='contentView'>Naurasha.js
+        <div className='contentView'>
 
-            <h1>This site info</h1>
-            <a href="http://blackur.com">blackur.com</a><br/>
-            <a href="https://github.com/scoutrul/frontstart" target={'blank'}>GitHub</a>
+            <h1>Blackur</h1>
+            <a href="http://blackur.com" target={'blank'}>blackur.com</a><br/>
+	
+			<div className="screenShots">
+				<img src="/images/works/web_blackur.png" alt=""/>
+			</div>
+	
+			<div className="devInfo">
+				Помощь в разработке сайта для дружественного Digital-агентства.
+			</div>
+	
+			<main className='siteInfo'>
+		
+				<div className='block'>
+					<h3>Роль</h3>
+					<ul>
+						<li>Верстальщик</li>
+						<li>Программист</li>
+					</ul>
+				</div>
+		
+				<div className='block'>
+					<h3>Скелет:</h3>
+					<ul>
+						<li>HTML</li>
+						<li>CSS3</li>
+						<li>jQuery</li>
+					</ul>
+				</div>
+		
+				<div className='block'>
+					<h3>Верстка:</h3>
+					<ul>
+						<li>Adaptive</li>
+						<li>Responsive</li>
+						<li>Cross Browser</li>
+					</ul>
+				</div>
+		
+				<div className='block'>
+					<h3>Инструменты:</h3>
+					<ul>
+						<li>SublimeText IDE</li>
+						<li>GIT</li>
+					</ul>
+				</div>
 
-
-            <main className='infoList'>
-                <div>
-                    <h3>Environment:</h3>
-                    <ul>
-                        <li>ES6, Babel</li>
-                        <li>ReactJS v16</li>
-                        <li>Redux-act</li>
-                        <li>Router v4</li>
-                        <li>ES lint</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Viewing:</h3>
-                    <ul>
-                        <li>SinglePageApp</li>
-                        <li>Adaptive design</li>
-                        <li>Mobile ready</li>
-                        <li>Responsive text size</li>
-                        <li>CSSAnimation</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Tools:</h3>
-                    <ul>
-                        <li>WebStorm IDE</li>
-                        <li>NPM, Yarn, Terminal</li>
-                        <li>WebPack</li>
-                        <li>SCSS, AutoPrefixer</li>
-                        <li>Optimized deploying</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Hosting:</h3>
-                    <ul>
-                        <li>GIT</li>
-                        <li>.RU, SSL</li>
-                        <li>Google Firebase</li>
-                        <li>GitHub Pages</li>
-                        <li>Service Workers</li>
-                    </ul>
-                </div>
-
-
-            </main>
+			</main>
         </div>
     </section>
 
-
-import './Frontstart.scss'

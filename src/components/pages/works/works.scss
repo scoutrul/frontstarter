@@ -175,3 +175,28 @@
   }
 }
 
+.siteInfo {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 2rem;
+
+  .block {
+    min-width: 230px;
+    flex: 1;
+  }
+}
+
+.devInfo {
+  line-height: 150%;
+}
+.screenShots {
+  display: flex;
+  margin-bottom: 4rem;
+  img {
+    max-width: 900px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+  }
+}

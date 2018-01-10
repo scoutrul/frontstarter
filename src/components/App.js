@@ -11,6 +11,7 @@ import Copyright from './ui/copyright/Copyright'
 import './app.scss'
 
 
+
 class App extends Component {
 	
 	state = {
@@ -43,6 +44,16 @@ class App extends Component {
 	
 	render() {
 		
+		const TopBack = () => {
+			const backHandler = () => {
+				// history.goBack();
+				console.log('back')
+			};
+			return <div className='topBack'>
+				<div onClick={backHandler}>Назад</div>
+			</div>
+		};
+		
 		let viewPortStyles = {
 			height: this.state.vh,
 			fontSize: this.state.fontUnit
@@ -50,6 +61,7 @@ class App extends Component {
 		return (
 			<HashRouter hashType='noslash'>
 				<div style={viewPortStyles} className={cn('page', { 'blurbg': this.props.Store.isMenuHover })}>
+					<TopBack/>
 					<Menu/>
 					<div className={cn('content', { 'blur': this.props.Store.isMenuHover })}>
 						<Routes/>

@@ -10,6 +10,14 @@
   letter-spacing: 0.02rem;
 }
 
+.topBack {
+  color: #ffd600;
+  font-size: 50%;
+  position: absolute;
+  right: 4rem;
+  top: 4rem;
+}
+
 .page {
   display: flex;
   overflow: hidden;
@@ -65,8 +73,6 @@
       display: flex;
       justify-content: center;
 
-
-
       h1 {
         line-height: 100%;
         font-weight: 600;
@@ -104,5 +110,4 @@
     }
   }
 }
-
 
