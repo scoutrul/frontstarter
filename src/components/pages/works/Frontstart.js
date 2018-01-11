@@ -59,7 +59,7 @@ export default () =>
 					</ul>
 				</div>
 				
-				<div>
+				<div className='block'>
 					<h3>Размещение:</h3>
 					<ul>
 						<li>GIT</li>

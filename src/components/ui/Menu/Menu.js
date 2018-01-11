@@ -27,7 +27,7 @@ export default class extends Component {
 	
 	menuOn = () => {
 		this.props.actions.MenuHoverOn();
-		!!window.navigator.vibrate && window.navigator.vibrate(100);
+		("vibrate" in navigator) && window.navigator.vibrate(100);
 	};
 	
 	menuOff = () => {
@@ -38,9 +38,9 @@ export default class extends Component {
 		
 		const MenuList = item =>
 			<li key={item.label}>
-				<div>
+				<div onClick={this.menuOff}>
 					<NavLink to={item.url} exact activeClassName='active'
-							 onClick={this.menuOff} onMouseDown={this.menuOff}>{item.label}</NavLink>
+							 replace >{item.label}</NavLink>
 				</div>
 			</li>;
 			
@@ -54,7 +54,7 @@ export default class extends Component {
 				<div className='close' onClick={this.menuOff}>
 					&#9029;
 				</div>
-				<ul id='menuList' onClick={this.menuOn}
+				<ul id='menuList'
 					className={cn({ 'active': this.props.Store.isMenuHover })}>
 					{
 						this.props.MenuItems.map(MenuList)

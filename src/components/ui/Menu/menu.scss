@@ -86,7 +86,8 @@
       cursor: default;
       li {
         margin: 1rem 0;
-
+        padding-left: 4rem;
+        padding-right: 5vw;
         div {
           transform: translateY(0%);
           opacity: 1;
@@ -109,8 +110,7 @@
       //flex: 1;
       display: flex;
       align-items: center;
-      padding-left: 4rem;
-      padding-right: 5vw;
+
       @include respond-to(small) {
         padding-left: 2rem;
       }

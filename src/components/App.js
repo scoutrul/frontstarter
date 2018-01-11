@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { HashRouter} from 'react-router-dom'
+import { HashRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import { bindActionCreators } from 'redux'
 import * as ReducerMenu from '../reducers/ReducerMenu';
 import cn from 'classnames'
@@ -11,8 +12,22 @@ import Copyright from './ui/copyright/Copyright'
 import './app.scss'
 
 
+function mapStateToProps(state) {
+	return {
+		Store: state.ReducerMenu,
+		Menu: state.ReducerMenu.items,
+	}
+}
 
-class App extends Component {
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: bindActionCreators(ReducerMenu, dispatch)
+	}
+}
+
+@withRouter
+@connect(mapStateToProps, mapDispatchToProps)
+export default class extends Component {
 	
 	state = {
 		vh: Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
@@ -41,17 +56,11 @@ class App extends Component {
 		
 	};
 	
-	
 	render() {
-		
 		const TopBack = () => {
-			const backHandler = () => {
-				// history.goBack();
-				console.log('back')
-			};
-			return <div className='topBack'>
-				<div onClick={backHandler}>Назад</div>
-			</div>
+			return this.props.history.location.hash.indexOf('#works/') !== -1 &&
+				<div className='topBack' onClick={() => this.props.history.goBack()}>Назад
+				</div>
 		};
 		
 		let viewPortStyles = {
@@ -73,17 +82,3 @@ class App extends Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		Store: state.ReducerMenu,
-		Menu: state.ReducerMenu.items,
-	}
-}
-
-function mapDispatchToProps(dispatch) {
-	return {
-		actions: bindActionCreators(ReducerMenu, dispatch)
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
