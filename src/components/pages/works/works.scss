@@ -1,17 +1,13 @@
 #worksGrid {
-  @include respond-to(small) {
-    display: block;
-    @supports (display: flex) {
-      #worksGrid {
-        display: flex;
-        flex-flow: row wrap;
-        .item {
-          flex: 1 0 50%;
-          margin: 1rem;
-        }
-      }
+  @include respond-to(medium) {
+    display: flex;
+    flex-flow: row wrap;
+    .item {
+      flex: 1 0 40%;
+      margin: .5rem;
     }
   }
+
   .item {
     display: flex;
     justify-content: center;
@@ -23,7 +19,7 @@
     background: linear-gradient(135deg, rgba(28, 27, 27, 0.1), rgba(39, 47, 80, 0.1), rgba(115, 49, 202, .1));
     transition: .3s ease;
     overflow: hidden;
-    @include respond-to(middle) {
+    @include respond-to(medium) {
       cursor: pointer;
     }
 
@@ -111,6 +107,9 @@
   #worksGrid {
     display: grid;
     grid-gap: 1rem;
+    .item {
+      margin: 0
+    }
 
     @include respond-to(medium) {
       grid-template-columns: repeat(2, 1fr);
@@ -187,7 +186,7 @@
 .devInfo {
   line-height: 150%;
   @include respond-to(small) {
-   font-size: $mobileAlly
+    font-size: $mobileAlly
   }
 }
 
