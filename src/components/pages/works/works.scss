@@ -19,8 +19,9 @@
     background: linear-gradient(135deg, rgba(28, 27, 27, 0.1), rgba(39, 47, 80, 0.1), rgba(115, 49, 202, .1));
     transition: .3s ease;
     overflow: hidden;
-    @include respond-to(medium) {
-      cursor: pointer;
+    cursor: pointer;
+    @include respond-to(large) {
+      cursor: default;
     }
 
     .content {
