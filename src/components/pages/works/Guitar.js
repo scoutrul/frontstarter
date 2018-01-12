@@ -20,7 +20,7 @@ export default class extends React.Component<Props, State> {
 	
 	state = {
 		showChord: [],
-		currKey: 'C',
+		currKey: '',
 		currType: 'Major',
 		intervals: [],
 		AllNotes: [],
@@ -28,7 +28,6 @@ export default class extends React.Component<Props, State> {
 		types: [],
 		Octaves: [],
 	};
-	
 	
 	componentDidMount() {
 		let mask = ['E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'H', 'C', 'C#', 'D', 'D#'];
@@ -133,27 +132,6 @@ export default class extends React.Component<Props, State> {
 								<span className='active'>{key}</span> :
 								<span>{key}</span>
 							
-						}
-					</li>
-				)
-		};
-		
-		const CurrFret = (note: object) => {
-			function iterateReduce(item,i){
-				let frets = {};
-				frets[i] = item;
-				return frets
-			}
-			
-			let frets = guitarTuning.map(iterateReduce);
-			console.log(frets)
-			return this.state.AllNotes.slice(note.index, note.index + 1.5)
-				.map(key =>
-					<li key={`${++note.index}${key}`} onClick={() => this.changeKey(key)}>
-						{
-							this.state.showChord.includes(key) ?
-								<span className='active'>{key}</span> :
-								<span>{key}</span>
 						}
 					</li>
 				)
