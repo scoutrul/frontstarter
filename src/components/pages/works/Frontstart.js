@@ -2,7 +2,7 @@ import React from 'react'
 
 export default () =>
 	<section>
-		<div className='contentView'>
+		<div className='contentView mobileA11yText '>
 			
 			<h1>This site info</h1>
 			<a href="https://github.com/scoutrul/frontstart" target='blank'>GitHub Source</a>
@@ -15,7 +15,7 @@ export default () =>
 				Сайт типа "Single Page App".
 			</div>
 			
-			<main className='siteInfo'>
+			<main className='siteInfo '>
 				
 				<div className='block'>
 					<h3>Роль</h3>

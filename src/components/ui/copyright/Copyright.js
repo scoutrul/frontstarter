@@ -33,10 +33,10 @@ const Copyright = props => {
 	
 	return (
 		[
-			<div key='left' className='copyright left'>
-				&copy; A find good job project
+			<div key='left' className='copyright left mobileA11yText'>
+				&copy; FrontStarter2018
 			</div>,
-			<div key='right' className='copyright right'>
+			<div key='right' className='copyright right mobileA11yText'>
 				<FastLink dir='left'/>
 
 				<FastLink dir='right'/>

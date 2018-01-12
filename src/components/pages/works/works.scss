@@ -1,4 +1,17 @@
 #worksGrid {
+  @include respond-to(small) {
+    display: block;
+    @supports (display: flex) {
+      #worksGrid {
+        display: flex;
+        flex-flow: row wrap;
+        .item {
+          flex: 1 0 50%;
+          margin: 1rem;
+        }
+      }
+    }
+  }
   .item {
     display: flex;
     justify-content: center;
@@ -10,6 +23,10 @@
     background: linear-gradient(135deg, rgba(28, 27, 27, 0.1), rgba(39, 47, 80, 0.1), rgba(115, 49, 202, .1));
     transition: .3s ease;
     overflow: hidden;
+    @include respond-to(middle) {
+      cursor: pointer;
+    }
+
     .content {
       opacity: 0;
       position: relative;
@@ -21,7 +38,7 @@
       padding: 1rem;
       transform: scale(1.04);
       transition: .2s ease;
-
+      flex: 1 auto;
       label {
         font-size: 200%;
       }
@@ -69,14 +86,13 @@
 
     }
 
-
     &:hover {
       background-color: rgba(0, 0, 0, .7);
       .content {
         opacity: 1;
         transform: scale(1);
         transition-delay: .1s;
-        .info>div {
+        .info > div {
           transform: translateY(0rem);
           transition-delay: .2s;
         }
@@ -91,26 +107,11 @@
   }
 }
 
-@supports (display: flex) {
-  #worksGrid {
-    display: flex;
-    flex-flow: row wrap;
-    .item {
-      flex: 1 0 50%;
-
-    }
-  }
-}
-
 @supports (display: grid) {
   #worksGrid {
     display: grid;
     grid-gap: 1rem;
 
-    @include respond-to(small) {
-      display: block;
-
-    }
     @include respond-to(medium) {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(3, 20rem);
@@ -173,19 +174,29 @@
   flex-flow: row wrap;
   justify-content: center;
   margin-top: 2rem;
+  @include respond-to(small) {
+    font-size: $mobileAlly
+  }
 
   .block {
     min-width: 230px;
-    flex: 1;
+    flex: 1 1 auto;
   }
 }
 
 .devInfo {
   line-height: 150%;
+  @include respond-to(small) {
+   font-size: $mobileAlly
+  }
 }
+
 .screenShots {
   display: flex;
   margin-bottom: 4rem;
+  @include respond-to(small) {
+    margin-top: 1rem;
+  }
   img {
     max-width: 900px;
     width: 100%;

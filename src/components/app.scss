@@ -14,10 +14,15 @@
   color: #ffd600;
   font-size: 50%;
   position: absolute;
-  right: 4rem;
-  top: 4rem;
-  z-index: 20;
+  right: 2rem;
+  top: 2rem;
+  padding: 2rem;
+  z-index: 30;
   cursor: pointer;
+  @include respond-to(small) {
+    right: 0rem;
+    top: 0rem;
+  }
 }
 
 .page {
@@ -78,6 +83,7 @@
       h1 {
         line-height: 100%;
         font-weight: 600;
+        font-size: 200%;
       }
       .contentView {
         margin: auto;
@@ -85,7 +91,7 @@
         width: 100%;
         max-width: $maxWidth;
         @include respond-to(small) {
-          padding: 0 4rem;
+          padding: 0 2rem;
         }
       }
       main {
@@ -113,3 +119,8 @@
   }
 }
 
+.mobileA11yText {
+  @include respond-to(small) {
+    font-size: 130% !important;
+  }
+}

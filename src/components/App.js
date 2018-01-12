@@ -53,13 +53,12 @@ export default class extends Component {
 		window.addEventListener('resize', () => {
 			this.calcFontSize()
 		});
-		
 	};
 	
 	render() {
 		const TopBack = () => {
-			return this.props.history.location.hash.indexOf('#works/') !== -1 &&
-				<div className='topBack' onClick={() => this.props.history.goBack()}>Назад
+			return !this.props.Store.isMenuHover && this.props.history.location.hash.indexOf('#works/') !== -1 &&
+				<div className='topBack mobileA11yText ' onClick={() => this.props.history.goBack()}>Назад
 				</div>
 		};
 		
@@ -70,12 +69,12 @@ export default class extends Component {
 		return (
 			<HashRouter hashType='noslash'>
 				<div style={viewPortStyles} className={cn('page', { 'blurbg': this.props.Store.isMenuHover })}>
-					<TopBack/>
 					<Menu/>
 					<div className={cn('content', { 'blur': this.props.Store.isMenuHover })}>
+						<TopBack/>
 						<Routes/>
+						<Copyright/>
 					</div>
-					<Copyright/>
 				</div>
 			</HashRouter>
 		)

@@ -13,14 +13,7 @@ class Component extends React.Component {
 	
 
 	render() {
-		const { location } = this.props;
-		
-		const isModal = (
-			location.state &&
-			location.state.modal &&
-			this.previousLocation !== location
-		);
-		
+
 		const IterateItems = () => {
 			return (
 				<div className='contentView'>
@@ -29,7 +22,7 @@ class Component extends React.Component {
 					<div id='worksGrid'>
 						{items.map(item => {
 							return (
-								<div className='item' key={item.label}>
+								<div className='item mobileA11yText' key={item.label}>
 									<div className='content'>
 										<label>{item.label}</label>
 										<div className='info'>

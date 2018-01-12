@@ -10,10 +10,10 @@
       font-size: 800%;
     }
     .type {
-      flex: 1;
+      flex: 1 1 auto;
     }
     .notes {
-      flex: 1;
+      flex: 1 1 auto;
       align-self: center;
       display: flex;
       flex-direction: column;
@@ -24,13 +24,13 @@
   }
   .StringRow {
     display: flex;
-    flex: 1;
+    flex: 1 1 auto;
     flex-direction: column;
     .StringRow_list {
       padding: 0;
       margin: 0;
       display: flex;
-      flex: 1;
+      flex: 1 1 auto;
       &:first-child {
         margin-top: 6rem;
 
@@ -90,7 +90,7 @@
 
       li {
         display: flex;
-        flex: 1;
+        flex: 1 1 auto;
         justify-content: center;
         background-color: #8c9eee;
         font-size: 60%;

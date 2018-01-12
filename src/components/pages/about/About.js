@@ -1,8 +1,8 @@
-import React from "react";
-import "./about.scss";
-import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import React from 'react';
+import './about.scss';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 function mapStateToProps(state) {
@@ -57,11 +57,11 @@ export default class extends React.Component {
 		
 		return (
 			<section>
-				<div className="contentView about">
-					<div className="fotostatus">
-						<div className="photo">{}</div>
-						<div className="info">
-							<h1>Головачев Антон<br/>Александрович</h1>
+				<div className='contentView about mobileA11yText'>
+					<div className='fotostatus'>
+						<div className='photo' title='Герой-хакер сериала MR.ROBOT'>{}</div>
+						<div className='info'>
+							<h1>Головачев Антон Александрович</h1>
 							{ItemsRender(stackMap)}
 							
 							<h2>Персона</h2>
@@ -83,25 +83,27 @@ export default class extends React.Component {
 							построение рекламных сетей, ведение проектов.</p>
 						<p>
 							Владею необходимыми знаниями для создания
-							современного веб-приложения (прогрессивно, адаптивно, облачно, мобильно). В 2017—2018 году предпочитаю использовать стек ReactJS + Redux
+							современного веб-приложения (прогрессивно, адаптивно, облачно, мобильно). В 2017—2018 году
+							предпочитаю использовать стек ReactJS + Redux
 							+ ES6.</p>
 						<p>
 							Как фронтеэнд разработчик, я не только пишу код, но и активно интересуюсь и внедояю
-							актуальные тренды дизайна и юзабилити интерфейсов. Люблю верстать и анимировать. Знаю за типографику и модульные сетки.<br/>
+							актуальные тренды дизайна и юзабилити интерфейсов. Люблю верстать и анимировать. Знаю за
+							типографику и модульные сетки.<br/>
 							
 							В данный момент нахожусь в поиске творческого коллектива для совместной реализации
 							крутых проектов!<br/>
 						</p>
 						
 						<p className='slogan'>
-							"Построение легких, удобных, реактивных интерфейсов<br/>
+							'Построение легких, удобных, реактивных интерфейсов<br/>
 							— это та работа,
-							которая доставляет мне удовольствие."<br/>
+							которая доставляет мне удовольствие.'<br/>
 							&copy; Головачев Антон
 						</p>
-						<Link to="/contacts">Пригласить меня</Link>
+						<Link to='/contacts'>Пригласить меня</Link>
 					</div>
-					<main className="infoList">
+					<main className='infoList'>
 						
 						<div className='block'>
 							<h3>Инструменты:</h3>

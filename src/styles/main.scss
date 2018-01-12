@@ -14,14 +14,14 @@ html {
 
 *::-webkit-scrollbar {
   width: 5px;
-  background-color: #rgba (255, 255, 255, .2)
+  background-color: rgba(255, 255, 255, .2)
 }
 
 *::-webkit-scrollbar-thumb {
   background: #715ebd -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.5, rgb(117, 77, 167)), color-stop(0.5, #744fa9), to(transparent))
 }
 
-@media screen and (max-width: 1000px) and (orientation: landscape) {
+@media screen and (max-width: 500px) and (max-height: 1000px) and (orientation: landscape) {
   html {
     transform: rotate(-90deg);
     transform-origin: left top;
