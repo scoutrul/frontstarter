@@ -1,3 +1,6 @@
+console.log("%cFrontStarter.RU", "font: 2.2rem 'Exo 2', 'sans-serif'; color: #FFF; background-color: #667eea; text-decoration: underline #7335cc");
+
+
 import 'babel-polyfill';
 import 'styles';
 
@@ -59,12 +62,6 @@ if ('serviceWorker' in navigator) {
 } else {
 	console.log('service worker is not supported');
 }
-history.scrollRestoration = 'manual';
-if ('scrollRestoration' in history) {
-	console.log('history.scrollRestoration = \'manual\'');
-
-}
-
 // Enable hot updates with react-hot-loader@3, this will be cut out in production
 if (module.hot) {
 	module.hot.accept('./components/App', () => {

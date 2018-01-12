@@ -24,7 +24,7 @@ workbox.precache([
   },
   {
     "url": "main.css",
-    "revision": "9f1eaa2007b4d00f4035b9c8e5d216f5"
+    "revision": "744274d06b5a3eebd13efd00ec51deba"
   },
   {
     "url": "manifest.json",
@@ -36,7 +36,7 @@ workbox.precache([
   },
   {
     "url": "sw.js",
-    "revision": "711f4872e2837ca1a585b5edc1779849"
+    "revision": "f53d14e834ba676cb3d70c5d8ce0ae93"
   },
   {
     "url": "workbox-sw.prod.js",

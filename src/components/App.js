@@ -58,8 +58,8 @@ export default class extends Component {
 	render() {
 		const TopBack = () => {
 			return !this.props.Store.isMenuHover && this.props.history.location.hash.indexOf('#works/') !== -1 &&
-				<div className='topBack mobileA11yText ' onClick={() => this.props.history.goBack()}>Назад
-				</div>
+				<a className='topBack mobileA11yText ' onClick={() => this.props.history.goBack()}>Назад
+				</a>
 		};
 		
 		let viewPortStyles = {

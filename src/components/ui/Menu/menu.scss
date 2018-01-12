@@ -53,10 +53,12 @@
       right: 2rem;
       top: 2rem;
     }
+    visibility: hidden;
   }
   &.active {
     .close {
       display: block;
+      visibility: visible;
       opacity: 1;
       margin-right: 0;
       cursor: pointer;

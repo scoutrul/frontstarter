@@ -54,6 +54,7 @@ export default class extends Component {
 				<div className='close' onClick={this.menuOff}>
 					&#9029;
 				</div>
+
 				<ul id='menuList'
 					className={cn({ 'active': this.props.Store.isMenuHover })}>
 					{
