@@ -88,6 +88,9 @@
         margin: 1rem 0;
         padding-left: 4rem;
         padding-right: 5vw;
+        @include respond-to(small) {
+          padding-left: 2rem;
+        }
         div {
           transform: translateY(0%);
           opacity: 1;
@@ -109,10 +112,6 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-
-      @include respond-to(small) {
-        padding-left: 2rem;
-      }
 
       div {
         transition: .0s;
