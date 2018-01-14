@@ -159,10 +159,10 @@ export default class extends Component {
 							let active = seat.number === this.state.selectedNumber && 'green';
 							
 							return <li key={seat.number}
-										onClick={() => this.onSelect(seat.number)}
-										style={{ backgroundColor: active }}>
-										x
-									</li>
+									   onClick={() => this.onSelect(seat.number)}
+									   style={{ backgroundColor: active }}>
+								x
+							</li>
 						})
 					}
 				</ul>
@@ -176,30 +176,33 @@ export default class extends Component {
 					
 					<h1>Airplane seats </h1>
 					
-					<div className="container">
-						<div className="planeview">
-							<div className="seats">
+					<div className="plane_container">
+						<div className="plane_view">
+							<div className="plane_seats">
 								<RenderSeats/>
 							</div>
-							<div className="image">
+							<div className="plane_image">
 								<img
 									src="https://user-images.githubusercontent.com/35366061/34867937-1717d17c-f793-11e7-897f-ca1fd886b913.jpg"
 									alt=""/>
 							</div>
 						</div>
 						
-						<div className="goal">
-							<div>"Необходимо реализовать карту самолета с отображением свободных мест и возможностью
-								их
-								выбора
-								клику для карты самолета"
+						<div className="plane_goal">
+							<div className="goal_content">
+								
+								<div>"Необходимо реализовать карту самолета с отображением свободных мест и возможностью
+									их
+									выбора
+									клику для карты самолета"
+								</div>
+								
+								<div className="goal_result">
+									<div className="selectedNumber">{this.state.selectedNumber}</div>
+								</div>
+								<a href='https://github.com/scoutrul/frontstart/blob/master/src/components/pages/works/Airplane.js'
+								   target='_blank'>GitHub</a>
 							</div>
-							
-							<div className="result">
-								<div className="selectedNumber">{this.state.selectedNumber}</div>
-							</div>
-							<a href='https://github.com/scoutrul/frontstart/blob/master/src/components/pages/works/Airplane.js'
-							   target='_blank'>GitHub</a>
 						</div>
 					</div>
 				

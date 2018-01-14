@@ -66,7 +66,7 @@ export default class extends React.Component {
 							
 							{ItemsRender(stackMap)}
 							
-							<h2>Персона:</h2>
+							<h2>Портрет:</h2>
 							<ul>
 								<li>31 год, Москва, холост</li>
 								<li>сериалы, гитара, велосипед, покер, старкрафт</li>

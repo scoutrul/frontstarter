@@ -13,7 +13,11 @@ const initialState = [
 	},
 	{
 		label: "google",
-		url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2000px-Google_%22G%22_Logo.svg.png"
+		url: "/images/icons/google.png"
+	},
+	{
+		label: "router4",
+		url: "/images/icons/router4.svg"
 	},
 	{
 		label: "cmd",
