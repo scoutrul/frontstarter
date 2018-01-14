@@ -1,39 +1,45 @@
-importScripts('workbox-sw.prod.v2.1.2.js');
 
-/**
- * DO NOT EDIT THE FILE MANIFEST ENTRY
- *
- * The method precache() does the following:
- * 1. Cache URLs in the manifest to a local cache.
- * 2. When a network request is made for any of these URLs the response
- *    will ALWAYS comes from the cache, NEVER the network.
- * 3. When the service worker changes ONLY assets with a revision change are
- *    updated, old cache entries are left as is.
- *
- * By changing the file manifest manually, your users may end up not receiving
- * new versions of files because the revision hasn't changed.
- *
- * Please use workbox-build or some other tool / approach to generate the file
- * manifest which accounts for changes to local files and update the revision
- * accordingly.
- */
-const fileManifest = [
-  {
-    "url": "404.html",
-    "revision": "0a27a4163254fc8fce870c8cc3a3f94f"
-  },
+importScripts('workbox-sw.prod.js');
+
+// Note: Ignore the error that Glitch raises about WorkboxSW being undefined.
+const workbox = new WorkboxSW({
+	skipWaiting: true,
+	clientsClaim: true
+});
+
+
+workbox.router.registerRoute(
+	new RegExp('^/'),
+	workbox.strategies.staleWhileRevalidate()
+);
+
+workbox.precache([
   {
     "url": "bundle.js",
-    "revision": "dbf9e036b11fdedc4063c7226e746b02"
+    "revision": "9fe78067588505ec64138a0245d456e5"
   },
   {
     "url": "index.html",
-    "revision": "056b3205a53dca12437d86f054411eb1"
+    "revision": "6ec41b00761448df0d3308d8c23761a6"
+  },
+  {
+    "url": "main.css",
+    "revision": "58f4cdaa630fd6b3849ff7f570ffc335"
+  },
+  {
+    "url": "manifest.json",
+    "revision": "0e760fa26f3ae1851d234d34cb54e1ba"
+  },
+  {
+    "url": "server.js",
+    "revision": "8cc6f26deef244b4149fde12372a65df"
+  },
+  {
+    "url": "sw.js",
+    "revision": "8fa8c56d33d935612b95016caf97387c"
+  },
+  {
+    "url": "workbox-sw.prod.js",
+    "revision": "685d1ceb6b9a9f94aacf71d6aeef8b51"
   }
-];
-
-const workboxSW = new self.WorkboxSW({
-  "skipWaiting": true,
-  "clientsClaim": true
-});
-workboxSW.precache(fileManifest);
+]);
