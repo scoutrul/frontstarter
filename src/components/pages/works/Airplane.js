@@ -154,9 +154,17 @@ export default class extends Component {
 			let some = this.state.filteredSeats.map((x, i) =>
 				<ul key={i}>
 					{
-						x.map((seat, i) =>
-							<li key={seat.number}
-								onClick={() => this.onSelect(seat.number)}>{seat.number}</li>)}
+						x.map((seat, i) => {
+							
+							let active = seat.number === this.state.selectedNumber && 'green';
+							
+							return <li key={seat.number}
+										onClick={() => this.onSelect(seat.number)}
+										style={{ backgroundColor: active }}>
+										x
+									</li>
+						})
+					}
 				</ul>
 			)
 			return some
@@ -171,7 +179,7 @@ export default class extends Component {
 					<div className="container">
 						<div className="planeview">
 							<div className="seats">
-								{RenderSeats()}
+								<RenderSeats/>
 							</div>
 							<div className="image">
 								<img
@@ -190,7 +198,8 @@ export default class extends Component {
 							<div className="result">
 								<div className="selectedNumber">{this.state.selectedNumber}</div>
 							</div>
-							<a href='https://github.com/scoutrul/frontstart/blob/master/src/components/pages/works/Airplane.js' target='_blank'>GitHub</a>
+							<a href='https://github.com/scoutrul/frontstart/blob/master/src/components/pages/works/Airplane.js'
+							   target='_blank'>GitHub</a>
 						</div>
 					</div>
 				
