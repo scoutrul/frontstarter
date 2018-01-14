@@ -1,4 +1,4 @@
-console.log("%cFrontStarter.RU", "font: 2.2rem 'Exo 2', 'sans-serif'; color: #FFF; background-color: #667eea; text-decoration: underline #7335cc");
+console.log("%cFrontStarter.ru", "font: 2.2rem 'Exo 2', 'sans-serif'; color: #FFF; background-color: #667eea; text-decoration: underline #7335cc");
 
 
 import 'babel-polyfill';

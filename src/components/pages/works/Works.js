@@ -43,7 +43,6 @@ class Component extends React.Component {
 				
 				<Switch >
 					<Route patch='/works' component={IterateItems}/>
-					<Route path='/works/:id' exact render={()=> <h1>h2 </h1>}/>
 				</Switch>
 			
 			</section>

@@ -4,7 +4,6 @@ import * as React from 'react';
 import './guitar.scss'
 
 
-type Props = {};
 type State = {
 	showChord: array,
 	currKey: string,
@@ -16,7 +15,7 @@ type State = {
 	Octaves: array,
 };
 
-export default class extends React.Component<Props, State> {
+export default class extends React.Component<State> {
 	
 	state = {
 		showChord: [],

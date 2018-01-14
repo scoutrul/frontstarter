@@ -15,6 +15,7 @@ import Guitar from './pages/works/Guitar'
 import Blackur from './pages/works/Blackur'
 import Guardsman from './pages/works/Guardsman'
 import Naurasha from './pages/works/Naurasha'
+import Airplane from './pages/works/Airplane'
 
 
 @withRouter
@@ -34,6 +35,7 @@ export default class extends Component {
 			'Blackur': <Blackur/>,
 			'Guardsman': <Guardsman/>,
 			'Naurasha': <Naurasha/>,
+			'Airplane': <Airplane/>,
 		};
 		return (
 			<Switch>

@@ -16,7 +16,7 @@ workbox.router.registerRoute(
 workbox.precache([
   {
     "url": "bundle.js",
-    "revision": "f4bc6c7c55adee9cb9bf55c2fbe85b33"
+    "revision": "d40f2462e0a50e42838e3eef1221f035"
   },
   {
     "url": "index.html",
@@ -24,7 +24,7 @@ workbox.precache([
   },
   {
     "url": "main.css",
-    "revision": "515a57d97083a5f911d7277fc04bd839"
+    "revision": "1684b8c4fc73de4c872eacc55115b6bc"
   },
   {
     "url": "manifest.json",
@@ -36,7 +36,7 @@ workbox.precache([
   },
   {
     "url": "sw.js",
-    "revision": "5f59e1659b8c6c462342f54d6aa42a83"
+    "revision": "b37ced4d70346f407f12261d3c2658a7"
   },
   {
     "url": "workbox-sw.prod.js",

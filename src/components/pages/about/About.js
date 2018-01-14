@@ -62,9 +62,11 @@ export default class extends React.Component {
 						<div className='photo' title='Герой-хакер сериала MR.ROBOT'>{}</div>
 						<div className='info'>
 							<h1>Головачев Антон Александрович</h1>
+							<h2>Ключевые нвыки:</h2>
+							
 							{ItemsRender(stackMap)}
 							
-							<h2>Персона</h2>
+							<h2>Персона:</h2>
 							<ul>
 								<li>31 год, Москва, холост</li>
 								<li>сериалы, гитара, велосипед, покер, старкрафт</li>
