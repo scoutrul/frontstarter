@@ -190,6 +190,7 @@ export default class extends Component {
 							<div className="result">
 								<div className="selectedNumber">{this.state.selectedNumber}</div>
 							</div>
+							<a href='https://github.com/scoutrul/frontstart/blob/master/src/components/pages/works/Airplane.js' target='_blank'>GitHub</a>
 						</div>
 					</div>
 				
