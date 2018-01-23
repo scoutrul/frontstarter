@@ -7,7 +7,6 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SETTINGS = require('./settings');
 const workboxPlugin = require('workbox-webpack-plugin');
-const nodeExternals = require('webpack-node-externals')
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -166,7 +165,7 @@ module.exports = [
 	{
 		devtool: production ? 'cheap-module-source-map' : 'eval',
 		
-		entry: production
+		entry: !production
 			? './src/client.js'
 			: [
 				'react-hot-loader/patch',
@@ -184,6 +183,10 @@ module.exports = [
 		resolve: {
 			modules: [path.join(__dirname, 'src'), 'node_modules'],
 			extensions: ['.js', '.jsx', '.json'],
+		},
+		devServer: {
+			contentBase: dist,
+			hot: true
 		},
 		
 		module: { loaders },

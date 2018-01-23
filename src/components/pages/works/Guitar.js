@@ -164,11 +164,12 @@ export default class extends React.Component<State> {
 			<section>
 				<div className='contentView'>
 					<h1>Guitar</h1>
+					<a href='https://github.com/scoutrul/frontstart/blob/master/src/components/pages/works/Guitar.js' target='blank'>GitHub Source</a>
 					<div className='guitar'>
-						<div className="info">
-							<div className="keytype">
-								<div className="key">{this.state.currKey} </div>
-								<div className="type">{this.state.currType}</div>
+						<div className='info'>
+							<div className='keytype'>
+								<div className='key'>{this.state.currKey} </div>
+								<div className='type'>{this.state.currType}</div>
 							</div>
 							<div className='buttons'>
 								<ButtonsType/>

@@ -39,7 +39,7 @@
     "prop-types-extra": "^1.0.1",
     "ramda": "^0.24.1",
     "react": "^16.2.0",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.2.0",
     "react-easy-swipe": "^0.0.13",
     "react-motion": "^0.5.2",
     "react-redux": "^5.0.6",

@@ -30,25 +30,15 @@ render(
 	rootElement
 );
 
-
 // serviceWorker registration
 
 if ('serviceWorker' in navigator) {
-
+	
 	window.addEventListener('load', () => {
-		navigator.serviceWorker.register('sw.js').then(registration => {
-			console.log('ServiceWorker registration successful with scope: ', registration.scope);
-			registration.pushManager.subscribe({ userVisibleOnly: true });
-			registration.pushManager.getSubscription().then(function(sub) {
-				if (sub === null) {
-					// Update UI to ask user to register for Push
-					console.log('Not subscribed to push service!');
-				} else {
-					// We have a subscription, update the database
-					console.log('Subscription object: ', sub);
-				}
-			});
-			(process.env.NODE_ENV === 'development') && registration.unregister().then(function() {
+		!navigator.serviceWorker && navigator.serviceWorker.register('sw.js').then(registration => {
+			process.env && console.log('ServiceWorker registration successful with scope: ', registration.scope);
+			
+			(process.env.NODE_ENV !== 'production') && registration.unregister().then(() => {
 				console.log('unregister is successful')
 			});
 			

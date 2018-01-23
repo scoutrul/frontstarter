@@ -1,14 +1,14 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { withRouter, NavLink } from 'react-router-dom'
 
 import './copyright.scss'
 import { connect } from "react-redux";
 
 const Copyright = props => {
-	let [{pathname}, {MenuItems}] = [props.location, props];
-
+	let [{ pathname }, { MenuItems }] = [props.location, props];
+	
 	const FastLink = (props) => {
-
+		
 		let { dir } = props;
 		
 		const FastRouter = () => {
@@ -22,7 +22,7 @@ const Copyright = props => {
 			let Prev = currentRouteIndex - 1;
 			
 			if (dir === 'left') {
-				return (MenuItems[Prev] ? MenuItems[Prev] : MenuItems[MenuItems.length-1])
+				return (MenuItems[Prev] ? MenuItems[Prev] : MenuItems[MenuItems.length - 1])
 			}
 			return (MenuItems[Next] ? MenuItems[Next] : MenuItems[0])
 		};
@@ -31,17 +31,17 @@ const Copyright = props => {
 		
 	};
 	
-	return (
-		[
-			<div key='left' className='copyright left mobileA11yText'>
-				&copy; FrontStarter2018
-			</div>,
-			<div key='right' className='copyright right mobileA11yText'>
-				<FastLink dir='left'/>
-
-				<FastLink dir='right'/>
-			</div>
-		])
+	return (<Fragment>
+		<div key='left' className='copyright left mobileA11yText'>
+			&copy; FrontStarter2018
+		</div>
+		
+		<div key='right' className='copyright right mobileA11yText'>
+			<FastLink dir='left'/>
+			
+			<FastLink dir='right'/>
+		</div>
+	</Fragment>)
 };
 
 
