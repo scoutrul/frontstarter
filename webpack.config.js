@@ -165,7 +165,7 @@ module.exports = [
 	{
 		devtool: production ? 'cheap-module-source-map' : 'eval',
 		
-		entry: !production
+		entry: production
 			? './src/client.js'
 			: [
 				'react-hot-loader/patch',
