@@ -12,11 +12,15 @@
     .high {
       font-size: 213%;
       color: $textWhite;
-      text-shadow: -0.5rem 0.4rem 0.5rem rgba(28, 17, 53, 0.6)
+      text-shadow: -0.5rem 0.4rem 0.5rem rgba(28, 17, 53, 0.6);
+      transition: .4s ease-out 0s;
+      position: relative;
     }
     .low {
       color: #667dea;
       user-select: text;
+      transition: .3s ease-out 1s;
+      position: relative;
       &::selection {
         background: #FFF;
       }
