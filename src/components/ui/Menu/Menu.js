@@ -45,7 +45,7 @@ export default class extends Component {
 			</li>;
 			
 		return (
-			<div id='menu' onMouseLeave={this.menuOff}
+			<div id='menu'
 				 className={cn({ 'active': this.props.Store.isMenuHover })}>
 				<div id='burger' onClick={this.menuOn}
 					 className={cn({ 'hover': this.props.Store.isMenuHover })}>
