@@ -2,6 +2,7 @@ import { createAction, createReducer } from 'redux-act'
 export const FetchMenu = createAction('menu items is fetched');
 export const MenuHoverOn = createAction('menu is hover on');
 export const MenuHoverOff = createAction('menu is hover off');
+export const MenuClicked = createAction('menu is clicked');
 
 const initialState = {
 	isMenuHover: false,
@@ -29,6 +30,11 @@ export default createReducer({
 	[MenuHoverOff]: (state) => {
 		return {
 			...state, isMenuHover: false
+		}
+	},
+	[MenuClicked]: (state) => {
+		return {
+			...state, isMenuHover: !state.isMenuHover
 		}
 	},
 }, initialState);
